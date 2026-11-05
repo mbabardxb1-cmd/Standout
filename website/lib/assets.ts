@@ -29,6 +29,7 @@ export const PHOTOS = {
   landing: '/photos/landing.webp',
   presentation: '/photos/presentation.webp',
   print: '/photos/print.webp',
+  aboutFloor: '/photos/about-floor.webp',
   email: '/photos/email.webp',
   nurture: '/photos/nurture.webp',
   serviceBand: '/photos/service-band.webp',
@@ -58,4 +59,4 @@ export const CASE_STUDY_FILMS = [
 
 
 /** Team portraits (public/team), 600 px square. */
-export const TEAM_PHOTOS: Record<string, string> = Object.fromEntries(['simon', 'gareth', 'dean', 'pavan', 'olivia', 'bobbie'].map((n) => [n, `/team/${n}.webp`]))
+export const TEAM_PHOTOS: Record<string, string> = Object.fromEntries(['simon', 'gareth', 'dean', 'pavan', 'olivia'].map((n) => [n, `/team/${n}.webp`]))

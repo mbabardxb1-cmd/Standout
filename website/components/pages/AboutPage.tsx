@@ -23,7 +23,6 @@ const TEAM = [
   { key: 'dean', name: 'Dean Thornton', role: 'Head of USEO' },
   { key: 'olivia', name: 'Olivia Shaw', role: 'Head of Brande' },
   { key: 'pavan', name: 'Pavan Sandhu', role: 'Head of Social' },
-  { key: 'bobbie', name: 'Bobbie Brockbank', role: 'Head of Client Services' },
 ]
 
 /** About: why Standout exists, what we believe, how a show runs with us, the people, and where to find us. */
@@ -36,7 +35,7 @@ export function AboutPage() {
       <section className="px-5 pb-20 pt-12 md:px-10 md:pb-28 md:pt-20">
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
           <div className="relative aspect-[4/3] overflow-hidden border border-mist/15 bg-night md:col-span-6 md:aspect-auto md:min-h-[520px]">
-            <img src={PHOTOS.stand} alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <img src={PHOTOS.aboutFloor} alt="" className="absolute inset-0 h-full w-full object-cover" />
           </div>
           <div className="flex flex-col justify-center gap-8 md:col-span-6 md:pl-6">
             <h2 className="font-display text-[clamp(1.8rem,3vw,2.8rem)] font-extrabold leading-[1] tracking-[-0.03em] [text-wrap:balance]">About Standout</h2>
@@ -88,7 +87,7 @@ export function AboutPage() {
             </div>
             <p className="max-w-[40ch] text-[15.5px] leading-relaxed text-mist/70">One point of contact from brief to report, backed by designers, campaign managers, hosts and crew.</p>
           </div>
-          <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:gap-6 lg:grid-cols-6">
+          <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:gap-6 lg:grid-cols-5">
             {TEAM.map((m) => (
               <li key={m.key} className="group flex flex-col gap-3">
                 <div className="relative aspect-square w-full overflow-hidden border border-mist/15 bg-night">
