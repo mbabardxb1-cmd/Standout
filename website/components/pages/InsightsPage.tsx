@@ -16,7 +16,7 @@ function Card({ a, featured = false }: { a: Article; featured?: boolean }) {
         <img src={PHOTOS[a.photo]} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]" />
       </span>
       <span className={`flex flex-col gap-3 p-6 ${featured ? 'justify-center md:w-[42%] md:p-10' : ''}`}>
-        <span className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.14em] text-steel">
+        <span className="flex items-center gap-3 font-mono text-[11px] uppercase text-steel">
           <span className="text-signal">{a.category}</span>
           <span>{formatDate(a.date)}</span>
           <span>{a.readMinutes} min</span>
@@ -70,7 +70,7 @@ export function ArticlePage({ index }: { index: number }) {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-hall/40 via-transparent to-hall/60" aria-hidden="true" />
           <div className="relative mx-auto flex w-full max-w-[1440px] flex-col gap-6">
             <Breadcrumbs items={[{ label: 'Insights', href: pageHref('insights') }, { label: a.title }]} />
-            <p className="flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.14em] text-steel">
+            <p className="flex items-center gap-3 font-mono text-[12px] uppercase text-steel">
               <span className="text-signal">{a.category}</span>
               <span>{formatDate(a.date)}</span>
               <span>{a.readMinutes} min read</span>
