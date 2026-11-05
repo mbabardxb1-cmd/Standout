@@ -98,7 +98,7 @@ export function ServicesF() {
                 aria-labelledby={`sv7-${s.code}`}
               >
                 {/* Photograph: left on even cards, right on odd. */}
-                <div className={`relative h-[36%] shrink-0 p-[7px] md:col-span-6 md:h-full ${i % 2 ? 'md:order-2' : ''}`}>
+                <div className={`relative h-[36%] shrink-0 p-[17px] md:col-span-6 md:h-full ${i % 2 ? 'md:order-2' : ''}`}>
                   <div className="relative h-full w-full overflow-hidden rounded-[18px] md:rounded-[22px]">
                     <img src={SERVICE_PHOTOS[i]} style={servicePhotoStyle(i)} alt="" className="absolute inset-0 h-full w-full object-cover" />
                   </div>
