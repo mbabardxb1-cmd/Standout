@@ -109,7 +109,6 @@ export function ServicesB() {
                 <div className={`flex min-h-0 flex-1 flex-col justify-center gap-3 px-5 pb-5 md:col-span-6 md:gap-4 md:p-10 ${i % 2 ? 'md:order-1' : ''}`}>
                   <span className="flex items-center gap-2.5 font-display text-[15px] font-semibold tracking-[-0.01em] text-mist md:text-[18px]">
                     <span className="text-signal">{String(i + 1).padStart(2, '0')}</span>
-                    <span aria-hidden="true" className="h-px w-5 bg-mist/30" />
                     {g.label}
                   </span>
                   <h3 id={`svb-${s.code}`} className="font-display text-[clamp(1.4rem,2.6vw,2.4rem)] font-semibold leading-[1.05] tracking-[-0.025em] [text-wrap:balance]">
@@ -119,7 +118,7 @@ export function ServicesB() {
                   <a
                     href={serviceHref(SERVICE_PAGES[g.lead].slug)}
                     data-cursor="open"
-                    className="group inline-flex w-fit items-center gap-2 border-b border-signal pb-1 text-[14px] font-medium text-mist transition-colors hover:text-signal"
+                    className="group inline-flex w-fit items-center gap-2 text-[14px] font-medium text-mist transition-colors hover:text-signal"
                   >
                     Read more
                     <span aria-hidden="true" className="text-signal transition-transform group-hover:translate-x-1">→</span>
