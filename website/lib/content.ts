@@ -80,9 +80,9 @@ export const CONTACT = {
   phoneHref: 'tel:+97144426518',
   address: ['1207/1208 Mazaya BB2', 'Jumeirah Lakes Towers, Dubai'],
   /** Embed view of the office for the contact page (no key needed). */
-  mapEmbed: 'https://www.google.com/maps?q=United+SEO,+Mazaya+Business+Avenue+BB2,+Jumeirah+Lakes+Towers,+Dubai&z=16&output=embed',
+  mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.990087615076!2d55.145085099999996!3d25.0683251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6ca73e9134b5%3A0x279ae8d8d63a71a5!2sUnited%20SEO!5e0!3m2!1sen!2sae!4v1793865199131!5m2!1sen!2sae',
   /** Social profiles; replace with the real links. */
   linkedin: 'https://www.linkedin.com/',
   instagram: 'https://www.instagram.com/',
-  mapHref: 'https://www.google.com/maps/search/?api=1&query=United+SEO,+Mazaya+Business+Avenue+BB2,+Jumeirah+Lakes+Towers,+Dubai',
+  mapHref: 'https://maps.google.com/?cid=2853849331897364901',
 }
