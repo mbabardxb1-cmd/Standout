@@ -12,7 +12,7 @@ export function CaseStudiesPage() {
 
   return (
     <PageShell>
-      <PageHero crumbs={[{ label: 'Case studies' }]} title="Shows we made count." line="Films from the floor. Press play." />
+      <PageHero crumbs={[{ label: 'Case Studies' }]} title="Shows we made count." line="Films from the floor. Press play." />
 
       <section className="px-5 pb-20 md:px-10 md:pb-28">
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-8 md:grid-cols-2 md:gap-8">

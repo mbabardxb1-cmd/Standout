@@ -95,13 +95,13 @@ export function CaseStudy() {
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 md:gap-14">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="flex flex-col gap-4">
-            <p className="text-[14px] text-steel">Case studies</p>
+            <p className="text-[14px] text-steel">Case Studies</p>
             <h2 id="cs-title" className="font-display text-[clamp(2rem,4.2vw,4.25rem)] font-extrabold leading-[0.95] tracking-[-0.03em] [text-wrap:balance]">
               Shows we made count.
             </h2>
           </div>
           <a href={pageHref('case-studies')} className="group inline-flex items-center gap-2 border-b border-signal pb-1 text-[15px] font-medium text-mist transition-colors hover:text-signal">
-            All case studies <span aria-hidden="true" className="text-signal transition-transform group-hover:translate-x-1">→</span>
+            All Case Studies <span aria-hidden="true" className="text-signal transition-transform group-hover:translate-x-1">→</span>
           </a>
         </div>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8">

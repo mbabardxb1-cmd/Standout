@@ -9,7 +9,7 @@ import { homeHref, pageHref, type PageName } from '@/lib/routes'
 
 const PAGES: { label: string; page: PageName }[] = [
   { label: 'Packages', page: 'packages' },
-  { label: 'Case studies', page: 'case-studies' },
+  { label: 'Case Studies', page: 'case-studies' },
   { label: 'Insights', page: 'insights' },
   { label: 'Contact', page: 'contact' },
 ]
