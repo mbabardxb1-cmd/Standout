@@ -8,7 +8,7 @@ export type Crumb = { label: string; href?: string }
 export function Breadcrumbs({ items }: { items: Crumb[] }) {
   const all: Crumb[] = [{ label: 'Home', href: homeHref() }, ...items]
   return (
-    <nav aria-label="Breadcrumb" className="font-mono text-[11px] uppercase tracking-[0.14em] text-steel">
+    <nav aria-label="Breadcrumb" className="font-mono text-[11px] uppercase text-steel">
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
         {all.map((c, i) => {
           const last = i === all.length - 1
