@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050A18" />
+    <title>Standout homepage option 3</title>
+    <meta name="description" content="Stand graphics, campaigns, coverage, data capture and post-show nurture from one team, so every exhibition earns its place." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;700;800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
+    <style>
+      :root { --font-funnel: 'Funnel Display'; --font-geist: 'Geist'; --font-geist-mono: 'Geist Mono'; }
+      body { background: #050a18; margin: 0; }
+    </style>
+    <style>
+      html[data-app='ready'] .boot { display: none; }
+      .boot { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 24px; padding: 40px; background: #050a18; color: #e3e8f4; font-family: 'Geist', system-ui, sans-serif; z-index: 5; }
+      .boot-mark { font: 800 28px/1 'Funnel Display', 'Helvetica Neue', Arial, sans-serif; letter-spacing: -0.02em; }
+      .boot-mark b { color: #ff5a1f; position: relative; top: -0.18em; }
+      .boot-h { font: 800 clamp(2.2rem, 5.9vw, 5.4rem)/0.92 'Funnel Display', 'Helvetica Neue', Arial, sans-serif; letter-spacing: -0.035em; max-width: 14ch; }
+      .boot-note { font: 14px/1.5 ui-monospace, monospace; color: #8c97b4; letter-spacing: 0.08em; text-transform: uppercase; }
+      .boot-err { display: none; max-width: 70ch; border: 1px solid #ff5a1f; padding: 12px 14px; font: 13px/1.5 ui-monospace, monospace; color: #e3e8f4; white-space: pre-wrap; word-break: break-word; }
+      .boot button { height: 44px; padding: 0 18px; border: 1px solid rgba(227,232,244,.4); background: transparent; color: #e3e8f4; font: 600 15px 'Geist', system-ui, sans-serif; cursor: pointer; }
+    </style>
+    <script>
+      // Opening intro: hide the page until the wordmark has landed (removed by the app; cleared if scripts fail).
+      try { if (!sessionStorage.getItem('standout-intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('intro-wait') } catch (e) {}
+      setTimeout(function () { document.documentElement.classList.remove('intro-wait') }, 8000)
+    </script>
+    <script>
+      // Build-only diagnostics: the page shows its headline before the app script runs, and reports
+      // any script error on screen, so a blank page is never silent.
+      (function () {
+        function box() { return document.querySelector('.boot-err') }
+        function show(msg) { var b = box(); if (!b) return; b.style.display = 'block'; b.textContent += (b.textContent ? '\n' : '') + msg }
+        window.addEventListener('error', function (e) { show('Error: ' + (e.message || e.type) + (e.filename ? ' @' + e.lineno : '')) })
+        window.addEventListener('unhandledrejection', function (e) { show('Rejected: ' + (e.reason && e.reason.message ? e.reason.message : String(e.reason))) })
+        setTimeout(function () {
+          if (document.documentElement.dataset.app !== 'ready') { var n = document.querySelector('.boot-note'); if (n) n.textContent = 'Still loading. If this stays, press reload.'; var r = document.querySelector('.boot button'); if (r) r.style.display = 'inline-block' }
+        }, 9000)
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div class="boot" aria-hidden="true">
+      <div class="boot-mark">STAND<b>O</b>UT</div>
+      <div class="boot-h">Your Event Journey, Managed by One Team</div>
+      <div class="boot-note">Loading the experience</div>
+      <div class="boot-err"></div>
+      <button type="button" style="display:none" onclick="location.reload()">Reload</button>
+    </div>
+    <script type="module" src="./option3.tsx"></script>
+  </body>
+</html>

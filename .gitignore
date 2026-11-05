@@ -1,0 +1,16 @@
+# Dependencies and build output
+node_modules/
+website/.next/
+website/out/
+website/.vercel/
+website/*.tsbuildinfo
+website/next-env.d.ts
+
+# Single-file prototype builds (rebuilt with tools/prototype-build); the films are kept in website/public/video
+prototype/build/
+prototype/build-option2/
+prototype/build-option3/
+
+# OS and editor files
+.DS_Store
+Thumbs.db

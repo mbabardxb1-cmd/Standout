@@ -1,0 +1,206 @@
+@import 'tailwindcss';
+
+/* Wide and tall enough to pin a full-screen section without cutting it off. */
+@custom-variant tall (@media (min-width: 768px) and (min-height: 760px));
+
+/* ------------------------------------------------------------------ tokens */
+@theme {
+  --color-hall: #050a18;     /* page ground */
+  --color-night: #0a1633;    /* surfaces, logo navy */
+  --color-signal: #ff5a1f;   /* Signal Orange: the one accent */
+  --color-mist: #e3e8f4;     /* text and idle lines */
+  --color-steel: #8c97b4;    /* quiet text, 6.7:1 on hall */
+  --color-paper: #f6f7fb;    /* option 2 page ground */
+  --color-slate: #4a5572;    /* option 2 quiet text on paper, 7.2:1 */
+
+  --font-display: var(--font-funnel), 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --ease-lift: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --lift: 8px;
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--color-hall);
+  color: var(--color-mist);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-night);
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ------------------------------------------------------------------ the Lift */
+.lift {
+  transition:
+    transform 240ms var(--ease-lift),
+    color 180ms ease-out,
+    border-color 180ms ease-out;
+}
+.lift:hover,
+.lift:focus-visible {
+  transform: translateY(calc(var(--lift) * -1));
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------ hero slide swap
+   Fill mode is backwards, so once the reveal ends the inline clip-path (driven by HeroIntro on scroll) applies. */
+@keyframes hero-swap { from { clip-path: inset(0 0 100% 0); transform: translateY(0.3em); } to { clip-path: inset(0 0 0 0); transform: none; } }
+@keyframes hero-swap-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.hero-swap { animation: hero-swap 720ms var(--ease-out-expo) backwards; }
+.hero-swap-fade { animation: hero-swap-fade 600ms ease-out 180ms backwards; }
+@media (prefers-reduced-motion: reduce) { .hero-swap, .hero-swap-fade { animation: none; } }
+
+/* ------------------------------------------------------------------ scroll cue */
+@keyframes cue-lift {
+  0%, 30% { transform: translateY(0); color: var(--color-steel); }
+  50%, 70% { transform: translateY(-6px); color: var(--color-signal); }
+  100% { transform: translateY(0); color: var(--color-steel); }
+}
+.cue-word { animation: cue-lift 2.4s var(--ease-out-expo) infinite; }
+
+/* ------------------------------------------------------------------ stage layout
+   With motion: hero and story share one pinned 100vh stage, story layered under hero.
+   Reduced motion: the two simply stack in normal flow. */
+@media (prefers-reduced-motion: no-preference) {
+  .intro-stage { position: relative; height: 100svh; overflow: hidden; }
+  .intro-stage > .story-layer { position: absolute; inset: 0; }
+  .story-stage { position: relative; height: 100svh; overflow: hidden; }
+  .intro-stage > .about-layer { position: absolute; inset: 0; z-index: 1; opacity: 0; visibility: hidden; }
+  .intro-stage > .hero-layer { position: absolute; inset: 0; z-index: 2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lift, .lift:hover, .lift:focus-visible { transform: none; transition: color 180ms; }
+  .cue-word { animation: none; }
+  .field-canvas { display: none; }
+}
+
+/* ------------------------------------------------------------------ 360 card glow */
+@keyframes pk-glow {
+  0%, 100% { box-shadow: 0 0 0 1px rgb(255 90 31 / 0.35), 0 0 40px -8px rgb(255 90 31 / 0.35); }
+  50% { box-shadow: 0 0 0 1px rgb(255 90 31 / 0.6), 0 0 70px -6px rgb(255 90 31 / 0.5); }
+}
+.pk-glow { animation: pk-glow 4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .pk-glow { animation: none; } }
+
+
+
+/* ------------------------------------------------------------------ homepage option 2 (light editorial) */
+.o2 { background: var(--color-paper); color: var(--color-night); color-scheme: light; }
+.o2 ::selection { background: var(--color-signal); color: var(--color-paper); }
+.o2 :focus-visible { outline-color: var(--color-signal); }
+
+/* Photo plate: the slot a real exhibition photograph drops into. Until then, a flat navy plate
+   with a fine halftone and a caption, so the composition reads without pretending to be a photo. */
+.o2-plate {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-night);
+  background-image: radial-gradient(rgb(227 232 244 / 0.16) 0.6px, transparent 0.7px);
+  background-size: 9px 9px;
+}
+.o2-plate > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.o2-plate-dark {
+  background-color: var(--color-hall);
+  background-image: radial-gradient(rgb(227 232 244 / 0.12) 0.6px, transparent 0.7px);
+}
+
+/* Scroll reveal. Elements are visible at rest; JS adds .o2-pre only when motion is allowed. */
+.o2-pre { opacity: 0; transform: translateY(18px); }
+.o2-pre.o2-in { opacity: 1; transform: none; transition: opacity 0.7s ease-out, transform 0.8s var(--ease-out-expo); }
+.o2-pre.o2-in[data-delay='1'] { transition-delay: 0.08s; }
+.o2-pre.o2-in[data-delay='2'] { transition-delay: 0.16s; }
+.o2-pre.o2-in[data-delay='3'] { transition-delay: 0.24s; }
+
+/* Photo wipe reveal and parallax; the image eases larger on hover. */
+.o2-pre-wipe { clip-path: inset(100% 0 0 0); }
+.o2-pre-wipe.o2-in { clip-path: inset(0 0 0 0); transition: clip-path 1.1s var(--ease-out-expo); }
+.o2-pre-wipe.o2-in[data-delay='1'] { transition-delay: 0.1s; }
+.o2-plate .o2-img { transition: transform 900ms var(--ease-out-expo); }
+.o2-plate:hover .o2-img { transform: scale(1.04); }
+
+/* Hero load: words rise out of a clipped line; support and buttons follow. */
+@keyframes o2-word-in { from { transform: translateY(110%); } to { transform: none; } }
+@keyframes o2-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.o2-word-in { animation: o2-word-in 0.9s var(--ease-out-expo) backwards; }
+.o2-rise { animation: o2-rise 0.8s ease-out backwards; }
+.o2-hero-plate { animation: o2-rise 1s ease-out 0.2s backwards; }
+
+/* Sector marquee: two copies of the list scroll as one loop; pauses on hover. */
+@keyframes o2-marquee { to { transform: translateX(-100%); } }
+.o2-marquee-track { animation: o2-marquee 40s linear infinite; }
+.o2-marquee:hover .o2-marquee-track { animation-play-state: paused; }
+
+/* Image cards: the plate eases up a touch on hover; the rule under the title fills orange. */
+.o2-card .o2-plate { transition: transform 600ms var(--ease-out-expo); }
+.o2-card:hover .o2-plate, .o2-card:focus-within .o2-plate { transform: translateY(-4px); }
+.o2-rule { position: relative; height: 1px; background: rgb(10 22 51 / 0.15); overflow: hidden; }
+.o2-rule::after { content: ''; position: absolute; inset: 0; background: var(--color-signal); transform: scaleX(0); transform-origin: left; transition: transform 500ms var(--ease-out-expo); }
+.o2-card:hover .o2-rule::after, .o2-card:focus-within .o2-rule::after { transform: scaleX(1); }
+
+/* Header turns solid once the page has scrolled. */
+.o2-header { transition: background-color 240ms ease-out, border-color 240ms ease-out; }
+.o2-header[data-solid='true'] { background: rgb(246 247 251 / 0.92); border-color: rgb(10 22 51 / 0.1); backdrop-filter: blur(10px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .o2-card .o2-plate, .o2-card:hover .o2-plate { transition: none; transform: none; }
+  .o2-word-in, .o2-rise, .o2-hero-plate, .o2-marquee-track { animation: none; }
+  .o2-plate:hover .o2-img { transform: none; }
+}
+
+/* ------------------------------------------------------------------ option 3: photo behind the closing line */
+.field-canvas { transition: opacity 600ms ease-out; }
+html.field-off .field-canvas, html.field-dim .field-canvas { opacity: 0; }
+.cta-photo { -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 30%, transparent 100%); mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 30%, transparent 100%); }
+
+/* ------------------------------------------------------------------ opening intro
+   Until the wordmark has landed in the header, the page underneath is hidden and the header logo is
+   invisible (the flying mark stands in for it). The html class is set before paint by the inline
+   script in the single-file builds / layout, and removed by OpeningIntro when it finishes. */
+html.intro-wait main, html.intro-wait footer, html.intro-wait .field-canvas, html.intro-wait header nav, html.intro-wait [data-site-logo] { visibility: hidden; }
+html.intro-wait { overflow: hidden; }
+
+/* ------------------------------------------------------------------ case-study poster drift */
+@keyframes cs-drift { from { transform: scale(1); } to { transform: scale(1.06); } }
+.cs-drift { animation: cs-drift 14s ease-in-out infinite alternate; }
+@media (prefers-reduced-motion: reduce) { .cs-drift { animation: none; } }
+
+/* Inner page CTA: a slow, blurred aurora in navy and orange behind the centred copy. */
+.cta-panel-glow {
+  background:
+    radial-gradient(55% 70% at 72% 18%, rgb(255 90 31 / 0.42) 0%, rgb(255 90 31 / 0) 65%),
+    radial-gradient(50% 60% at 18% 85%, rgb(58 92 190 / 0.6) 0%, rgb(58 92 190 / 0) 65%),
+    radial-gradient(70% 80% at 50% 50%, rgb(10 22 51 / 1) 0%, rgb(5 10 24 / 1) 100%);
+  filter: blur(28px) saturate(1.1);
+  transform: scale(1.15);
+  animation: cta-drift 14s ease-in-out infinite alternate;
+}
+@keyframes cta-drift {
+  from { transform: scale(1.15) translate(-2%, -1%); }
+  to { transform: scale(1.2) translate(2%, 1.5%); }
+}
+.cta-glow { box-shadow: 0 0 0 1px rgb(255 90 31 / 0.5), 0 10px 40px -8px rgb(255 90 31 / 0.65); }
+@media (prefers-reduced-motion: reduce) { .cta-panel-glow { animation: none; } }

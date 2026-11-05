@@ -1,0 +1,417 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./three/build/three.module.js","three/addons/":"./three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three'
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js'
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js'
+
+const SIZE = 640
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true })
+renderer.setPixelRatio(1)
+renderer.setSize(SIZE, SIZE)
+renderer.setClearColor(0x000000, 0)
+renderer.shadowMap.enabled = true
+renderer.shadowMap.type = THREE.PCFSoftShadowMap
+renderer.toneMapping = THREE.NeutralToneMapping
+renderer.toneMappingExposure = 0.95
+renderer.outputColorSpace = THREE.SRGBColorSpace
+document.body.appendChild(renderer.domElement)
+const pmrem = new THREE.PMREMGenerator(renderer)
+const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture
+
+// STANDOUT palette, clay-render finish.
+const C = { white: 0xf3f5f9, mist: 0xdfe5f1, navy: 0x13204a, deep: 0x0a1230, orange: 0xff5a1f, steel: 0x8a96b4, green: 0x4f9d6a, glass: 0x1b2a55 }
+const mat = (color, o = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.48, metalness: 0.02, ...o })
+const M = {
+  white: mat(C.white), mist: mat(C.mist), navy: mat(C.navy, { roughness: 0.4 }), deep: mat(C.deep, { roughness: 0.3 }),
+  orange: mat(C.orange, { roughness: 0.42 }), steel: mat(C.steel, { roughness: 0.35, metalness: 0.4 }), green: mat(C.green, { roughness: 0.6 }),
+  led: mat(C.orange, { emissive: C.orange, emissiveIntensity: 1.4 }), screen: mat(C.glass, { roughness: 0.15, metalness: 0.1 }),
+  ledWhite: mat(0xffffff, { emissive: 0xffffff, emissiveIntensity: 1.2 }),
+}
+
+function box(w, h, d, m, x = 0, y = 0, z = 0, r = 0.03, parent) {
+  const g = r > 0 ? new RoundedBoxGeometry(w, h, d, 3, Math.min(r, w / 2, h / 2, d / 2) * 0.999) : new THREE.BoxGeometry(w, h, d)
+  const o = new THREE.Mesh(g, m)
+  o.position.set(x, y, z)
+  o.castShadow = o.receiveShadow = true
+  parent && parent.add(o)
+  return o
+}
+function cyl(rt, rb, h, m, x = 0, y = 0, z = 0, parent, seg = 48) {
+  const o = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), m)
+  o.position.set(x, y, z)
+  o.castShadow = o.receiveShadow = true
+  parent && parent.add(o)
+  return o
+}
+function torus(R, r, m, x, y, z, parent) {
+  const o = new THREE.Mesh(new THREE.TorusGeometry(R, r, 20, 64), m)
+  o.position.set(x, y, z)
+  o.castShadow = true
+  parent && parent.add(o)
+  return o
+}
+/** Brand mark: the raised "O" ring with a bar under it. Faces +z. */
+function logo(parent, x, y, z, s = 1, ring = M.orange, bar = M.white) {
+  const g = new THREE.Group()
+  torus(0.11 * s, 0.035 * s, ring, 0, 0.06 * s, 0, g)
+  box(0.42 * s, 0.05 * s, 0.03 * s, bar, 0, -0.12 * s, 0, 0.01, g)
+  g.position.set(x, y, z)
+  parent.add(g)
+  return g
+}
+
+/* ------------------------------------------------------------------ models */
+const MODELS = {
+  // S/01 Corner shell-scheme stand, after the client's reference, in STANDOUT colours.
+  stand() {
+    const g = new THREE.Group()
+    box(3.2, 0.14, 3.0, M.white, 0, 0.07, 0, 0.02, g) // floor
+    box(3.2, 0.04, 0.04, M.led, 0, 0.03, 1.52, 0, g) // LED edge
+    box(0.04, 0.04, 3.0, M.led, 1.62, 0.03, 0, 0, g)
+    box(3.2, 2.5, 0.14, M.white, 0, 1.39, -1.43, 0.02, g) // back wall
+    box(0.14, 2.5, 3.0, M.orange, -1.53, 1.39, 0, 0.02, g) // side wall
+    // back-wall graphic
+    box(1.9, 1.0, 0.04, M.orange, 0.35, 1.55, -1.35, 0.02, g)
+    logo(g, 0.95, 1.6, -1.32, 1.3, M.white, M.white)
+    box(0.7, 0.07, 0.02, M.white, 0.0, 1.75, -1.32, 0.01, g)
+    box(0.55, 0.05, 0.02, M.white, -0.07, 1.6, -1.32, 0.01, g)
+    box(0.62, 0.05, 0.02, M.white, -0.035, 1.48, -1.32, 0.01, g)
+    // side-wall screen and logo
+    box(0.04, 0.5, 0.86, M.screen, -1.44, 1.55, -0.2, 0.01, g)
+    const sideLogo = logo(g, -1.44, 2.15, 0.65, 1.2, M.white, M.white); sideLogo.rotation.y = Math.PI / 2
+    // tall front pillar with slats
+    box(0.32, 2.75, 0.32, M.orange, 1.44, 1.51, 1.3, 0.02, g)
+    for (let k = 0; k < 3; k++) box(0.04, 2.2, 0.04, M.white, 1.34 + k * 0.1, 1.4, 1.48, 0.01, g)
+    // fascia header joining the pillar to the back wall
+    box(0.5, 0.5, 2.9, M.white, 1.44, 2.88, -0.04, 0.03, g)
+    const fl = logo(g, 1.7, 2.9, 0.1, 1.15); fl.rotation.y = Math.PI / 2
+    box(0.08, 0.06, 0.08, M.ledWhite, 1.3, 2.6, -0.6, 0.01, g)
+    box(0.08, 0.06, 0.08, M.ledWhite, 1.3, 2.6, 0.5, 0.01, g)
+    // counter
+    box(1.15, 1.0, 0.6, M.white, 0.25, 0.64, 0.75, 0.03, g)
+    box(1.17, 0.12, 0.62, M.orange, 0.25, 0.25, 0.75, 0.02, g)
+    logo(g, 0.25, 0.8, 1.06, 1.1)
+    // brochure rack
+    cyl(0.02, 0.02, 1.3, M.steel, -0.75, 0.79, 0.95, g, 12)
+    for (let k = 0; k < 4; k++) {
+      const t = box(0.34, 0.24, 0.03, k % 2 ? M.orange : M.mist, -0.75, 0.45 + k * 0.28, 1.03, 0.01, g)
+      t.rotation.x = -0.35
+    }
+    // plant
+    cyl(0.16, 0.13, 0.32, M.white, 1.0, 0.3, -1.05, g)
+    for (let k = 0; k < 7; k++) {
+      const leaf = new THREE.Mesh(new THREE.ConeGeometry(0.05, 0.7, 8), M.green)
+      leaf.position.set(1.0, 0.75, -1.05)
+      leaf.rotation.set(Math.sin(k * 2.1) * 0.45, k, Math.cos(k * 2.1) * 0.45)
+      leaf.castShadow = true
+      g.add(leaf)
+    }
+    return { g, cam: [5.8, 4.4, 7.2], look: [0, 1.25, 0] }
+  },
+
+  // S/02 Tri-fold brochure, flyer stack and business cards.
+  print() {
+    const g = new THREE.Group()
+    const panels = [
+      { x: -0.62, r: 0.5, m: M.white },
+      { x: 0, r: -0.5, m: M.white },
+      { x: 0.62, r: 0.5, m: M.orange },
+    ]
+    panels.forEach((p, k) => {
+      const pg = new THREE.Group()
+      box(0.72, 1.5, 0.03, p.m, 0, 0.75, 0, 0.01, pg)
+      if (k === 2) { logo(pg, 0, 1.1, 0.02, 1, M.white, M.white); box(0.46, 0.05, 0.01, M.white, 0, 0.55, 0.02, 0.005, pg); box(0.36, 0.05, 0.01, M.white, 0, 0.45, 0.02, 0.005, pg) }
+      else {
+        box(0.5, 0.36, 0.01, k ? M.navy : M.orange, 0, 1.15, 0.02, 0.005, pg)
+        for (let l = 0; l < 4; l++) box(0.5 - (l % 2) * 0.12, 0.035, 0.01, M.steel, -(l % 2) * 0.06, 0.82 - l * 0.11, 0.02, 0.005, pg)
+      }
+      pg.position.set(p.x * 1.0, 0, 0)
+      pg.rotation.y = p.r
+      g.add(pg)
+    })
+    // flyer stack
+    for (let k = 0; k < 6; k++) {
+      const f = box(0.9, 0.025, 1.25, k === 5 ? M.orange : M.white, 1.45, 0.013 + k * 0.03, 0.75, 0.01, g)
+      f.rotation.y = 0.25 + Math.sin(k * 1.7) * 0.06
+    }
+    logo(g, 1.45, 0.2, 0.75, 1.1).rotation.x = -Math.PI / 2
+    // business cards
+    for (let k = 0; k < 4; k++) {
+      const c = box(0.62, 0.02, 0.36, k === 3 ? M.navy : M.white, -0.55, 0.01 + k * 0.022, 0.85, 0.01, g)
+      c.rotation.y = -0.3 + k * 0.04
+    }
+    return { g, cam: [3.6, 3.6, 5.6], look: [0.2, 0.6, 0.3] }
+  },
+
+  // S/03 Envelope with an invitation rising out of it and a notification badge.
+  email() {
+    const g = new THREE.Group()
+    const env = new THREE.Group()
+    box(2.2, 1.45, 0.16, M.white, 0, 0, 0, 0.05, env)
+    // front pocket (V shape) as two angled slabs
+        // open flap behind
+    const sh = new THREE.Shape(); sh.moveTo(-1.08, 0); sh.lineTo(1.08, 0); sh.lineTo(0, 0.85); sh.closePath()
+    const flap = new THREE.Mesh(new THREE.ExtrudeGeometry(sh, { depth: 0.04, bevelEnabled: true, bevelSize: 0.02, bevelThickness: 0.02, bevelSegments: 2 }), M.navy)
+    flap.position.set(0, 0.7, -0.12); flap.rotation.x = -0.25; flap.castShadow = true
+    env.add(flap)
+    // letter
+    const letter = new THREE.Group()
+    box(1.75, 1.4, 0.03, M.white, 0, 0, 0, 0.02, letter)
+    box(0.9, 0.12, 0.01, M.orange, -0.35, 0.45, 0.02, 0.01, letter)
+    for (let l = 0; l < 3; l++) box(1.3 - l * 0.25, 0.05, 0.01, M.steel, -0.2 - l * 0.12, 0.22 - l * 0.13, 0.02, 0.01, letter)
+    box(0.5, 0.16, 0.02, M.orange, -0.55, -0.32, 0.02, 0.04, letter)
+    letter.position.set(0, 0.62, -0.04)
+    env.add(letter)
+    // re-draw the envelope front over the letter's lower half
+    box(2.2, 0.9, 0.1, M.white, 0, -0.27, 0.05, 0.04, env)
+    const w1 = box(1.32, 0.07, 0.04, M.steel, -0.52, -0.05, 0.11, 0.01, env); w1.rotation.z = -0.42
+    const w2 = box(1.32, 0.07, 0.04, M.steel, 0.52, -0.05, 0.11, 0.01, env); w2.rotation.z = 0.42
+    env.position.y = 0.85; env.rotation.y = -0.35; env.rotation.x = -0.08
+    g.add(env)
+    // badge
+    const badge = cyl(0.27, 0.27, 0.12, M.orange, 1.05, 2.05, 0.15, g)
+    badge.rotation.x = Math.PI / 2; badge.rotation.z = 0.35
+    box(0.06, 0.24, 0.04, M.white, 1.07, 2.05, 0.24, 0.01, g).rotation.y = -0.35
+    return { g, cam: [3.4, 2.8, 6.2], look: [0.1, 1.1, 0] }
+  },
+
+  // S/04 Campaign growth: bars rising to an orange arrow on a base plate.
+  ads() {
+    const g = new THREE.Group()
+    box(2.8, 0.14, 1.7, M.navy, 0, 0.07, 0, 0.05, g)
+    const hs = [0.55, 0.9, 1.3, 1.85]
+    hs.forEach((h, k) => box(0.42, h, 0.42, k === 3 ? M.orange : M.white, -0.9 + k * 0.6, 0.14 + h / 2, 0, 0.05, g))
+    // arrow
+    const sh = new THREE.Shape()
+    sh.moveTo(0, 0.09); sh.lineTo(1.9, 0.09); sh.lineTo(1.9, 0.26); sh.lineTo(2.3, 0); sh.lineTo(1.9, -0.26); sh.lineTo(1.9, -0.09); sh.lineTo(0, -0.09); sh.closePath()
+    const arrow = new THREE.Mesh(new THREE.ExtrudeGeometry(sh, { depth: 0.14, bevelEnabled: true, bevelSize: 0.03, bevelThickness: 0.03, bevelSegments: 3 }), M.orange)
+    arrow.position.set(-1.25, 1.35, 0.45); arrow.rotation.z = 0.48; arrow.castShadow = true
+    g.add(arrow)
+    // audience target
+    torus(0.28, 0.05, M.white, 1.05, 0.2, 0.62, g).rotation.x = -Math.PI / 2
+    torus(0.14, 0.05, M.orange, 1.05, 0.2, 0.62, g).rotation.x = -Math.PI / 2
+    return { g, cam: [3.3, 3.2, 5.6], look: [0, 1.0, 0] }
+  },
+
+  // S/05 Landing page in a browser window, with a phone showing the QR route in.
+  landing() {
+    const g = new THREE.Group()
+    const win = new THREE.Group()
+    box(2.6, 1.75, 0.1, M.white, 0, 0, 0, 0.06, win)
+    box(2.6, 0.2, 0.11, M.navy, 0, 0.78, 0.005, 0.05, win)
+    ;[0, 1, 2].forEach((k) => cyl(0.03, 0.03, 0.02, k ? M.mist : M.orange, -1.12 + k * 0.1, 0.78, 0.07, win, 16).rotation.x = Math.PI / 2)
+    box(1.0, 0.12, 0.02, M.navy, -0.62, 0.42, 0.06, 0.01, win)
+    box(0.8, 0.07, 0.02, M.steel, -0.72, 0.24, 0.06, 0.01, win)
+    box(0.7, 0.07, 0.02, M.steel, -0.77, 0.12, 0.06, 0.01, win)
+    box(0.55, 0.18, 0.04, M.orange, -0.85, -0.12, 0.07, 0.06, win)
+    box(0.95, 0.75, 0.03, M.orange, 0.6, 0.18, 0.06, 0.03, win)
+    logo(win, 0.6, 0.2, 0.09, 1.2, M.white, M.white)
+    ;[-0.85, 0, 0.85].forEach((x) => box(0.72, 0.3, 0.03, M.mist, x, -0.55, 0.06, 0.03, win))
+    win.position.set(-0.35, 1.05, 0); win.rotation.y = 0.18
+    g.add(win)
+    // phone with QR
+    const ph = new THREE.Group()
+    box(0.72, 1.36, 0.09, M.navy, 0, 0, 0, 0.1, ph)
+    box(0.6, 1.18, 0.02, M.white, 0, 0, 0.05, 0.06, ph)
+    const N = 9, s = 0.042
+    for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) {
+      const finder = (a, b) => i >= a && i < a + 3 && j >= b && j < b + 3
+      const on = finder(0, 0) || finder(6, 0) || finder(0, 6) ? !(i % 6 === 1 && j % 6 === 1) : (i * 7 + j * 13 + i * j) % 5 < 2
+      if (on) box(s, s, 0.03, M.deep, -0.17 + i * s, 0.2 - j * s, 0.065, 0, ph)
+    }
+    box(0.4, 0.1, 0.03, M.orange, 0, -0.33, 0.07, 0.04, ph)
+    ph.position.set(1.25, 0.78, 0.65); ph.rotation.y = -0.35; ph.rotation.z = -0.06
+    g.add(ph)
+    box(3.4, 0.06, 1.8, M.mist, 0, 0.03, 0.2, 0.03, g).visible = false
+    return { g, cam: [3.0, 2.6, 6.4], look: [0.2, 0.95, 0.1] }
+  },
+
+  // S/06 Stand screen on a floor stand, mid-presentation.
+  screen() {
+    const g = new THREE.Group()
+    cyl(0.7, 0.75, 0.08, M.navy, 0, 0.04, 0, g)
+    cyl(0.06, 0.06, 1.3, M.steel, 0, 0.7, 0, g, 20)
+    const sc = new THREE.Group()
+    box(2.7, 1.6, 0.12, M.deep, 0, 0, 0, 0.04, sc)
+    box(2.52, 1.42, 0.02, M.screen, 0, 0, 0.065, 0.01, sc)
+    box(1.1, 0.14, 0.02, M.white, -0.55, 0.42, 0.08, 0.01, sc)
+    box(0.7, 0.07, 0.02, M.steel, -0.75, 0.23, 0.08, 0.01, sc)
+    ;[0.35, 0.55, 0.45, 0.85].forEach((h, k) => box(0.2, h, 0.03, k === 3 ? M.led : M.mist, 0.3 + k * 0.28, -0.55 + h / 2, 0.08, 0.01, sc))
+    box(2.52, 0.04, 0.02, M.orange, -0.6, -0.69, 0.08, 0, sc).scale.x = 0.5
+    sc.position.set(0, 2.1, 0)
+    g.add(sc)
+    // remote / clicker on the base
+    box(0.12, 0.05, 0.38, M.white, 0.95, 0.03, 0.55, 0.03, g).rotation.y = 0.5
+    return { g, cam: [3.2, 3.0, 6.2], look: [0, 1.45, 0] }
+  },
+
+  // S/07 Camera with lens and record button.
+  camera() {
+    const g = new THREE.Group()
+    const cam = new THREE.Group()
+    box(2.1, 1.3, 0.9, M.navy, 0, 0, 0, 0.18, cam)
+    box(0.8, 0.32, 0.7, M.navy, -0.35, 0.72, -0.05, 0.1, cam)
+    box(0.5, 0.06, 0.6, M.deep, -0.35, 0.9, -0.05, 0.03, cam)
+    box(0.35, 1.0, 0.25, M.deep, 0.92, -0.08, 0.38, 0.1, cam) // grip
+    const lens = new THREE.Group()
+    cyl(0.56, 0.56, 0.22, M.white, 0, 0, 0, lens)
+    cyl(0.5, 0.52, 0.38, M.deep, 0, 0.28, 0, lens)
+    cyl(0.52, 0.52, 0.08, M.orange, 0, 0.18, 0, lens)
+    cyl(0.4, 0.4, 0.06, M.screen, 0, 0.48, 0, lens)
+    const glare = cyl(0.12, 0.12, 0.01, M.ledWhite, 0.14, 0.52, -0.12, lens, 20)
+    lens.rotation.x = Math.PI / 2
+    lens.position.set(-0.05, -0.02, 0.46)
+    cam.add(lens)
+    cyl(0.14, 0.14, 0.1, M.orange, 0.7, 0.68, 0.1, cam) // shutter
+    box(0.3, 0.14, 0.08, M.ledWhite, 0.62, 0.42, 0.45, 0.03, cam) // flash
+    cam.position.y = 0.85; cam.rotation.y = -0.4
+    g.add(cam)
+    return { g, cam: [3.1, 2.6, 5.4], look: [0, 0.9, 0] }
+  },
+
+  // S/08 Lead-capture tablet kiosk with a visitor badge.
+  capture() {
+    const g = new THREE.Group()
+    cyl(0.55, 0.6, 0.08, M.navy, 0, 0.04, 0, g)
+    cyl(0.05, 0.05, 1.2, M.steel, 0, 0.64, 0, g, 20)
+    const tab = new THREE.Group()
+    box(1.5, 1.95, 0.1, M.navy, 0, 0, 0, 0.1, tab)
+    box(1.34, 1.76, 0.02, M.white, 0, 0, 0.055, 0.04, tab)
+    box(0.6, 0.09, 0.02, M.navy, -0.3, 0.7, 0.07, 0.01, tab)
+    for (let k = 0; k < 3; k++) {
+      box(1.1, 0.2, 0.02, M.mist, 0, 0.42 - k * 0.32, 0.07, 0.03, tab)
+      box(0.35 + k * 0.12, 0.05, 0.02, M.steel, -0.28 + k * 0.06, 0.42 - k * 0.32, 0.085, 0.01, tab)
+    }
+    box(1.1, 0.24, 0.03, M.orange, 0, -0.62, 0.08, 0.05, tab)
+    tab.position.set(0, 1.85, 0); tab.rotation.x = -0.3
+    g.add(tab)
+    // badge on lanyard lying in front
+    const b = new THREE.Group()
+    box(0.62, 0.03, 0.85, M.white, 0, 0, 0, 0.03, b)
+    box(0.62, 0.035, 0.18, M.orange, 0, 0.002, -0.33, 0.02, b)
+    const N = 7, s = 0.045
+    for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) if ((i * 5 + j * 3 + i * j) % 3 === 0 || i === 0 || j === 0) box(s, 0.03, s, M.deep, -0.135 + i * s, 0.02, -0.02 + j * s, 0, b)
+    b.position.set(1.05, 0.03, 0.75); b.rotation.y = -0.4
+    g.add(b)
+    torus(0.32, 0.025, M.orange, 1.0, 0.02, 0.2, g).rotation.x = -Math.PI / 2
+    return { g, cam: [3.4, 3.4, 5.8], look: [0.25, 1.25, 0.1] }
+  },
+
+  // S/07 Hosts and hostesses: a host in navy with an orange lanyard welcomes visitors at a counter.
+  hosts() {
+    const g = new THREE.Group()
+    const person = (x, z, rot, armsOut) => {
+      const f = new THREE.Group()
+      // legs
+      cyl(0.11, 0.1, 0.95, M.navy, -0.14, 0.48, 0, f, 24)
+      cyl(0.11, 0.1, 0.95, M.navy, 0.14, 0.48, 0, f, 24)
+      // jacket and shirt
+      box(0.62, 0.78, 0.36, M.navy, 0, 1.34, 0, 0.08, f)
+      box(0.18, 0.5, 0.05, M.white, 0, 1.44, 0.17, 0.02, f)
+      // lanyard and badge
+      box(0.04, 0.42, 0.02, M.orange, -0.08, 1.46, 0.2, 0.005, f)
+      box(0.04, 0.42, 0.02, M.orange, 0.08, 1.46, 0.2, 0.005, f)
+      box(0.26, 0.2, 0.03, M.white, 0, 1.2, 0.2, 0.01, f)
+      box(0.16, 0.03, 0.01, M.orange, 0, 1.24, 0.22, 0.005, f)
+      // arms
+      const la = cyl(0.07, 0.065, 0.7, M.navy, -0.4, 1.3, 0.05, f, 20)
+      const ra = cyl(0.07, 0.065, 0.7, M.navy, 0.4, 1.3, 0.05, f, 20)
+      if (armsOut) { la.rotation.z = 0.9; la.position.set(-0.52, 1.25, 0.12); ra.rotation.z = -0.9; ra.position.set(0.52, 1.25, 0.12) }
+      else { la.rotation.z = 0.18; ra.rotation.z = -0.18 }
+      const lh = new THREE.Mesh(new THREE.SphereGeometry(0.085, 24, 16), M.mist); lh.castShadow = true
+      const rh = lh.clone()
+      if (armsOut) { lh.position.set(-0.8, 1.48, 0.17); rh.position.set(0.8, 1.48, 0.17) } else { lh.position.set(-0.47, 0.95, 0.05); rh.position.set(0.47, 0.95, 0.05) }
+      f.add(lh, rh)
+      // neck and head
+      cyl(0.08, 0.08, 0.12, M.mist, 0, 1.78, 0, f, 20)
+      const head = new THREE.Mesh(new THREE.SphereGeometry(0.24, 32, 24), M.mist); head.position.set(0, 2.05, 0); head.castShadow = true; f.add(head)
+      // hair
+      const hair = new THREE.Mesh(new THREE.SphereGeometry(0.25, 32, 24, 0, Math.PI * 2, 0, Math.PI * 0.55), M.deep); hair.position.set(0, 2.08, -0.02); f.add(hair)
+      f.position.set(x, 0, z); f.rotation.y = rot
+      g.add(f)
+      return f
+    }
+    // welcome counter with the STANDOUT logo and an orange band
+    box(1.9, 1.05, 0.6, M.white, 1.25, 0.53, -0.1, 0.03, g)
+    box(1.92, 0.12, 0.62, M.orange, 1.25, 0.2, -0.1, 0.02, g)
+    logo(g, 1.25, 0.72, 0.21, 1.1)
+    // tablet and brochures on the counter
+    const tab = box(0.34, 0.24, 0.02, M.screen, 1.55, 1.12, 0.05, 0.01, g); tab.rotation.x = -1.1
+    for (let k = 0; k < 3; k++) box(0.3, 0.02, 0.22, k === 1 ? M.orange : M.mist, 0.75, 1.07 + k * 0.025, -0.05, 0.005, g)
+    // welcome sign
+    cyl(0.03, 0.03, 1.9, M.steel, 2.55, 0.95, -0.35, g, 12)
+    box(0.7, 0.5, 0.04, M.white, 2.55, 2.05, -0.35, 0.02, g)
+    box(0.5, 0.07, 0.02, M.orange, 2.55, 2.17, -0.32, 0.01, g)
+    box(0.4, 0.05, 0.02, M.navy, 2.55, 2.0, -0.32, 0.01, g)
+    box(0.3, 0.05, 0.02, M.navy, 2.5, 1.9, -0.32, 0.01, g)
+    // the host, arms open, in front of the counter
+    person(-0.35, 0.55, 0.25, true)
+    return { g, cam: [4.2, 3.0, 6.6], look: [0.9, 1.2, 0] }
+  },
+
+  // S/09 Nurture funnel: contacts drop in, one qualified lead comes out orange.
+  nurture() {
+    const g = new THREE.Group()
+    const funnel = new THREE.Mesh(new THREE.CylinderGeometry(1.15, 0.22, 1.3, 64, 1, true), new THREE.MeshStandardMaterial({ color: C.white, roughness: 0.45, side: THREE.DoubleSide }))
+    funnel.position.y = 1.6; funnel.castShadow = funnel.receiveShadow = true
+    g.add(funnel)
+    torus(1.15, 0.05, M.orange, 0, 2.25, 0, g).rotation.x = Math.PI / 2
+    cyl(0.22, 0.22, 0.45, M.white, 0, 0.73, 0, g)
+    // stand legs
+    ;[0, 1, 2].forEach((k) => {
+      const a = (k / 3) * Math.PI * 2 + 0.6
+      const leg = cyl(0.035, 0.035, 1.6, M.steel, Math.cos(a) * 0.62, 0.8, Math.sin(a) * 0.62, g, 12)
+      leg.rotation.z = Math.cos(a) * 0.25; leg.rotation.x = -Math.sin(a) * 0.25
+    })
+    // contacts above / inside
+    const balls = [[-0.5, 2.55, 0.2], [0.35, 2.8, -0.1], [0.05, 3.15, 0.3], [-0.2, 2.35, -0.3], [0.55, 2.4, 0.35], [-0.65, 3.0, -0.2]]
+    balls.forEach(([x, y, z]) => { const s = new THREE.Mesh(new THREE.SphereGeometry(0.17, 32, 24), M.mist); s.position.set(x, y, z); s.castShadow = true; g.add(s) })
+    // qualified lead out of the spout, landing on a tray
+    const lead = new THREE.Mesh(new THREE.SphereGeometry(0.22, 32, 24), M.orange); lead.position.set(0.05, 0.3, 0.55); lead.castShadow = true; g.add(lead)
+    box(1.0, 0.06, 0.7, M.navy, 0.05, 0.03, 0.55, 0.03, g)
+    return { g, cam: [3.4, 3.0, 6.0], look: [0, 1.45, 0] }
+  },
+}
+
+/* ------------------------------------------------------------------ render */
+window.renderIcon = (name) => {
+  const scene = new THREE.Scene()
+  scene.environment = envTex
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x334466, 0.6))
+  const sun = new THREE.DirectionalLight(0xffffff, 2.2)
+  sun.position.set(4, 8, 5)
+  sun.castShadow = true
+  sun.shadow.mapSize.set(2048, 2048)
+  sun.shadow.radius = 6
+  sun.shadow.bias = -0.0005
+  Object.assign(sun.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6, near: 0.5, far: 30 })
+  scene.add(sun)
+  const fill = new THREE.DirectionalLight(0xffd2bf, 0.5); fill.position.set(-5, 3, 2); scene.add(fill)
+
+  const { g, cam, look } = MODELS[name]()
+  scene.add(g)
+  // shadow catcher
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.42 }))
+  ground.rotation.x = -Math.PI / 2
+  ground.receiveShadow = true
+  scene.add(ground)
+
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100)
+  camera.position.set(...cam)
+  camera.lookAt(...look)
+  // fit: pull back until the model's bounding sphere fills ~80% of the frame
+  const sphere = new THREE.Box3().setFromObject(g).getBoundingSphere(new THREE.Sphere())
+  const dir = new THREE.Vector3(...cam).sub(sphere.center).normalize()
+  const dist = sphere.radius / Math.sin(THREE.MathUtils.degToRad(30 / 2)) * 1.02
+  camera.position.copy(sphere.center).addScaledVector(dir, dist)
+  camera.lookAt(sphere.center)
+  renderer.render(scene, camera)
+  return true
+}
+window.ready = true
+</script>
+</body></html>
