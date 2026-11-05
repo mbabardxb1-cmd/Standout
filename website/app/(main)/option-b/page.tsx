@@ -1,9 +1,6 @@
-import type { Metadata } from 'next'
-import { HomePage } from '@/components/HomePage'
+import { redirect } from 'next/navigation'
 
-export const metadata: Metadata = { title: 'Standout — Services option B', robots: { index: false } }
-
-/** Homepage with Services option B (three grouped cards), to compare with the live homepage. */
+/** Services option B is now the homepage; keep old links working. */
 export default function OptionB() {
-  return <HomePage photos services="b" />
+  redirect('/')
 }
