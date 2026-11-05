@@ -43,7 +43,7 @@ export function Cursor() {
       className="pointer-events-none fixed left-0 top-0 z-50"
     >
       <div
-        className={`flex items-center justify-center rounded-full border border-signal font-mono text-[11px] uppercase tracking-[0.12em] text-signal transition-all duration-300 ease-[var(--ease-out-expo)] ${
+        className={`flex items-center justify-center rounded-full border border-signal font-mono text-[11px] uppercase text-signal transition-all duration-300 ease-[var(--ease-out-expo)] ${
           label ? 'h-20 w-20 bg-signal/10' : 'h-5 w-5'
         }`}
       >

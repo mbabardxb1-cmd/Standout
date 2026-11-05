@@ -63,7 +63,7 @@ export function FinalCTA() {
         </div>
       )}
       <div className="relative z-10 flex flex-col items-center gap-10">
-        <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">Your next show</p>
+        <p className="font-mono text-[12px] uppercase text-steel">Your next show</p>
         <h2
           id="cta-title"
           className="max-w-[14ch] font-display text-[clamp(2.75rem,7.6vw,8.5rem)] font-extrabold leading-[0.92] tracking-[-0.035em]"

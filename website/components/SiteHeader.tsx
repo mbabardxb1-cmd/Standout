@@ -138,7 +138,7 @@ export function SiteHeader({ home = true }: { home?: boolean } = {}) {
                   <div className="grid grid-cols-[1.25fr_1.1fr_1fr] gap-8 p-6">
                     {GROUPS.map((g) => (
                       <div key={g.title} className="flex flex-col gap-2">
-                        <p className="mb-1 border-b border-mist/10 pb-2 font-mono text-[11px] uppercase tracking-[0.16em] text-signal">{g.title}</p>
+                        <p className="mb-1 border-b border-mist/10 pb-2 font-mono text-[11px] uppercase text-signal">{g.title}</p>
                         <ul className="flex flex-col">
                           {g.ids.map((i) => (
                             <li key={i}>
@@ -153,7 +153,7 @@ export function SiteHeader({ home = true }: { home?: boolean } = {}) {
                   </div>
                   <div className="flex flex-wrap items-center justify-between gap-4 border-t border-mist/10 px-6 py-4">
                     <p className="text-[13.5px] text-steel">One team for everything before, during and after the show.</p>
-                    <a href={allServicesHref} onClick={onAllServices} className="group inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.14em] text-mist hover:text-signal">
+                    <a href={allServicesHref} onClick={onAllServices} className="group inline-flex items-center gap-2 font-mono text-[12px] uppercase text-mist hover:text-signal">
                       All ten services <span aria-hidden="true" className="text-signal transition-transform group-hover:translate-x-1">→</span>
                     </a>
                   </div>
@@ -218,7 +218,7 @@ export function SiteHeader({ home = true }: { home?: boolean } = {}) {
                   </li>
                 ))}
                 <li>
-                  <a href={allServicesHref} onClick={onAllServices} className="inline-block py-2 font-mono text-[12px] uppercase tracking-[0.14em] text-signal">All ten services →</a>
+                  <a href={allServicesHref} onClick={onAllServices} className="inline-block py-2 font-mono text-[12px] uppercase text-signal">All ten services →</a>
                 </li>
               </ul>
             </div>

@@ -6,7 +6,7 @@ import { useUI } from '@/lib/ui-store'
 
 const field =
   'h-12 w-full border border-mist/20 bg-hall/60 px-4 text-[16px] text-mist placeholder:text-steel/70 focus:border-signal focus:outline-none'
-const labelCls = 'font-mono text-[12px] uppercase tracking-[0.12em] text-steel'
+const labelCls = 'font-mono text-[12px] uppercase text-steel'
 
 /**
  * The brief form, used in the bottom sheet and on the contact page. The prototype has no

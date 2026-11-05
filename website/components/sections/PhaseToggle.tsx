@@ -43,7 +43,7 @@ export function PhaseToggle({ value, onChange, onHold, auto, paused, duration, c
             <label
               key={p.id}
               data-cursor="preview"
-              className={`relative cursor-pointer whitespace-nowrap px-3 py-2.5 font-mono text-[11px] uppercase tracking-[0.1em] sm:px-4 sm:text-[12px] sm:tracking-[0.12em] transition-colors duration-200 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-signal md:px-5 ${
+              className={`relative cursor-pointer whitespace-nowrap px-3 py-2.5 font-mono text-[11px] uppercase sm:px-4 sm:text-[12px] sm: transition-colors duration-200 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-signal md:px-5 ${
                 active ? 'bg-mist text-night' : 'text-mist/70 hover:text-mist'
               }`}
             >

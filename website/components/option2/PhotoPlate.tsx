@@ -11,7 +11,7 @@ export function PhotoPlate({ shot, src, ratio, className = '', dark = false, cap
         <img src={src} alt="" className="o2-img" style={contain ? { objectFit: 'contain', backgroundColor: contain } : undefined} />
       ) : (
         <figcaption className={`absolute inset-0 flex flex-col p-5 md:p-6 ${captionTop ? 'justify-start gap-3' : 'justify-between'}`}>
-          <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-mist/60">
+          <span className="flex items-center gap-2 font-mono text-[11px] uppercase text-mist/60">
             <span className="inline-block h-3 w-3 border border-mist/40" aria-hidden="true" />
             Photography
           </span>

@@ -12,7 +12,7 @@ export function O2Outcomes() {
         </Reveal>
         <div className="flex flex-col gap-10 md:col-span-7 md:pl-6">
           <Reveal className="flex flex-col gap-5">
-            <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-slate">
+            <p className="font-mono text-[12px] uppercase text-slate">
               <span className="text-signal">●</span> Results
             </p>
             <h2 id="o2-results-title" className="font-display text-[clamp(2.2rem,4.6vw,4.5rem)] font-extrabold leading-[0.95] tracking-[-0.035em] [text-wrap:balance]">
@@ -23,7 +23,7 @@ export function O2Outcomes() {
           <dl className="grid grid-cols-1 gap-x-10 gap-y-8 border-t border-night/10 pt-8 sm:grid-cols-2">
             {O2_OUTCOMES.map((o, i) => (
               <Reveal key={o.label} delay={(i % 2) as 0 | 1} className="flex flex-col gap-2">
-                <dt className="order-2 font-mono text-[12px] uppercase tracking-[0.14em] text-signal">{o.label}</dt>
+                <dt className="order-2 font-mono text-[12px] uppercase text-signal">{o.label}</dt>
                 <dd className="order-1 font-display text-[clamp(2.6rem,4.5vw,4rem)] font-extrabold leading-none tracking-[-0.04em] [font-variant-numeric:tabular-nums]">
                   {o.value}
                 </dd>

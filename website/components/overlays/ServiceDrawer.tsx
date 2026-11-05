@@ -28,7 +28,7 @@ export function ServiceDrawer() {
     <Sheet open={current !== null} onClose={close} side="right" labelledBy="service-title">
       <div className="flex min-h-full flex-col gap-10 p-6 md:p-10">
         <div className="flex items-center justify-between gap-4">
-          <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-steel">
+          <p className="font-mono text-[12px] uppercase text-steel">
             <span className="text-signal">{s.code}</span> <span className="mx-2">·</span> {s.phase}
           </p>
           <CloseButton onClick={close} />
@@ -40,13 +40,13 @@ export function ServiceDrawer() {
             {s.name}
           </h2>
           <p className="text-[17px] leading-relaxed text-mist/80">{s.line}</p>
-          <a href={serviceHref(SERVICE_PAGES[shown].slug)} onClick={close} className="group inline-flex w-fit items-center gap-2 border-b border-signal pb-1 font-mono text-[12px] uppercase tracking-[0.14em] text-mist transition-colors hover:text-signal">
+          <a href={serviceHref(SERVICE_PAGES[shown].slug)} onClick={close} className="group inline-flex w-fit items-center gap-2 border-b border-signal pb-1 font-mono text-[12px] uppercase text-mist transition-colors hover:text-signal">
             See the full service <span aria-hidden="true" className="text-signal transition-transform group-hover:translate-x-1">→</span>
           </a>
         </div>
 
         <div className="flex flex-col gap-4">
-          <h3 className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">What you get</h3>
+          <h3 className="font-mono text-[12px] uppercase text-steel">What you get</h3>
           <ul className="flex flex-col border-t border-mist/15">
             {s.deliverables.map((d) => (
               <li key={d} className="flex gap-4 border-b border-mist/15 py-4 text-[15.5px] leading-snug">

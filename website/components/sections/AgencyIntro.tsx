@@ -20,7 +20,7 @@ export function AgencyIntro() {
   return (
     <section id="about" aria-labelledby="about-title" className="about-stage flex min-h-svh flex-col justify-center px-5 py-20 md:px-10 md:py-24">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-6 md:grid-cols-12 md:gap-x-10 md:gap-y-12">
-        <p id="about-title" className="about-eyebrow font-mono text-[12px] uppercase tracking-[0.16em] text-steel md:col-span-3">
+        <p id="about-title" className="about-eyebrow font-mono text-[12px] uppercase text-steel md:col-span-3">
           Who we are <span className="text-signal">·</span> Standout
         </p>
         <p className="font-display text-[clamp(1.6rem,3.1vw,3.3rem)] font-bold leading-[1.08] tracking-[-0.025em] md:col-span-9 [text-wrap:balance]">
@@ -37,7 +37,7 @@ export function AgencyIntro() {
                 <span className="about-num" data-value={s.value}>{s.value}</span>
                 <span className="text-signal">{s.unit}</span>
               </p>
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-mist/90">{s.label}</p>
+              <p className="font-mono text-[11px] uppercase text-mist/90">{s.label}</p>
               <p className="text-[14px] leading-snug text-steel">{s.line}</p>
             </li>
           ))}

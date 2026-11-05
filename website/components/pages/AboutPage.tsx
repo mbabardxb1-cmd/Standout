@@ -51,7 +51,7 @@ export function AboutPage() {
                   <p className="font-display text-[clamp(1.8rem,2.6vw,2.6rem)] font-extrabold leading-none tracking-[-0.035em] tabular-nums">
                     {st.value}<span className="text-signal">{st.unit}</span>
                   </p>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-mist/90">{st.label}</p>
+                  <p className="font-mono text-[11px] uppercase text-mist/90">{st.label}</p>
                 </li>
               ))}
             </ul>
@@ -63,7 +63,7 @@ export function AboutPage() {
       <section className="px-5 pb-20 md:px-10 md:pb-28">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10">
           <div className="flex flex-col gap-3">
-            <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">Why choose Standout</p>
+            <p className="font-mono text-[12px] uppercase text-steel">Why choose Standout</p>
             <h2 className="font-display text-[clamp(1.8rem,3vw,2.8rem)] font-extrabold leading-[1] tracking-[-0.03em]">Six reasons exhibitors come back show after show.</h2>
           </div>
           <ol className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
@@ -83,7 +83,7 @@ export function AboutPage() {
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="flex flex-col gap-3">
-              <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">The team</p>
+              <p className="font-mono text-[12px] uppercase text-steel">The team</p>
               <h2 className="font-display text-[clamp(1.8rem,3vw,2.8rem)] font-extrabold leading-[1] tracking-[-0.03em]">The people on your show.</h2>
             </div>
             <p className="max-w-[40ch] text-[15.5px] leading-relaxed text-mist/70">One point of contact from brief to report, backed by designers, campaign managers, hosts and crew.</p>
@@ -97,7 +97,7 @@ export function AboutPage() {
                 </div>
                 <div className="flex flex-col gap-1">
                   <h3 className="font-display text-[16px] font-bold tracking-[-0.01em]">{m.name}</h3>
-                  <p className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-steel">{m.role}</p>
+                  <p className="font-mono text-[10.5px] uppercase text-steel">{m.role}</p>
                 </div>
               </li>
             ))}

@@ -127,7 +127,7 @@ export function Hero() {
       {/* Scroll cue: the word lifts off its baseline, like the logo's O. */}
       <div className="hero-fade absolute inset-x-5 bottom-8 md:inset-x-10" aria-hidden="true">
         <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-2">
-          <span className="cue-word font-mono text-[11px] uppercase tracking-[0.2em]">Scroll</span>
+          <span className="cue-word font-mono text-[11px] uppercase">Scroll</span>
           <span className="flex h-[2px] w-full">
             <span className="block h-full w-16 bg-signal" />
             <span className="block h-full flex-1 bg-mist/15" />

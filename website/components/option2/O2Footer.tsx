@@ -12,7 +12,7 @@ export function O2Footer() {
           </p>
         </div>
         <div className="flex flex-col gap-3 md:col-span-3">
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-slate">Contact</p>
+          <p className="font-mono text-[11px] uppercase text-slate">Contact</p>
           <ul className="flex flex-col gap-2 text-[15px] text-night/80">
             <li><a href={`mailto:${CONTACT.email}`} className="hover:text-signal">{CONTACT.email}</a></li>
             <li><a href={CONTACT.phoneHref} className="hover:text-signal">{CONTACT.phone}</a></li>
@@ -30,7 +30,7 @@ export function O2Footer() {
           ['Follow', ['LinkedIn [link to come]', 'Instagram [link to come]']],
         ].map(([h, items]) => (
           <div key={h as string} className="flex flex-col gap-3 md:col-span-2">
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-slate">{h}</p>
+            <p className="font-mono text-[11px] uppercase text-slate">{h}</p>
             <ul className="flex flex-col gap-2 text-[15px] text-night/80">
               {(items as string[]).map((it) => (
                 <li key={it}>{it}</li>

@@ -19,7 +19,7 @@ function Items({ items }: { items: string[] }) {
 function Ask({ name }: { name: string }) {
   const openContact = useUI((s) => s.openContact)
   return (
-    <button type="button" onClick={openContact} className="group inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.14em] text-night transition-colors hover:text-signal">
+    <button type="button" onClick={openContact} className="group inline-flex items-center gap-2 font-mono text-[12px] uppercase text-night transition-colors hover:text-signal">
       Talk to us about {name.split(' ')[0].toLowerCase() === 'exhibition' ? 'this' : name.split(' & ')[0].toLowerCase()}
       <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
     </button>
@@ -69,7 +69,7 @@ export function O2Services() {
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-5 py-20 md:gap-24 md:px-10 md:py-28">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
           <Reveal className="md:col-span-4">
-            <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-slate">
+            <p className="font-mono text-[12px] uppercase text-slate">
               <span className="text-signal">●</span> Services
             </p>
           </Reveal>

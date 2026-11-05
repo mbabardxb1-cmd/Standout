@@ -9,7 +9,7 @@ export function O2Approach() {
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-5 py-20 md:gap-20 md:px-10 md:py-28">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           <Reveal className="flex flex-col gap-5 md:col-span-7">
-            <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">
+            <p className="font-mono text-[12px] uppercase text-steel">
               <span className="text-signal">●</span> Our approach
             </p>
             <h2 id="o2-approach-title" className="font-display text-[clamp(2.2rem,4.6vw,4.5rem)] font-extrabold leading-[0.95] tracking-[-0.035em] [text-wrap:balance]">

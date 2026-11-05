@@ -101,7 +101,7 @@ export function Packages() {
       <div className="mx-auto flex h-full w-full max-w-[1440px] flex-col justify-center gap-10 px-5 py-24 md:px-10 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="flex max-w-[720px] flex-col gap-4">
-            <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">
+            <p className="font-mono text-[12px] uppercase text-steel">
               Packages <span className="text-signal">·</span> or build your own
             </p>
             <h2 id="packages-title" className="font-display text-[clamp(2rem,4.2vw,4.25rem)] font-extrabold leading-[0.95] tracking-[-0.03em] [text-wrap:balance]">
@@ -145,7 +145,7 @@ export function Packages() {
                   >
                     <Constellation index={i as 0 | 1 | 2} className="absolute inset-0 h-full w-full" />
                     {p.tag && (
-                      <span className="absolute left-5 top-5 rounded-full bg-signal px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-night">
+                      <span className="absolute left-5 top-5 rounded-full bg-signal px-3 py-1 font-mono text-[11px] uppercase text-night">
                         {p.tag}
                       </span>
                     )}
@@ -156,7 +156,7 @@ export function Packages() {
                     </h3>
                     <p className="min-h-[3em] text-[15.5px] leading-relaxed text-mist/80">{p.line}</p>
                     <div className="flex flex-col gap-3 border-t border-mist/10 pt-4">
-                      <span className="font-mono text-[12px] uppercase tracking-[0.12em] text-steel">
+                      <span className="font-mono text-[12px] uppercase text-steel">
                         {p.includes.length} of {SERVICES.length} services included
                       </span>
                       <ul className="flex flex-col gap-1.5">

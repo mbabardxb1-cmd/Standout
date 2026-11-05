@@ -30,7 +30,7 @@ export function CompareSheet() {
       <div className="mx-auto flex w-full max-w-[1120px] flex-col gap-8 px-5 py-8 md:px-10 md:py-10">
         <div className="flex items-start justify-between gap-6">
           <div className="flex flex-col gap-3">
-            <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">Packages</p>
+            <p className="font-mono text-[12px] uppercase text-steel">Packages</p>
             <h2 id="compare-title" className="font-display text-[clamp(1.8rem,3vw,2.6rem)] font-extrabold leading-none tracking-[-0.025em]">
               {mode === 'packages' ? 'What each package includes' : 'Build your own show'}
             </h2>
@@ -43,7 +43,7 @@ export function CompareSheet() {
           {(['packages', 'custom'] as const).map((m) => (
             <label
               key={m}
-              className={`cursor-pointer px-4 py-2.5 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-signal ${
+              className={`cursor-pointer px-4 py-2.5 font-mono text-[12px] uppercase transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-signal ${
                 mode === m ? 'bg-mist text-night' : 'text-mist/70 hover:text-mist'
               }`}
             >
@@ -56,7 +56,7 @@ export function CompareSheet() {
         <div className="overflow-x-auto">
           <table className="w-full min-w-[560px] border-collapse text-left">
             <thead>
-              <tr className="border-b border-mist/20 font-mono text-[12px] uppercase tracking-[0.12em] text-steel">
+              <tr className="border-b border-mist/20 font-mono text-[12px] uppercase text-steel">
                 <th scope="col" className="py-3 pr-4 font-normal">Service</th>
                 {mode === 'packages' ? (
                   PACKAGES.map((p) => (

@@ -41,7 +41,7 @@ export function LeadFlow() {
   return (
     <section ref={section} id="results" aria-labelledby="results-title" className="relative py-24 md:py-28">
       <div className="mx-auto w-full max-w-[1440px] px-5 md:px-10">
-        <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">
+        <p className="font-mono text-[12px] uppercase text-steel">
           Lead flow <span className="text-signal">·</span> try your numbers
         </p>
         <h2 id="results-title" className="mt-4 max-w-[16ch] font-display text-[clamp(2rem,3.6vw,3.5rem)] font-extrabold leading-[0.95] tracking-[-0.03em] [text-wrap:balance]">
@@ -67,7 +67,7 @@ export function LeadFlow() {
             className={`absolute flex flex-col gap-1 whitespace-nowrap ${s.align === 'center' ? '-translate-x-1/2 items-center top-[var(--above)] -translate-y-full md:top-[var(--below)] md:translate-y-0' : `top-[var(--below)] ${s.align === 'right' ? '-translate-x-full items-end' : 'items-start'}`}`}
             style={{ left: `${s.x * 100}%`, ['--below' as string]: `calc(${bandBottom}% + 14px)`, ['--above' as string]: `calc(${bandTop}% - 10px)` }}
           >
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-steel md:text-[11px]">{s.label}</span>
+            <span className="font-mono text-[10.5px] uppercase text-steel md:text-[11px]">{s.label}</span>
             <span className={`font-mono text-[13px] tabular-nums md:text-[14px] ${s.label === 'Qualified leads' ? 'text-signal' : 'text-mist'}`}>{s.value}<span className="hidden md:inline">{s.suffix}</span></span>
           </span>
         ))}
@@ -106,7 +106,7 @@ export function LeadFlow() {
 
           <div className="flex flex-col justify-between gap-4 border-t border-mist/15 pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-0">
             <div>
-              <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-steel">Qualified leads</p>
+              <p className="font-mono text-[12px] uppercase text-steel">Qualified leads</p>
               <p aria-live="polite" className="font-display text-[clamp(3rem,5vw,4.5rem)] font-extrabold leading-none tracking-[-0.03em] text-signal tabular-nums">
                 {fmt.format(leads)}
               </p>

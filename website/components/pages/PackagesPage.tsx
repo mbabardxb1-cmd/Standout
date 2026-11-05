@@ -43,11 +43,11 @@ export function PackagesPage() {
                 <article aria-labelledby={`pkp-${p.id}`} className={`flex h-full flex-col gap-5 border bg-night/60 p-6 md:p-8 ${hero ? 'pk-glow border-signal/70' : 'border-mist/15'}`}>
                   <div className="flex items-start justify-between gap-4">
                     <h2 id={`pkp-${p.id}`} className="font-display text-[clamp(2rem,3vw,3rem)] font-extrabold leading-none tracking-[-0.03em]">{p.name}</h2>
-                    {p.tag && <span className="rounded-full bg-signal px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-night">{p.tag}</span>}
+                    {p.tag && <span className="rounded-full bg-signal px-3 py-1 font-mono text-[11px] uppercase text-night">{p.tag}</span>}
                   </div>
                   <p className="text-[16px] leading-relaxed text-mist/80">{p.line}</p>
                   <div className="flex flex-col gap-3 border-t border-mist/10 pt-5">
-                    <span className="font-mono text-[12px] uppercase tracking-[0.12em] text-steel">{p.includes.length} of {SERVICES.length} services</span>
+                    <span className="font-mono text-[12px] uppercase text-steel">{p.includes.length} of {SERVICES.length} services</span>
                     <ul className="flex flex-col gap-2">
                       {SERVICES.map((s, j) => {
                         const on = p.includes.includes(j)
@@ -80,12 +80,12 @@ export function PackagesPage() {
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <h2 className="font-display text-[clamp(1.8rem,3vw,2.8rem)] font-extrabold leading-[1] tracking-[-0.03em]">Side by side</h2>
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-steel md:hidden">Scroll sideways <span aria-hidden="true" className="text-signal">→</span></p>
+            <p className="font-mono text-[11px] uppercase text-steel md:hidden">Scroll sideways <span aria-hidden="true" className="text-signal">→</span></p>
           </div>
           <div className="overflow-x-auto border border-mist/12 bg-night/50">
             <table className="w-full min-w-[560px] border-collapse text-left">
               <thead>
-                <tr className="border-b border-mist/20 font-mono text-[12px] uppercase tracking-[0.12em] text-steel">
+                <tr className="border-b border-mist/20 font-mono text-[12px] uppercase text-steel">
                   <th scope="col" className="sticky left-0 z-10 bg-night px-4 py-4 font-normal md:bg-transparent md:px-5">Service</th>
                   <th scope="col" className="hidden w-24 px-3 py-4 text-center font-normal md:table-cell">Phase</th>
                   {PACKAGES.map((p) => (
@@ -103,7 +103,7 @@ export function PackagesPage() {
                         <span className="hidden md:inline">{s.cardName ?? s.name}</span>
                       </a>
                     </th>
-                    <td className="hidden px-3 py-3.5 text-center font-mono text-[11px] uppercase tracking-[0.12em] text-steel md:table-cell">{s.phase}</td>
+                    <td className="hidden px-3 py-3.5 text-center font-mono text-[11px] uppercase text-steel md:table-cell">{s.phase}</td>
                     {PACKAGES.map((p) => (
                       <td key={p.id} className="px-3 py-3.5"><Tick on={p.includes.includes(i)} /></td>
                     ))}

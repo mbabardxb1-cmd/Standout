@@ -49,7 +49,7 @@ export function HowItWorks({ steps, lead }: { steps: Step[]; lead?: string }) {
                   <span className="hiw-tile relative grid h-[72px] w-[72px] shrink-0 place-items-center bg-hall ring-1 ring-signal/60 transition-all duration-300 group-hover:bg-signal group-hover:ring-signal">
                     <StepIcon name={st.icon} className="h-8 w-8 text-signal transition-colors duration-300 group-hover:text-night" />
                   </span>
-                  <span className="font-mono text-[12px] uppercase tracking-[0.18em] text-steel">Step {String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-mono text-[12px] uppercase text-steel">Step {String(i + 1).padStart(2, '0')}</span>
                 </div>
                 <div className="flex flex-col gap-2">
                   <h3 className="font-display text-[21px] font-bold leading-tight tracking-[-0.02em]">{st.title}</h3>

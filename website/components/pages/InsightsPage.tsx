@@ -23,7 +23,7 @@ function Card({ a, featured = false }: { a: Article; featured?: boolean }) {
         </span>
         <span className={`font-display font-extrabold leading-[1.05] tracking-[-0.025em] ${featured ? 'text-[clamp(1.6rem,2.8vw,2.6rem)]' : 'text-[clamp(1.2rem,1.6vw,1.5rem)]'} [text-wrap:balance]`}>{a.title}</span>
         <span className="line-clamp-2 text-[15px] leading-relaxed text-mist/70">{a.dek}</span>
-        <span className="mt-2 font-mono text-[12px] uppercase tracking-[0.14em] text-mist/80 group-hover:text-signal">Read more <span aria-hidden="true" className="text-signal">→</span></span>
+        <span className="mt-2 font-mono text-[12px] uppercase text-mist/80 group-hover:text-signal">Read more <span aria-hidden="true" className="text-signal">→</span></span>
       </span>
     </a>
   )
@@ -38,7 +38,7 @@ export function InsightsPage() {
       <PageHero crumbs={[{ label: 'Insights' }]} eyebrow="Insights" title="What we’ve learned on the floor." line="Short, practical pieces on making exhibitions pay: before the show, on the stand and after it.">
         <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Filter by topic">
           {CATEGORIES.map((c) => (
-            <button key={c} type="button" onClick={() => setCat(c)} aria-pressed={cat === c} className={`h-10 rounded-full border px-4 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors ${cat === c ? 'border-signal bg-signal text-night' : 'border-mist/20 text-mist/80 hover:border-signal hover:text-signal'}`}>
+            <button key={c} type="button" onClick={() => setCat(c)} aria-pressed={cat === c} className={`h-10 rounded-full border px-4 font-mono text-[12px] uppercase transition-colors ${cat === c ? 'border-signal bg-signal text-night' : 'border-mist/20 text-mist/80 hover:border-signal hover:text-signal'}`}>
               {c}
             </button>
           ))}

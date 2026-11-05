@@ -81,7 +81,7 @@ export function ServicesF() {
   return (
     <section ref={section} id="services" aria-labelledby="services-title" className="relative px-5 pb-10 pt-16 md:px-10 md:pt-20">
       <div className="mx-auto flex w-full max-w-[1100px] flex-col items-center gap-4 text-center">
-        <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">Our services</p>
+        <p className="font-mono text-[12px] uppercase text-steel">Our services</p>
         <h2 id="services-title" className="max-w-[22ch] font-display text-[clamp(1.7rem,3vw,2.8rem)] font-extrabold leading-[0.98] tracking-[-0.03em] [text-wrap:balance]">
           Everything your show needs, from one team.
         </h2>

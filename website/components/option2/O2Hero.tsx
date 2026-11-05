@@ -14,7 +14,7 @@ export function O2Hero() {
     <section id="o2-top" className="relative overflow-hidden pt-[72px]">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 px-5 pb-10 pt-12 md:grid-cols-12 md:gap-8 md:px-10 md:pb-16 md:pt-20">
         <div className="flex flex-col justify-center gap-8 md:col-span-6 lg:col-span-5">
-          <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-slate">
+          <p className="font-mono text-[12px] uppercase text-slate">
             <span className="text-signal">●</span> {O2_HERO.eyebrow}
           </p>
           <h1 className="font-display text-[clamp(2.9rem,7vw,6.5rem)] font-extrabold leading-[0.92] tracking-[-0.035em] [text-wrap:balance]">
@@ -47,7 +47,7 @@ export function O2Hero() {
               <PhotoPlate shot={O2_HERO.photo} src={PHOTOS[O2_HERO.src]} ratio="16 / 11" captionTop className="md:aspect-[16/11] lg:aspect-[4/3]" />
             </Reveal>
             <Reveal delay={2} className="pointer-events-none absolute -bottom-6 left-5 hidden max-w-[300px] border border-night/10 bg-paper p-5 md:block lg:left-10">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-slate">On the floor</p>
+              <p className="font-mono text-[11px] uppercase text-slate">On the floor</p>
               <p className="mt-2 font-display text-[22px] font-bold leading-tight tracking-[-0.02em]">
                 The right visitors, planned in. Every conversation captured.
               </p>
@@ -59,7 +59,7 @@ export function O2Hero() {
       {/* Sector marquee */}
       <div className="border-y border-night/10">
         <div className="mx-auto flex w-full max-w-[1440px] items-center gap-8 overflow-hidden px-5 py-4 md:px-10">
-          <span className="shrink-0 font-mono text-[11px] uppercase tracking-[0.14em] text-slate">Sectors</span>
+          <span className="shrink-0 font-mono text-[11px] uppercase text-slate">Sectors</span>
           <div className="o2-marquee flex min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]" aria-label={O2_SECTORS.join(', ')}>
             {[0, 1].map((k) => (
               <ul key={k} className="o2-marquee-track flex shrink-0 items-center gap-10 pr-10 text-[14px] text-night/70" aria-hidden={k === 1}>

@@ -23,7 +23,7 @@ export function ContactSheet() {
       <div className="mx-auto flex w-full max-w-[920px] flex-col gap-8 px-5 py-8 md:px-10 md:py-12">
         <div className="flex items-start justify-between gap-6">
           <div className="flex flex-col gap-3">
-            <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">Plan your show</p>
+            <p className="font-mono text-[12px] uppercase text-steel">Plan your show</p>
             <h2 id="contact-title" className="font-display text-[clamp(1.9rem,3.4vw,3rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">
               {sentTo === null ? 'Tell us about your next exhibition.' : `Thanks${sentTo ? `, ${sentTo}` : ''}.`}
             </h2>

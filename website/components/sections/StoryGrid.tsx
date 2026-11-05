@@ -28,7 +28,7 @@ export function StoryGrid() {
         }}
       >
         <div className="story-head col-span-12 col-start-1 row-span-3 row-start-1 flex flex-col justify-end gap-2 p-2 md:col-span-7 md:gap-4 md:p-6">
-          <p className="font-mono text-[12px] uppercase tracking-[0.16em] text-steel">How we work</p>
+          <p className="font-mono text-[12px] uppercase text-steel">How we work</p>
           <h2 className="font-display text-[clamp(1.6rem,4.4vw,4.5rem)] font-extrabold leading-[0.95] tracking-[-0.03em]">
             One team. One joined-up show.
           </h2>
@@ -41,7 +41,7 @@ export function StoryGrid() {
               tabIndex={0}
               className="story-cell group m-0 flex flex-col justify-start gap-3 border border-mist/15 bg-night p-3.5 sm:gap-5 sm:p-5 md:m-3 md:gap-8 md:p-7"
             >
-              <span className="font-mono text-[12px] tracking-[0.14em] text-steel">{s.n}</span>
+              <span className="font-mono text-[12px] text-steel">{s.n}</span>
               <div className="flex flex-col gap-2 sm:gap-3">
                 {/* Line icon, coloured by CSS through a mask so it can light up orange. */}
                 <span
