@@ -22,7 +22,6 @@ function Card({ a, featured = false }: { a: Article; featured?: boolean }) {
           <span>{a.readMinutes} min</span>
         </span>
         <span className={`font-display font-extrabold leading-[1.05] tracking-[-0.025em] ${featured ? 'text-[clamp(1.6rem,2.8vw,2.6rem)]' : 'text-[clamp(1.2rem,1.6vw,1.5rem)]'} [text-wrap:balance]`}>{a.title}</span>
-        <span className="line-clamp-2 text-[15px] leading-relaxed text-mist/70">{a.dek}</span>
         <span className="mt-2 font-mono text-[12px] uppercase text-mist/80 group-hover:text-signal">Read more <span aria-hidden="true" className="text-signal">→</span></span>
       </span>
     </a>
