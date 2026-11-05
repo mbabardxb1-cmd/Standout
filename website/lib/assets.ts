@@ -35,9 +35,7 @@ export const PHOTOS = {
 }
 
 /** Photographs shown whole rather than cropped (index into SERVICES), with the ground colour behind them. */
-export const SERVICE_PHOTO_FIT: Record<number, { fit: 'contain'; bg: string }> = {
-  1: { fit: 'contain', bg: '#e2e4ea' }, // brochure mockup on a light studio ground
-}
+export const SERVICE_PHOTO_FIT: Record<number, { fit: 'contain'; bg: string }> = {}
 /** Inline styles for a service photograph: cover by default, contain on its own ground when listed above. */
 /** Where a cropped photograph is anchored (index into SERVICES); default is the centre. */
 export const SERVICE_PHOTO_POS: Record<number, string> = {
