@@ -34,13 +34,6 @@ export function StoryGrid() {
           </h2>
         </div>
 
-        <p
-          className="story-head col-span-2 col-start-12 row-span-3 row-start-1 hidden items-end justify-end p-6 font-mono text-[13px] tracking-[0.12em] text-steel md:flex"
-          aria-hidden="true"
-        >
-          <span className="story-counter text-mist">01</span>&nbsp;/ 04
-        </p>
-
         <ol className="col-span-13 col-start-1 row-span-5 row-start-4 grid grid-cols-2 gap-2 p-2 sm:gap-3 md:grid-cols-4 md:gap-0 md:p-0">
           {STEPS.map((s) => (
             <li
