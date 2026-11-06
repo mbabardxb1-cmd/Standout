@@ -56,6 +56,7 @@ export const CASES: CaseStudy[] = [
     services: [7],
     film: 8,
     duration: '1:24',
+    home: true,
   },
   {
     client: 'Dragon Racing',
@@ -66,6 +67,7 @@ export const CASES: CaseStudy[] = [
     services: [7],
     film: 9,
     duration: '1:11',
+    home: true,
   },
   {
     client: 'TGP',
