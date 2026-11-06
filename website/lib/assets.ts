@@ -55,6 +55,15 @@ export const CASE_STUDY_FILMS = [
   { video: '/video/imtiaz.mp4', poster: '/video/imtiaz-poster.webp', portrait: true },
   { video: '/video/bch-clb.mp4', poster: '/video/bch-clb-poster.webp', portrait: true },
   { video: '/video/desert-classic.mp4', poster: '/video/desert-classic-poster.webp', portrait: true },
+  { video: '/video/dpworld-tour.mp4', poster: '/video/dpworld-tour-poster.webp', portrait: false }, // 5
+  { video: '/video/sobha-atlantis.mp4', poster: '/video/sobha-atlantis-poster.webp', portrait: false }, // 6
+  { video: '/video/3db-yas.mp4', poster: '/video/3db-yas-poster.webp', portrait: false }, // 7
+  { video: '/video/milkor-idex.mp4', poster: '/video/milkor-idex-poster.webp', portrait: false }, // 8
+  { video: '/video/dragon-ferrari.mp4', poster: '/video/dragon-ferrari-poster.webp', portrait: false }, // 9
+  { video: '/video/tgp-event.mp4', poster: '/video/tgp-event-poster.webp', portrait: false }, // 10
+  { video: '/video/tgp-pxb-wellness.mp4', poster: '/video/tgp-pxb-wellness-poster.webp', portrait: true }, // 11
+  { video: '/video/bch-recap.mp4', poster: '/video/bch-recap-poster.webp', portrait: true }, // 12
+  { video: '/video/3db-monster-jam.mp4', poster: '/video/3db-monster-jam-poster.webp', portrait: true }, // 13
 ]
 
 
