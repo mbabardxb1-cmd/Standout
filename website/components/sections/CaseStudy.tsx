@@ -11,7 +11,7 @@ import { pageHref } from '@/lib/routes'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-const CASES = ALL_CASES.filter((c) => c.home)
+const CASES = ALL_CASES.filter((c) => c.home).sort((a, b) => a.home! - b.home!)
 
 export function Film({ c, i, playingIndex, onPlay }: { c: CaseStudy; i: number; playingIndex: number | null; onPlay: (i: number | null) => void }) {
   const video = useRef<HTMLVideoElement>(null)

@@ -10,8 +10,8 @@ export type CaseStudy = {
   /** Index into CASE_STUDY_FILMS. */
   film: number
   duration: string
-  /** Shown in the homepage section. */
-  home?: boolean
+  /** Position in the homepage section (1 = first); leave out to show it only on the Case Studies page. */
+  home?: number
 }
 
 export const CASES: CaseStudy[] = [
@@ -24,7 +24,7 @@ export const CASES: CaseStudy[] = [
     services: [7],
     film: 5,
     duration: '3:30',
-    home: true,
+    home: 3,
   },
   {
     client: 'Sobha',
@@ -35,7 +35,7 @@ export const CASES: CaseStudy[] = [
     services: [7],
     film: 6,
     duration: '1:25',
-    home: true,
+    home: 2,
   },
   {
     client: '3DB',
@@ -56,7 +56,6 @@ export const CASES: CaseStudy[] = [
     services: [7],
     film: 8,
     duration: '1:24',
-    home: true,
   },
   {
     client: 'Dragon Racing',
@@ -67,7 +66,7 @@ export const CASES: CaseStudy[] = [
     services: [7],
     film: 9,
     duration: '1:11',
-    home: true,
+    home: 4,
   },
   {
     client: 'TGP',
@@ -118,6 +117,7 @@ export const CASES: CaseStudy[] = [
     services: [7, 6, 5],
     film: 2,
     duration: '0:36',
+    home: 1,
   },
   {
     client: 'BCH:CLB',
