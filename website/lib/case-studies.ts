@@ -66,7 +66,6 @@ export const CASES: CaseStudy[] = [
     services: [7],
     film: 9,
     duration: '1:11',
-    home: 4,
   },
   {
     client: 'TGP',
@@ -128,6 +127,7 @@ export const CASES: CaseStudy[] = [
     services: [7, 5],
     film: 3,
     duration: '0:29',
+    home: 4,
   },
   {
     client: '3DB',
