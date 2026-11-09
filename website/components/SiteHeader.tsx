@@ -15,10 +15,10 @@ const PAGES: { label: string; page: PageName }[] = [
   { label: 'Contact', page: 'contact' },
 ]
 
-/** The ten services grouped by when they happen, for the dropdown. */
+/** The services grouped by when they happen, for the dropdown. */
 const GROUPS = [
   { title: 'Before the show', ids: [0, 1, 2, 3, 4] },
-  { title: 'At the show', ids: [5, 6, 7, 8] },
+  { title: 'At the show', ids: [5, 6, 7, 10, 8] },
   { title: 'After the show', ids: [9] },
 ]
 
@@ -154,7 +154,7 @@ export function SiteHeader({ home = true }: { home?: boolean } = {}) {
                   <div className="flex flex-wrap items-center justify-between gap-4 border-t border-mist/10 px-6 py-4">
                     <p className="text-[13.5px] text-steel">One team for everything before, during and after the show.</p>
                     <a href={allServicesHref} onClick={onAllServices} className="group inline-flex items-center gap-2 font-mono text-[12px] uppercase text-mist hover:text-signal">
-                      All ten services <span aria-hidden="true" className="text-signal transition-transform group-hover:translate-x-1">→</span>
+                      All services <span aria-hidden="true" className="text-signal transition-transform group-hover:translate-x-1">→</span>
                     </a>
                   </div>
                 </div>
@@ -218,7 +218,7 @@ export function SiteHeader({ home = true }: { home?: boolean } = {}) {
                   </li>
                 ))}
                 <li>
-                  <a href={allServicesHref} onClick={onAllServices} className="inline-block py-2 font-mono text-[12px] uppercase text-signal">All ten services →</a>
+                  <a href={allServicesHref} onClick={onAllServices} className="inline-block py-2 font-mono text-[12px] uppercase text-signal">All services →</a>
                 </li>
               </ul>
             </div>

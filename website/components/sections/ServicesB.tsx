@@ -15,20 +15,24 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 const PEEK = 22 // px each card beneath peeks out below the one above it
 const SHRINK = 0.02 // scale step per card beneath
+const VISIBLE = 2 // how many cards show beneath the current one
 
 /**
- * The ten services in three groups. Each group leads with one service (big photograph, name,
- * line, link) and lists the rest as small thumbnails. Indexes are into SERVICES.
+ * The services in five cards. Each card leads with one service (big photograph, name, line,
+ * link) and lists any others as small thumbnails. Indexes are into SERVICES; `title` replaces
+ * the lead service's name as the card heading.
  */
-const GROUPS = [
+const GROUPS: { label: string; lead: number; more: number[]; title?: string }[] = [
   { label: 'Your stand', lead: 0, more: [1, 5, 6] }, // Stand graphics; collateral, decks, hosts
   { label: 'Your audience', lead: 3, more: [2, 4] }, // Digital ads; email, landing pages
-  { label: 'Your leads', lead: 8, more: [7, 9] }, // Lead capture; photo and video, nurture
+  { label: 'Your leads', lead: 8, more: [9] }, // Lead capture; nurture
+  { label: 'Your content', lead: 10, more: [] }, // Content creation
+  { label: 'Your coverage', lead: 7, more: [], title: 'Photo and Event Videography' },
 ]
 
 /**
  * Services option B: the same deck as option A (cards stack, the top one hinges up and lifts
- * away as you scroll), but with three cards, one per group, instead of ten.
+ * away as you scroll), but with five grouped cards instead of one per service.
  */
 export function ServicesB() {
   const section = useRef<HTMLElement>(null)
@@ -50,7 +54,7 @@ export function ServicesB() {
 
         const cards = gsap.utils.toArray<HTMLElement>('.svb-card')
         const n = cards.length
-        const place = (d: number) => ({ y: PEEK * d, scale: 1 - SHRINK * d, autoAlpha: 1 })
+        const place = (d: number) => ({ y: PEEK * Math.min(d, VISIBLE), scale: 1 - SHRINK * Math.min(d, VISIBLE), autoAlpha: d <= VISIBLE ? 1 : 0 })
         cards.forEach((card, j) => gsap.set(card, { ...place(j), zIndex: n - j, rotateX: 0, yPercent: 0, transformOrigin: '50% 100%' }))
 
         const tl = gsap.timeline({
@@ -112,7 +116,7 @@ export function ServicesB() {
                     {g.label}
                   </span>
                   <h3 id={`svb-${s.code}`} className="font-display text-[clamp(1.4rem,2.6vw,2.4rem)] font-semibold leading-[1.05] tracking-[-0.025em] [text-wrap:balance]">
-                    {s.name}
+                    {g.title ?? s.name}
                   </h3>
                   <p className="max-w-[46ch] text-[14px] leading-[1.45] text-mist/75 max-md:line-clamp-2 md:text-[16px] [@media(min-width:768px)_and_(max-height:720px)]:hidden md:leading-relaxed">{s.line}</p>
                   <a
@@ -125,7 +129,7 @@ export function ServicesB() {
                   </a>
 
                   {/* The rest of the group as small thumbnails. */}
-                  <div className="mt-auto flex flex-col gap-2 border-t border-mist/10 pt-3 md:mt-4 md:gap-3 md:pt-5">
+                  {g.more.length > 0 && <div className="mt-auto flex flex-col gap-2 border-t border-mist/10 pt-3 md:mt-4 md:gap-3 md:pt-5">
                     <span className="text-[12px] text-steel md:text-[13px]">Also in this group</span>
                     <ul className={`grid gap-2 md:gap-3 ${g.more.length > 2 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                       {g.more.map((m) => (
@@ -142,7 +146,7 @@ export function ServicesB() {
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </div>}
                 </div>
               </article>
             </li>

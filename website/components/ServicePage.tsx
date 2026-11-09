@@ -103,7 +103,7 @@ export function ServicePage({ index }: { index: number }) {
           <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <h2 className="font-display text-[clamp(1.8rem,3vw,2.8rem)] font-extrabold leading-[1] tracking-[-0.03em]">Often taken with</h2>
-              <a href={homeHref('services')} className="font-mono text-[12px] uppercase text-mist/70 hover:text-signal">All ten services →</a>
+              <a href={homeHref('services')} className="font-mono text-[12px] uppercase text-mist/70 hover:text-signal">All services →</a>
             </div>
             <ul className="grid grid-cols-1 gap-5 sm:grid-cols-3 md:gap-6">
               {p.related.map((ri) => {

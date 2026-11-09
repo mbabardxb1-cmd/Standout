@@ -32,7 +32,7 @@ export function PackagesPage() {
 
   return (
     <PageShell>
-      <PageHero crumbs={[{ label: 'Packages' }]} eyebrow="Packages" title="Pick how far you want to stand out." line="Three packages, from the essentials for a strong stand to the whole journey before, during and after the show. Or build your own from the ten services." />
+      <PageHero crumbs={[{ label: 'Packages' }]} eyebrow="Packages" title="Pick how far you want to stand out." line="Three packages, from the essentials for a strong stand to the whole journey before, during and after the show. Or build your own from our services." />
 
       <section className="px-5 pb-20 md:px-10 md:pb-28">
         <ul className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">

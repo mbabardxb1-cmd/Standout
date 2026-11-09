@@ -62,6 +62,11 @@ export const SERVICES: Service[] = [
     line: 'Follow-up sequences that reach every contact while the conversation is still fresh.',
     deliverables: ['Segmented follow-up sequences', 'Content matched to each lead’s interest', 'Reporting on replies, meetings and pipeline'],
   },
+  {
+    code: 'S/11', name: 'Content Creation', short: 'Content', phase: 'Pre · At · Post',
+    line: 'Social content, reels and posts that build interest before the show and keep it going after.',
+    deliverables: ['Social content plan for the show', 'Reels, stories and posts shot on the day', 'Copy and captions for LinkedIn and Instagram'],
+  },
 ]
 
 export type Package = { id: string; name: string; line: string; includes: number[]; tag?: string }
@@ -70,7 +75,7 @@ export type Package = { id: string; name: string; line: string; includes: number
 export const PACKAGES: Package[] = [
   { id: 'essentials', name: 'Essentials', line: 'Foundations for visual impact on-site.', includes: [0, 1, 5] },
   { id: 'marketing', name: 'Marketing', line: 'Full-funnel visitor attraction before and after the show.', includes: [0, 1, 2, 3, 4, 5, 9] },
-  { id: '360', name: '360', line: 'End to end: every service, joined up for full dominance.', includes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], tag: 'Everything, joined up' },
+  { id: '360', name: '360', line: 'End to end: every service, joined up for full dominance.', includes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], tag: 'Everything, joined up' },
 ]
 
 /** Contact details. */

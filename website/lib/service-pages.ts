@@ -143,6 +143,19 @@ export const SERVICE_PAGES: ServicePage[] = [
     stat: { value: '48 h', label: 'to first follow-up' },
     related: [8, 2, 4],
   },
+  {
+    slug: 'content-creation',
+    eyebrow: 'Before, during and after the show',
+    headline: 'Content that keeps your show talking.',
+    intro: 'A content plan for the show and a team to shoot it: teaser posts before doors open, reels and stories from the stand on the day, and a run of posts afterwards that keeps the conversation going.',
+    steps: [
+      { icon: 'list', title: 'Plan', line: 'What to post before, during and after the show, and where, agreed with you up front.' },
+      { icon: 'camera', title: 'Shoot', line: 'Reels, stories and stills captured on the stand, cut and posted while the show is still on.' },
+      { icon: 'send', title: 'Publish', line: 'Captions and copy for LinkedIn and Instagram, scheduled so the momentum carries past the show.' },
+    ],
+    stat: { value: 'Same day', label: 'reels from the stand' },
+    related: [7, 3, 9],
+  },
 ]
 
 export const pageFor = (slug: string) => {
