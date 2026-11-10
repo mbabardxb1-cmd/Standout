@@ -44,7 +44,7 @@ export const SERVICE_PHOTO_FIT: Record<number, { fit: 'contain'; bg: string }> =
 export const SERVICE_PHOTO_POS: Record<number, string> = {
   4: '40% 50%', // landing mockup: keep the laptop and phone, lose some of the stand on the right
   9: '78% 50%', // nurture mockup: keep the laptop, phone and journey panel, lose the plant on the left
-  10: '45% 50%', // content creation: keep the raised phones in the middle of the crowd
+  10: '20% 50%', // content creation: keep the creator and her phone in frame
 }
 export const servicePhotoStyle = (i: number): React.CSSProperties =>
   SERVICE_PHOTO_FIT[i] ? { objectFit: 'contain', backgroundColor: SERVICE_PHOTO_FIT[i].bg } : SERVICE_PHOTO_POS[i] ? { objectPosition: SERVICE_PHOTO_POS[i] } : {}
