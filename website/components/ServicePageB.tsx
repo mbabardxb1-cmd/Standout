@@ -15,9 +15,18 @@ import { ScrollLock } from '@/components/ui/Sheet'
 import { CtaPanel } from '@/components/CtaPanel'
 
 /** Extra pictures for the option B layout, per service slug. Falls back to the service photograph. */
-const VISUALS: Record<string, { side: string; band: { src: string; line: string }; gallery: { src: string; client: string; show: string }[] }> = {
+const VISUALS: Record<string, { side: string; items: string[]; band: { src: string; line: string }; gallery: { src: string; client: string; show: string }[] }> = {
   'photography-video': {
     side: PHOTOS.contentCreation,
+    /** One picture per "What's included" item, in order (option C). */
+    items: [
+      '/photos/included/videographers.webp',
+      PHOTOS.photographer,
+      '/photos/included/interviews.webp',
+      PHOTOS.contentCreation,
+      '/photos/included/highlight-film.webp',
+      '/photos/included/same-day.webp',
+    ],
     band: { src: '/photos/band-crowd-filming.webp', line: 'Captured as it happens, posted while it still matters.' },
     gallery: [
       { src: '/video/3db-yas-poster.webp', client: '3DB', show: 'F1 The Movie · Abu Dhabi premiere' },
@@ -32,8 +41,9 @@ const VISUALS: Record<string, { side: string; band: { src: string; line: string 
  * Service page, option B: a full-bleed photograph with only the heading, then open, editorial
  * sections with pictures (no card grids): intro, what's included beside a tall photo, a
  * full-width image band, the process as a timeline, work from the floor, related services.
+ * Option C is the same page with a picture, title and description for every included item.
  */
-export function ServicePageB({ index }: { index: number }) {
+export function ServicePageB({ index, variant = 'b' }: { index: number; variant?: 'b' | 'c' }) {
   const s = SERVICES[index]
   const p = SERVICE_PAGES[index]
   const v = VISUALS[p.slug]
@@ -93,7 +103,32 @@ export function ServicePageB({ index }: { index: number }) {
           </div>
         </section>
 
-        {/* What's included: a tall photograph beside an open, numbered list. */}
+        {/* What's included, option C: every item with its own picture, title and description. */}
+        {variant === 'c' && v ? (
+          <section className="px-5 pb-20 md:px-10 md:pb-32">
+            <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12">
+              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between md:gap-10">
+                <h2 className="font-display text-[clamp(2rem,3.4vw,3.2rem)] font-extrabold leading-[1] tracking-[-0.03em]">What’s included</h2>
+                <p className="max-w-[46ch] text-[16px] leading-relaxed text-steel">{s.line}</p>
+              </div>
+              <ol className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+                {p.included.map((it, i) => (
+                  <li key={it.title} className="group flex flex-col gap-5">
+                    <span className="relative block aspect-[4/3] w-full overflow-hidden rounded-[24px]">
+                      <img src={v.items[i] ?? SERVICE_PHOTOS[index]} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]" />
+                      <span className="absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-hall/80 font-display text-[14px] font-bold text-signal backdrop-blur-sm">{String(i + 1).padStart(2, '0')}</span>
+                    </span>
+                    <div className="flex flex-col gap-2 pr-4">
+                      <h3 className="font-display text-[clamp(1.3rem,1.8vw,1.6rem)] font-bold leading-tight tracking-[-0.02em]">{it.title}</h3>
+                      <p className="text-[16px] leading-relaxed text-mist/70">{it.line}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        ) : (
+          // What's included, option B: a tall photograph beside an open, numbered list.
         <section className="px-5 pb-20 md:px-10 md:pb-32">
           <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
             <div className="md:col-span-5">
@@ -117,6 +152,7 @@ export function ServicePageB({ index }: { index: number }) {
             </div>
           </div>
         </section>
+        )}
 
         {/* Image band: one photograph edge to edge, with a single line over it. */}
         {v && (
