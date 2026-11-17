@@ -13,7 +13,7 @@ export const HOW_ICONS = {
 }
 
 /** 3D service renders (S/01 to S/10), transparent WebP. */
-const R = ['stand', 'print', 'email', 'ads', 'landing', 'screen', 'hosts', 'camera', 'capture', 'nurture', 'screen']
+const R = ['stand', 'print', 'email', 'ads', 'landing', 'screen', 'hosts', 'camera', 'capture', 'nurture']
 export const SERVICE_RENDERS: string[] = R.map((n) => `/icons/services/svc-${n}.webp`)
 
 /** Exhibition photography for homepage option 3 (client-supplied). */
@@ -42,14 +42,13 @@ export const SERVICE_PHOTO_FIT: Record<number, { fit: 'contain'; bg: string }> =
 /** Inline styles for a service photograph: cover by default, contain on its own ground when listed above. */
 /** Where a cropped photograph is anchored (index into SERVICES); default is the centre. */
 export const SERVICE_PHOTO_POS: Record<number, string> = {
-  4: '40% 50%', // landing mockup: keep the laptop and phone, lose some of the stand on the right
+  4: '20% 50%', // social media: keep the creator and her phone in frame
   9: '78% 50%', // nurture mockup: keep the laptop, phone and journey panel, lose the plant on the left
-  10: '20% 50%', // content creation: keep the creator and her phone in frame
 }
 export const servicePhotoStyle = (i: number): React.CSSProperties =>
   SERVICE_PHOTO_FIT[i] ? { objectFit: 'contain', backgroundColor: SERVICE_PHOTO_FIT[i].bg } : SERVICE_PHOTO_POS[i] ? { objectPosition: SERVICE_PHOTO_POS[i] } : {}
 /** One photograph per service (S/01 to S/10). */
-export const SERVICE_PHOTOS: string[] = [PHOTOS.shellScheme, PHOTOS.print, PHOTOS.email, PHOTOS.ads, PHOTOS.landing, PHOTOS.presentation, PHOTOS.hostess, PHOTOS.eventVideography, PHOTOS.leadCapture, PHOTOS.nurture, PHOTOS.contentCreation]
+export const SERVICE_PHOTOS: string[] = [PHOTOS.shellScheme, PHOTOS.print, PHOTOS.email, PHOTOS.ads, PHOTOS.contentCreation, PHOTOS.presentation, PHOTOS.hostess, PHOTOS.eventVideography, PHOTOS.leadCapture, PHOTOS.nurture]
 
 /** Case-study films and posters (public/video). `portrait` films are 9:16 social clips; the rest are landscape. */
 export const CASE_STUDY_FILMS = [

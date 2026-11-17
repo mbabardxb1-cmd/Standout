@@ -24,15 +24,14 @@ const VISIBLE = 2 // how many cards show beneath the current one
  */
 const GROUPS: { label: string; lead: number; more: number[]; title?: string }[] = [
   { label: 'Your stand', lead: 0, more: [1, 5, 6] }, // Stand graphics; collateral, decks, hosts
-  { label: 'Your audience', lead: 3, more: [2, 4] }, // Digital ads; email, landing pages
+  { label: 'Your audience', lead: 2, more: [3] }, // Email & LinkedIn; digital ads
+  { label: 'Your content', lead: 7, more: [4] }, // Photo, video & content; social media management
   { label: 'Your leads', lead: 8, more: [9] }, // Lead capture; nurture
-  { label: 'Your content', lead: 10, more: [] }, // Content creation
-  { label: 'Your coverage', lead: 7, more: [], title: 'Photo and Event Videography' },
 ]
 
 /**
  * Services option B: the same deck as option A (cards stack, the top one hinges up and lifts
- * away as you scroll), but with five grouped cards instead of one per service.
+ * away as you scroll), but with four grouped cards instead of one per service.
  */
 export function ServicesB() {
   const section = useRef<HTMLElement>(null)

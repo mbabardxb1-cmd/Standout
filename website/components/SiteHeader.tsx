@@ -17,8 +17,8 @@ const PAGES: { label: string; page: PageName }[] = [
 
 /** The services grouped by when they happen, for the dropdown. */
 const GROUPS = [
-  { title: 'Before the show', ids: [0, 1, 2, 3, 4] },
-  { title: 'At the show', ids: [5, 6, 7, 10, 8] },
+  { title: 'Before the show', ids: [0, 1, 2, 3] },
+  { title: 'At the show', ids: [5, 6, 7, 4, 8] },
   { title: 'After the show', ids: [9] },
 ]
 

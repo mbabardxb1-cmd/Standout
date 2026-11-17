@@ -6,6 +6,7 @@ import { SERVICE_PAGES } from '@/lib/service-pages'
 import { useUI } from '@/lib/ui-store'
 import { serviceHref } from '@/lib/routes'
 import { PageShell, PageHero } from '@/components/PageShell'
+import { PHOTOS } from '@/lib/assets'
 
 const FAQ = [
   { q: 'Can we swap a service in a package?', a: 'Yes. Packages are the combinations most exhibitors ask for, not fixed bundles. Start from the nearest one and add or remove services; the quote follows.' },
@@ -32,7 +33,7 @@ export function PackagesPage() {
 
   return (
     <PageShell>
-      <PageHero crumbs={[{ label: 'Packages' }]} eyebrow="Packages" title="Pick how far you want to stand out." line="Three packages, from the essentials for a strong stand to the whole journey before, during and after the show. Or build your own from our services." />
+      <PageHero photo={PHOTOS.shellScheme} crumbs={[{ label: 'Packages' }]} title="Pick how far you want to stand out." line="Three packages, from the essentials for a strong stand to the whole journey before, during and after the show. Or build your own from our services." />
 
       <section className="px-5 pb-20 md:px-10 md:pb-28">
         <ul className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">

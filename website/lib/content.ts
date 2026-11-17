@@ -13,59 +13,55 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
-    code: 'S/01', name: 'Stand Graphics & Branding', short: 'Stand graphics', phase: 'Pre',
+    code: 'S/01', name: 'Stand Graphics & Branding', short: 'Stand graphics', phase: 'Before the show',
     line: 'Artwork that turns a standard shell scheme into a branded space visitors notice from the aisle.',
     deliverables: ['Panel, fascia and counter artwork to the organiser’s spec', 'Print-ready files checked against the exhibitor manual', 'Your brand applied consistently across every surface'],
   },
   {
-    code: 'S/02', name: 'Marketing Collateral', short: 'Collateral', phase: 'Pre',
-    line: 'Take-away print that keeps selling after the visitor has left your stand.',
-    deliverables: ['Brochures, flyers and product sheets', 'Business cards and handouts', 'Print management and delivery to the venue'],
+    code: 'S/02', name: 'Marketing Collateral', short: 'Collateral', phase: 'Before the show',
+    line: 'Portfolio books, brochures, company profiles and cards that keep selling after the visitor has left your stand.',
+    deliverables: ['Portfolio books and company profiles', 'Brochures and flyers', '3D stand printing', 'Visiting cards'],
   },
   {
-    code: 'S/03', name: 'Targeted Email Marketing', short: 'Email', phase: 'Pre',
-    line: 'Invitations to registered visitors, so the right people plan a stop at your stand.',
-    deliverables: ['Campaign plan built around the show dates', 'Invitation and reminder emails', 'Open, click and booking reporting'],
+    code: 'S/03', name: 'Email & LinkedIn Marketing System', short: 'Email & LinkedIn', phase: 'Before the show',
+    line: 'We find the right people, reach them by email and LinkedIn, and book meetings at your stand before the show opens.',
+    deliverables: ['Targeted contact list built for your show', 'Email and LinkedIn outreach sequences', 'Meetings booked into your stand diary'],
   },
   {
-    code: 'S/04', name: 'Digital Advertising', short: 'Digital ads', phase: 'Pre',
-    line: 'Paid campaigns aimed at attendees and your target accounts in the weeks before the show.',
-    deliverables: ['Audience targeting by role, sector and location', 'Ad creative in every required format', 'Weekly budget and performance reporting'],
+    code: 'S/04', name: 'Digital Advertising', short: 'Digital ads', phase: 'Before the show',
+    line: 'Organic posts, social ads and Google ads that tell your market you’re exhibiting and bring them to the stand.',
+    deliverables: ['Organic posting before the event', 'Social media ads', 'Google ads', 'Event advertising'],
   },
   {
-    code: 'S/05', name: 'Exhibition Landing Pages', short: 'Landing pages', phase: 'Pre · At',
-    line: 'A home for your show: meeting bookings, launches and the offer behind every QR code.',
-    deliverables: ['Responsive landing page or microsite', 'Meeting booking and enquiry forms', 'Tracking for every channel and QR code'],
+    code: 'S/05', name: 'Social Media Management', short: 'Social media', phase: 'At the show',
+    line: 'Your channels run live from the show floor: stories, posts and replies while the event is happening.',
+    deliverables: ['Live posting and stories from the stand', 'Community management and replies', 'Content calendar before, during and after the show'],
   },
   {
-    code: 'S/06', name: 'Digital Decks', short: 'Digital decks', phase: 'At',
+    code: 'S/06', name: 'Digital Decks', short: 'Digital decks', phase: 'At the show',
     line: 'Screen content and sales decks that hold attention on the stand and in meetings.',
     deliverables: ['Looping stand-screen content', 'Sales and product presentations', 'Versions for screens, tablets and print'],
   },
   {
-    code: 'S/07', name: 'Exhibition Hosts and Hostesses', short: 'Hostesses', phase: 'At',
-    line: 'Trained, briefed hosts who welcome, register and engage every visitor, so your team can focus on the leads that matter.',
-    deliverables: ['Professional hosts, hostesses and brand ambassadors', 'Visitor welcoming, registration and badge scanning', 'On-stand engagement, staffing and coordination for every show day'],
+    code: 'S/07', name: 'Exhibition Hosts and Hostesses', short: 'Hostesses', phase: 'At the show',
+    line: 'Hosts trained on your product and industry, briefed on your goals, who engage visitors and capture their details.',
+    deliverables: ['Hosts trained on your product and industry', 'Briefed on your objectives and goals', 'Visitor engagement and data capture'],
   },
   {
-    code: 'S/08', name: 'Photography and Event Videography', short: 'Photo & video', phase: 'At',
-    line: 'Coverage of your stand, team and key moments, ready to use while the show is still on.',
-    deliverables: ['Stand, product and team photography', 'Highlight video and social clips', 'Same-day selects for live posting'],
+    code: 'S/08', name: 'Photography, Video & Content Creation', short: 'Photo, video & content', phase: 'At the show',
+    cardName: 'Photography, Video & Content',
+    line: 'Professional photo and video, interviews on the stand and mobile content for social media, all from one crew.',
+    deliverables: ['Professional videographers and photographers', 'Interviews at the event', 'Mobile-shot content for social media'],
   },
   {
-    code: 'S/09', name: 'Lead Capture Systems', short: 'Lead capture', phase: 'At · Post',
+    code: 'S/09', name: 'Lead Capture Systems', short: 'Lead capture', phase: 'At the show',
     line: 'Capture every conversation on a tablet, with the details your sales team actually needs.',
     deliverables: ['Custom capture form on tablet or phone', 'Lead qualification questions', 'Clean export to your CRM after the show'],
   },
   {
-    code: 'S/10', name: 'Post-Event Lead Nurturing', short: 'Nurture', phase: 'Post',
+    code: 'S/10', name: 'Post-Event Lead Nurturing', short: 'Nurture', phase: 'After the show',
     line: 'Follow-up sequences that reach every contact while the conversation is still fresh.',
     deliverables: ['Segmented follow-up sequences', 'Content matched to each lead’s interest', 'Reporting on replies, meetings and pipeline'],
-  },
-  {
-    code: 'S/11', name: 'Content Creation', short: 'Content', phase: 'Pre · At · Post',
-    line: 'Social content, reels and posts that build interest before the show and keep it going after.',
-    deliverables: ['Social content plan for the show', 'Reels, stories and posts shot on the day', 'Copy and captions for LinkedIn and Instagram'],
   },
 ]
 
@@ -75,7 +71,7 @@ export type Package = { id: string; name: string; line: string; includes: number
 export const PACKAGES: Package[] = [
   { id: 'essentials', name: 'Essentials', line: 'Foundations for visual impact on-site.', includes: [0, 1, 5] },
   { id: 'marketing', name: 'Marketing', line: 'Full-funnel visitor attraction before and after the show.', includes: [0, 1, 2, 3, 4, 5, 9] },
-  { id: '360', name: '360', line: 'End to end: every service, joined up for full dominance.', includes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], tag: 'Everything, joined up' },
+  { id: '360', name: '360', line: 'End to end: every service, joined up for full dominance.', includes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], tag: 'Everything, joined up' },
 ]
 
 /** Contact details. */

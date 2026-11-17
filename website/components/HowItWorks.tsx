@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 export type Step = { icon: StepIconName; title: string; line: string }
 
-/** Three steps as cards: icon tile, step number, title and line, revealed one after another as the section arrives. */
+/** The steps as cards: icon tile, step number, title and line, revealed one after another as the section arrives. */
 export function HowItWorks({ steps, lead }: { steps: Step[]; lead?: string }) {
   const root = useRef<HTMLElement>(null)
 
@@ -42,7 +42,7 @@ export function HowItWorks({ steps, lead }: { steps: Step[]; lead?: string }) {
 
         <div className="relative">
 
-          <ol className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+          <ol className={`grid grid-cols-1 gap-4 md:gap-6 ${steps.length === 4 ? 'md:grid-cols-2 xl:grid-cols-4' : 'md:grid-cols-3'}`}>
             {steps.map((st, i) => (
               <li key={st.title} className="hiw-card group relative flex flex-col gap-6 border border-mist/12 bg-night/50 p-6 transition-colors duration-300 hover:border-signal/70 md:items-center md:px-8 md:pt-8 md:text-center">
                 <div className="flex items-center justify-between gap-4 md:flex-col md:gap-5">
