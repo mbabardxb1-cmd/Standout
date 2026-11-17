@@ -65,7 +65,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
       <SiteHeader home={false} />
       <main id="top" className="relative">
         {/* Header: the photograph edge to edge, and only the heading. */}
-        <section className="relative isolate flex min-h-[420px] items-end overflow-hidden md:min-h-[60svh]">
+        <section className="relative isolate flex min-h-[462px] items-end overflow-hidden md:min-h-[66svh]">
           <img src={SERVICE_PHOTOS[index]} style={servicePhotoStyle(index)} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
           <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-hall via-hall/30 to-hall/40" aria-hidden="true" />
           <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-hall/70 via-transparent to-transparent" aria-hidden="true" />
