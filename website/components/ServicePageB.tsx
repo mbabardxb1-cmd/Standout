@@ -48,9 +48,6 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
   const p = SERVICE_PAGES[index]
   const v = VISUALS[p.slug]
   const openContact = useUI((st) => st.openContact)
-  const selected = useUI((st) => st.selected)
-  const toggle = useUI((st) => st.toggleService)
-  const inShow = selected.includes(index)
 
   useEffect(() => {
     dimField('service-page', true)
@@ -87,11 +84,8 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
               <p className="text-[18px] leading-relaxed text-mist/80 md:text-[20px]">{p.intro}</p>
               <div className="flex flex-wrap gap-3">
                 <button type="button" onClick={openContact} data-cursor="let's talk" className="cta-glow inline-flex h-13 items-center gap-2.5 rounded-full bg-signal px-7 text-[15px] font-semibold text-night transition-transform hover:-translate-y-0.5">
-                  Talk to us about this
+                  Contact us
                   <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full border border-night/50 text-[13px]">→</span>
-                </button>
-                <button type="button" onClick={() => toggle(index)} aria-pressed={inShow} className={`inline-flex h-13 items-center gap-2 rounded-full border px-6 text-[15px] font-medium transition-colors ${inShow ? 'border-mist bg-mist text-night' : 'border-mist/20 text-mist hover:border-signal hover:text-signal'}`}>
-                  {inShow ? 'In your show' : 'Add to my show'} <span aria-hidden="true">{inShow ? '✓' : '+'}</span>
                 </button>
               </div>
             </div>
