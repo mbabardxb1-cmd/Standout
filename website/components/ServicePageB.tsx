@@ -79,17 +79,12 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
           <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
             <div className="flex flex-col gap-5 md:col-span-6">
               <p className="flex items-center gap-2 text-[14px] font-medium text-signal">
-                <span className="h-px w-8 bg-signal" aria-hidden="true" />
                 {p.eyebrow}
               </p>
               <h2 className="font-display text-[clamp(2rem,3.8vw,3.6rem)] font-bold leading-[1.02] tracking-[-0.03em] [text-wrap:balance]">{p.headline}</h2>
             </div>
             <div className="flex flex-col gap-8 md:col-span-6 md:pt-10">
               <p className="text-[18px] leading-relaxed text-mist/80 md:text-[20px]">{p.intro}</p>
-              <div className="flex items-baseline gap-4 border-t border-mist/12 pt-6">
-                <span className="font-display text-[clamp(2.2rem,3.4vw,3.2rem)] font-extrabold leading-none tracking-[-0.03em]">{p.stat.value}</span>
-                <span className="text-[15px] text-steel">{p.stat.label}</span>
-              </div>
               <div className="flex flex-wrap gap-3">
                 <button type="button" onClick={openContact} data-cursor="let's talk" className="cta-glow inline-flex h-13 items-center gap-2.5 rounded-full bg-signal px-7 text-[15px] font-semibold text-night transition-transform hover:-translate-y-0.5">
                   Talk to us about this
