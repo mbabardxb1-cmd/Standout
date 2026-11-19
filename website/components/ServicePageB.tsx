@@ -22,7 +22,7 @@ const VISUALS: Record<string, { side: string; items: string[]; steps: string[]; 
     /** One picture per "What's included" item, in order (option C). */
     items: [
       '/photos/included/videographers.webp',
-      PHOTOS.photographer,
+      PHOTOS.eventPhotography,
       '/photos/included/interviews.webp',
       PHOTOS.contentCreation,
       '/photos/included/highlight-film.webp',
@@ -30,7 +30,7 @@ const VISUALS: Record<string, { side: string; items: string[]; steps: string[]; 
     ],
     /** One picture per process step, in order. */
     steps: [
-      PHOTOS.photographer,
+      '/photos/included/guests-group.webp',
       '/photos/included/interviews.webp',
       '/photos/included/videographers.webp',
       '/photos/included/same-day.webp',

@@ -22,7 +22,7 @@ import dashboard from '@/public/photos/dashboard.webp'
 import handshake from '@/public/photos/handshake.webp'
 import leadCapture from '@/public/photos/lead-capture.webp'
 import photoAds from '@/public/photos/ads.webp'
-import photographer from '@/public/photos/photographer.webp'
+import eventPhotography from '@/public/photos/included/event-photography.webp'
 import hostess from '@/public/photos/hostess.webp'
 import photoLanding from '@/public/photos/landing.webp'
 import presentation from '@/public/photos/presentation.webp'
@@ -30,8 +30,8 @@ import printPhoto from '@/public/photos/print.webp'
 import emailPhoto from '@/public/photos/email.webp'
 import nurturePhoto from '@/public/photos/nurture.webp'
 import serviceBand from '@/public/photos/service-band.webp'
-export const PHOTOS = { stand: photoStand, shellScheme, dashboard, handshake, leadCapture, ads: photoAds, photographer, hostess, landing: photoLanding, presentation, print: printPhoto, email: emailPhoto, nurture: nurturePhoto, serviceBand }
-export const SERVICE_PHOTOS: string[] = [shellScheme, printPhoto, emailPhoto, photoAds, photoLanding, presentation, hostess, photographer, leadCapture, nurturePhoto]
+export const PHOTOS = { stand: photoStand, shellScheme, dashboard, handshake, leadCapture, ads: photoAds, eventPhotography, hostess, landing: photoLanding, presentation, print: printPhoto, email: emailPhoto, nurture: nurturePhoto, serviceBand }
+export const SERVICE_PHOTOS: string[] = [shellScheme, printPhoto, emailPhoto, photoAds, photoLanding, presentation, hostess, eventPhotography, leadCapture, nurturePhoto]
 export { WORDMARK, WORDMARK_COLOUR }
 export const HOW_ICONS = { prepare, promote, perform, profit }
 export const SERVICE_RENDERS: string[] = [stand, print, email, ads, landing, screen, hostsIcon, camera, capture, nurture]

@@ -20,7 +20,7 @@ export type O2Service = {
   items: string[]
   photo: string
   /** Key into PHOTOS (lib/assets.ts). */
-  src: 'stand' | 'ads' | 'hostess' | 'photographer' | 'leadCapture' | 'dashboard' | 'shellScheme' | 'print' | 'email' | 'handshake'
+  src: 'stand' | 'ads' | 'hostess' | 'eventPhotography' | 'leadCapture' | 'dashboard' | 'shellScheme' | 'print' | 'email' | 'handshake'
 }
 
 export const O2_SERVICES: O2Service[] = [
@@ -58,7 +58,7 @@ export const O2_SERVICES: O2Service[] = [
       'Three days on the floor should keep working for months. We capture the stand, the people and the product so your sales and social channels have real content from the show.',
     items: ['Professional exhibition photography', 'Event videography', 'Product photography', 'Brand coverage', 'Social media content creation'],
     photo: 'Photographer shooting a product demonstration on a busy stand',
-    src: 'photographer',
+    src: 'eventPhotography',
   },
   {
     n: '05',

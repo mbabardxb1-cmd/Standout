@@ -24,7 +24,7 @@ export const PHOTOS = {
   handshake: '/photos/handshake.webp',
   leadCapture: '/photos/lead-capture.webp',
   ads: '/photos/ads.webp',
-  photographer: '/photos/photographer.webp',
+  eventPhotography: '/photos/included/event-photography.webp',
   hostess: '/photos/hostess.webp',
   landing: '/photos/landing.webp',
   presentation: '/photos/presentation.webp',
