@@ -87,7 +87,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
         {/* Header: the photograph edge to edge, and only the heading. */}
         <section className="relative isolate flex min-h-[508px] items-end overflow-hidden md:min-h-[73svh]">
           <img src={SERVICE_PHOTOS[index]} style={servicePhotoStyle(index)} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-hall via-hall/30 to-hall/40" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-hall/75 via-hall/15 to-hall/40" aria-hidden="true" />
           <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-hall/70 via-transparent to-transparent" aria-hidden="true" />
           <div className="mx-auto w-full max-w-[1440px] px-5 pb-14 md:px-10 md:pb-20">
             <h1 className="max-w-[20ch] font-display text-[clamp(2rem,5.2vw,5.25rem)] font-bold leading-[0.92] tracking-[-0.035em] [text-wrap:balance]">{s.name}</h1>
@@ -95,7 +95,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
         </section>
 
         {/* Intro: the promise on the left, the detail and actions on the right. */}
-        <section className="px-5 py-20 md:px-10 md:py-32">
+        <section className="px-5 pb-20 pt-12 md:px-10 md:pb-32 md:pt-16">
           <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
             <div className="flex flex-col gap-5 md:col-span-6">
               <p className="flex items-center gap-2 text-[14px] font-medium text-signal">
