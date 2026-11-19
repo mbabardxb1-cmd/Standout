@@ -1,7 +1,8 @@
 'use client'
 
 /* eslint-disable @next/next/no-img-element */
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { StepIcon } from '@/components/ui/StepIcon'
 import { CONTACT, SERVICES } from '@/lib/content'
 import { SERVICE_PAGES } from '@/lib/service-pages'
 import { PHOTOS, SERVICE_PHOTOS, servicePhotoStyle } from '@/lib/assets'
@@ -15,7 +16,7 @@ import { ScrollLock } from '@/components/ui/Sheet'
 import { CtaPanel } from '@/components/CtaPanel'
 
 /** Extra pictures for the option B layout, per service slug. Falls back to the service photograph. */
-const VISUALS: Record<string, { side: string; items: string[]; band: { src: string; line: string }; gallery: { src: string; client: string; show: string }[] }> = {
+const VISUALS: Record<string, { side: string; items: string[]; steps: string[]; band: { src: string; line: string }; gallery: { src: string; client: string; show: string }[] }> = {
   'photography-video': {
     side: PHOTOS.contentCreation,
     /** One picture per "What's included" item, in order (option C). */
@@ -26,6 +27,14 @@ const VISUALS: Record<string, { side: string; items: string[]; band: { src: stri
       PHOTOS.contentCreation,
       '/photos/included/highlight-film.webp',
       '/photos/included/same-day.webp',
+    ],
+    /** One picture per process step, in order. */
+    steps: [
+      PHOTOS.photographer,
+      '/photos/included/interviews.webp',
+      '/photos/included/videographers.webp',
+      '/photos/included/same-day.webp',
+      '/photos/included/highlight-film.webp',
     ],
     band: { src: '/photos/band-crowd-filming.webp', line: 'Captured as it happens, posted while it still matters.' },
     gallery: [
@@ -49,6 +58,20 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
   const v = VISUALS[p.slug]
   const openContact = useUI((st) => st.openContact)
 
+  // How it works: the step nearest the middle of the screen is the active one.
+  const [activeStep, setActiveStep] = useState(0)
+  const stepRefs = useRef<(HTMLLIElement | null)[]>([])
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActiveStep(Number((e.target as HTMLElement).dataset.step))
+      },
+      { rootMargin: '-45% 0px -45% 0px' },
+    )
+    stepRefs.current.forEach((el) => el && io.observe(el))
+    return () => io.disconnect()
+  }, [index])
+
   useEffect(() => {
     dimField('service-page', true)
     const lenis = useUI.getState().lenis
@@ -62,7 +85,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
       <SiteHeader home={false} />
       <main id="top" className="relative">
         {/* Header: the photograph edge to edge, and only the heading. */}
-        <section className="relative isolate flex min-h-[462px] items-end overflow-hidden md:min-h-[66svh]">
+        <section className="relative isolate flex min-h-[508px] items-end overflow-hidden md:min-h-[73svh]">
           <img src={SERVICE_PHOTOS[index]} style={servicePhotoStyle(index)} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
           <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-hall via-hall/30 to-hall/40" aria-hidden="true" />
           <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-hall/70 via-transparent to-transparent" aria-hidden="true" />
@@ -105,7 +128,6 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
                   <li key={it.title} className="group flex flex-col gap-5">
                     <span className="relative block aspect-[4/3] w-full overflow-hidden rounded-[24px]">
                       <img src={v.items[i] ?? SERVICE_PHOTOS[index]} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]" />
-                      <span className="absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-hall/80 font-display text-[14px] font-bold text-signal backdrop-blur-sm">{String(i + 1).padStart(2, '0')}</span>
                     </span>
                     <div className="flex flex-col gap-2 pr-4">
                       <h3 className="font-display text-[clamp(1.3rem,1.8vw,1.6rem)] font-bold leading-tight tracking-[-0.02em]">{it.title}</h3>
@@ -154,26 +176,51 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
           </section>
         )}
 
-        {/* Process: a timeline, one step after another along a line. */}
+        {/* Process: a photograph that stays in view on the left and changes with the step; the steps
+            on the right light up one by one as you scroll, along a line that fills in orange. */}
         <section className="px-5 py-20 md:px-10 md:py-32">
-          <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-14">
-            <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.2rem)] font-extrabold leading-[1] tracking-[-0.03em]">How it works</h2>
-              <p className="max-w-[44ch] text-[16px] leading-relaxed text-steel">{p.steps.length} steps from brief to delivery, with one team across all of them.</p>
+          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+            <div className="md:col-span-6">
+              <div className="flex flex-col gap-8 md:sticky md:top-28">
+                <div className="flex flex-col gap-3">
+                  <h2 className="font-display text-[clamp(2rem,3.4vw,3.2rem)] font-extrabold leading-[1] tracking-[-0.03em]">How it works</h2>
+                  <p className="max-w-[44ch] text-[16px] leading-relaxed text-steel">From brief to delivery, with one team across all of it.</p>
+                </div>
+                {v && (
+                  <div className="relative hidden aspect-[4/3] w-full overflow-hidden rounded-[28px] md:block">
+                    {v.steps.map((src, i) => (
+                      <img key={src + i} src={src} alt="" className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out ${i === activeStep ? 'scale-100 opacity-100' : 'scale-[1.04] opacity-0'}`} />
+                    ))}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-hall/70 via-transparent to-transparent" aria-hidden="true" />
+                    <p className="absolute bottom-6 left-6 right-6 font-display text-[clamp(1.4rem,2vw,1.9rem)] font-bold leading-tight tracking-[-0.02em]">{p.steps[activeStep]?.title}</p>
+                  </div>
+                )}
+              </div>
             </div>
-            <ol className={`relative grid grid-cols-1 gap-10 md:gap-8 ${p.steps.length >= 5 ? 'md:grid-cols-5' : 'md:grid-cols-4'}`}>
-              {/* The line the steps sit on: down the left on phones, across the top on wider screens. */}
-              <span className="pointer-events-none absolute bottom-2 left-[11px] top-2 w-px bg-mist/15 md:bottom-auto md:left-0 md:right-0 md:top-[11px] md:h-px md:w-auto" aria-hidden="true" />
-              {p.steps.map((st, i) => (
-                <li key={st.title} className="relative flex flex-col gap-3 pl-10 md:pl-0 md:pt-12">
-                  <span className="absolute left-0 top-0 grid h-[23px] w-[23px] place-items-center rounded-full border border-signal bg-hall" aria-hidden="true">
-                    <span className="h-2 w-2 rounded-full bg-signal" />
-                  </span>
-                  <span className="text-[13px] font-medium text-signal">Step {String(i + 1).padStart(2, '0')}</span>
-                  <h3 className="font-display text-[21px] font-bold leading-tight tracking-[-0.02em]">{st.title}</h3>
-                  <p className="text-[15px] leading-relaxed text-mist/70">{st.line}</p>
-                </li>
-              ))}
+            <ol className="relative flex flex-col md:col-span-6">
+              {/* The line: grey all the way down, orange up to the active step. */}
+              <span className="pointer-events-none absolute bottom-0 left-[23px] top-0 w-px bg-mist/15" aria-hidden="true" />
+              <span className="pointer-events-none absolute left-[23px] top-0 w-px bg-signal transition-all duration-700 ease-out" style={{ height: `${((activeStep + 1) / p.steps.length) * 100}%` }} aria-hidden="true" />
+              {p.steps.map((st, i) => {
+                const on = i <= activeStep
+                const current = i === activeStep
+                return (
+                  <li key={st.title} ref={(el) => { stepRefs.current[i] = el }} data-step={i} className="relative flex gap-6 pb-14 last:pb-0 md:min-h-[38svh] md:pb-0">
+                    <span className={`relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-colors duration-500 ${current ? 'border-signal bg-signal text-night' : on ? 'border-signal bg-hall text-signal' : 'border-mist/20 bg-hall text-mist/50'}`}>
+                      <StepIcon name={st.icon} className="h-5 w-5" />
+                    </span>
+                    <div className={`flex flex-col gap-3 pt-2 transition-opacity duration-500 ${current ? 'opacity-100' : 'md:opacity-45'}`}>
+                      <h3 className="font-display text-[clamp(1.5rem,2.4vw,2.2rem)] font-bold leading-tight tracking-[-0.02em]">{st.title}</h3>
+                      <p className="max-w-[44ch] text-[16px] leading-relaxed text-mist/75 md:text-[17px]">{st.line}</p>
+                      {v?.steps[i] && (
+                        <span className="relative mt-3 block aspect-[16/10] w-full overflow-hidden rounded-[20px] md:hidden">
+                          <img src={v.steps[i]} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                        </span>
+                      )}
+                    </div>
+                  </li>
+                )
+              })}
             </ol>
           </div>
         </section>
