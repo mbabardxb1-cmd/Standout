@@ -90,7 +90,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
           <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-hall/75 via-hall/15 to-hall/40" aria-hidden="true" />
           <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-hall/70 via-transparent to-transparent" aria-hidden="true" />
           <div className="mx-auto w-full max-w-[1440px] px-5 pb-14 md:px-10 md:pb-20">
-            <h1 className="max-w-[20ch] font-display text-[clamp(2rem,5.2vw,5.25rem)] font-bold leading-[0.92] tracking-[-0.035em] [text-wrap:balance]">{s.name}</h1>
+            <h1 className="max-w-[20ch] font-display text-[clamp(1.5rem,3.9vw,3.95rem)] font-bold leading-[0.92] tracking-[-0.035em] [text-wrap:balance]">{s.name}</h1>
           </div>
         </section>
 
