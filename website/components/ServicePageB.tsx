@@ -36,7 +36,7 @@ const VISUALS: Record<string, { side: string; items: string[]; steps: string[]; 
       '/photos/included/on-stage.webp',
       '/photos/included/highlight-film.webp',
     ],
-    band: { src: '/photos/band-crowd-filming.webp', line: 'Captured as it happens, posted while it still matters.' },
+    band: { src: '/photos/band-exhibition.webp', line: 'Captured as it happens, posted while it still matters.' },
     gallery: [
       { src: '/video/3db-yas-poster.webp', client: '3DB', show: 'F1 The Movie · Abu Dhabi premiere' },
       { src: '/video/sobha-atlantis-poster.webp', client: 'Sobha', show: 'Atlantis, Dubai' },
@@ -136,10 +136,6 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
                   </li>
                 ))}
               </ol>
-              <button type="button" onClick={openContact} data-cursor="let's talk" className="cta-glow inline-flex h-13 w-fit items-center gap-2.5 rounded-full bg-signal px-7 text-[15px] font-semibold text-night transition-transform hover:-translate-y-0.5">
-                Contact us
-                <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full border border-night/50 text-[13px]">→</span>
-              </button>
             </div>
           </section>
         ) : (
@@ -175,7 +171,13 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
             <img src={v.band.src} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
             <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-hall/90 via-hall/50 to-hall/10" aria-hidden="true" />
             <div className="mx-auto w-full max-w-[1440px] px-5 md:px-10">
-              <p className="max-w-[18ch] font-display text-[clamp(2rem,4.6vw,4.4rem)] font-bold leading-[1] tracking-[-0.03em] [text-wrap:balance]">{v.band.line}</p>
+              <div className="flex flex-col items-start gap-8">
+                <p className="max-w-[18ch] font-display text-[clamp(2rem,4.6vw,4.4rem)] font-bold leading-[1] tracking-[-0.03em] [text-wrap:balance]">{v.band.line}</p>
+                <button type="button" onClick={openContact} data-cursor="let's talk" className="cta-glow inline-flex h-13 items-center gap-2.5 rounded-full bg-signal px-7 text-[15px] font-semibold text-night transition-transform hover:-translate-y-0.5">
+                  Contact us
+                  <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full border border-night/50 text-[13px]">→</span>
+                </button>
+              </div>
             </div>
           </section>
         )}
