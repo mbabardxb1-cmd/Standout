@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import { StepIcon } from '@/components/ui/StepIcon'
 import { CONTACT, SERVICES } from '@/lib/content'
 import { SERVICE_PAGES } from '@/lib/service-pages'
-import { PHOTOS, SERVICE_PHOTOS, servicePhotoStyle } from '@/lib/assets'
+import { SERVICE_PHOTOS, servicePhotoStyle } from '@/lib/assets'
 import { useUI } from '@/lib/ui-store'
 import { dimField } from '@/lib/field-dim'
 import { homeHref, pageHref, serviceHref } from '@/lib/routes'
@@ -14,37 +14,7 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { ContactSheet } from '@/components/overlays/ContactSheet'
 import { ScrollLock } from '@/components/ui/Sheet'
 import { CtaPanel } from '@/components/CtaPanel'
-
-/** Extra pictures for the option B layout, per service slug. Falls back to the service photograph. */
-const VISUALS: Record<string, { side: string; items: string[]; steps: string[]; band: { src: string; line: string }; gallery: { src: string; client: string; show: string }[] }> = {
-  'photography-video': {
-    side: PHOTOS.contentCreation,
-    /** One picture per "What's included" item, in order (option C). */
-    items: [
-      '/photos/included/videographers.webp',
-      PHOTOS.eventPhotography,
-      '/photos/included/interviews.webp',
-      PHOTOS.contentCreation,
-      '/photos/included/highlight-film.webp',
-      '/photos/included/same-day-edit.webp',
-    ],
-    /** One picture per process step, in order. */
-    steps: [
-      '/photos/included/guests-group.webp',
-      '/photos/included/interviews.webp',
-      '/photos/included/videographers.webp',
-      '/photos/included/same-day-edit.webp',
-      '/photos/included/highlight-film.webp',
-    ],
-    band: { src: '/photos/band-exhibition.webp', line: 'Captured as it happens, posted while it still matters.' },
-    gallery: [
-      { src: '/video/3db-yas-poster.webp', client: '3DB', show: 'F1 The Movie · Abu Dhabi premiere' },
-      { src: '/video/sobha-atlantis-poster.webp', client: 'Sobha', show: 'Atlantis, Dubai' },
-      { src: '/video/dragon-ferrari-poster.webp', client: 'Dragon Racing', show: 'Ferrari experience · Abu Dhabi' },
-      { src: '/video/dpworld-tour-poster.webp', client: 'DP World', show: 'DP World Tour' },
-    ],
-  },
-}
+import { SERVICE_VISUALS as VISUALS } from '@/lib/service-visuals'
 
 /**
  * Service page, option B: a full-bleed photograph with only the heading, then open, editorial
@@ -232,7 +202,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
         </section>
 
         {/* Work from the floor: real films, as pictures. */}
-        {v && (
+        {v?.gallery && (
           <section className="px-5 pb-20 md:px-10 md:pb-32">
             <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10">
               <div className="flex flex-wrap items-end justify-between gap-4">
@@ -294,7 +264,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
           <div className="mx-auto w-full max-w-[1440px]">
             <CtaPanel
               label={`Plan your show · ${s.short}`}
-              title={<>Put photo, video and content on your next show.</>}
+              title={<>{v?.cta ?? `Put ${s.short.toLowerCase()} on your next show.`}</>}
               line="Tell us the show and the date. We’ll come back with a plan."
               secondary={
                 <a href={CONTACT.phoneHref} className="inline-flex h-13 items-center rounded-full border border-mist/20 px-6 text-[15px] font-medium text-mist transition-colors hover:border-signal hover:text-signal">

@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { SERVICES } from '@/lib/content'
 import { SERVICE_PAGES, pageFor } from '@/lib/service-pages'
 import { ServicePage } from '@/components/ServicePage'
+import { ServicePageB } from '@/components/ServicePageB'
+import { SERVICE_VISUALS } from '@/lib/service-visuals'
 
 export function generateStaticParams() {
   return SERVICE_PAGES.map((p) => ({ slug: p.slug }))
@@ -20,5 +22,6 @@ export default async function Service({ params }: { params: Promise<{ slug: stri
   const { slug } = await params
   const hit = pageFor(slug)
   if (!hit) notFound()
-  return <ServicePage index={hit.index} />
+  // Services with option C pictures use the option C layout; the rest keep the original one.
+  return SERVICE_VISUALS[slug] ? <ServicePageB index={hit.index} variant="c" /> : <ServicePage index={hit.index} />
 }

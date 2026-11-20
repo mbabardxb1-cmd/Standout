@@ -3,9 +3,10 @@ import { notFound } from 'next/navigation'
 import { SERVICES } from '@/lib/content'
 import { pageFor } from '@/lib/service-pages'
 import { ServicePageB } from '@/components/ServicePageB'
+import { SERVICE_VISUALS } from '@/lib/service-visuals'
 
 /** Option C of the service page layout (option B with a picture for every included item), built for one service so far, to compare with the current one. */
-const OPTION_C = ['photography-video']
+const OPTION_C = Object.keys(SERVICE_VISUALS)
 
 export const dynamicParams = false
 
