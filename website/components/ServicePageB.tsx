@@ -26,14 +26,14 @@ const VISUALS: Record<string, { side: string; items: string[]; steps: string[]; 
       '/photos/included/interviews.webp',
       PHOTOS.contentCreation,
       '/photos/included/highlight-film.webp',
-      '/photos/included/same-day.webp',
+      '/photos/included/on-stage.webp',
     ],
     /** One picture per process step, in order. */
     steps: [
       '/photos/included/guests-group.webp',
       '/photos/included/interviews.webp',
       '/photos/included/videographers.webp',
-      '/photos/included/same-day.webp',
+      '/photos/included/on-stage.webp',
       '/photos/included/highlight-film.webp',
     ],
     band: { src: '/photos/band-crowd-filming.webp', line: 'Captured as it happens, posted while it still matters.' },
@@ -136,6 +136,10 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
                   </li>
                 ))}
               </ol>
+              <button type="button" onClick={openContact} data-cursor="let's talk" className="cta-glow inline-flex h-13 w-fit items-center gap-2.5 rounded-full bg-signal px-7 text-[15px] font-semibold text-night transition-transform hover:-translate-y-0.5">
+                Contact us
+                <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full border border-night/50 text-[13px]">→</span>
+              </button>
             </div>
           </section>
         ) : (
