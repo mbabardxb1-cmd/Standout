@@ -26,14 +26,14 @@ const VISUALS: Record<string, { side: string; items: string[]; steps: string[]; 
       '/photos/included/interviews.webp',
       PHOTOS.contentCreation,
       '/photos/included/highlight-film.webp',
-      '/photos/included/same-day-stand.webp',
+      '/photos/included/same-day-edit.webp',
     ],
     /** One picture per process step, in order. */
     steps: [
       '/photos/included/guests-group.webp',
       '/photos/included/interviews.webp',
       '/photos/included/videographers.webp',
-      '/photos/included/same-day-stand.webp',
+      '/photos/included/same-day-edit.webp',
       '/photos/included/highlight-film.webp',
     ],
     band: { src: '/photos/band-exhibition.webp', line: 'Captured as it happens, posted while it still matters.' },
