@@ -52,7 +52,6 @@ export const SERVICE_PAGES: ServicePage[] = [
       { title: 'Portfolio book', line: 'A printed showcase of your best work and projects, made for the meeting table.' },
       { title: 'Brochures and flyers', line: 'Product and service brochures, flyers and one-page sheets to hand out on the stand.' },
       { title: 'Company profile', line: 'Who you are, what you do and who you do it for, in a profile buyers keep.' },
-      { title: '3D stand printing', line: 'Large-format and dimensional printing for the stand: 3D lettering, logos and display pieces.' },
       { title: 'Visiting cards', line: 'Cards for everyone on the stand, matched to the rest of the collateral.' },
       { title: 'Print management', line: 'Stock, finish, quantities and delivery to the venue handled for you.' },
     ],

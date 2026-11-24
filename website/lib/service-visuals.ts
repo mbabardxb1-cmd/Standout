@@ -52,8 +52,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       PHOTOS.print, // Portfolio book
       '/photos/included/brochure-reader.webp', // Brochures and flyers
       '/photos/included/company-profile.webp', // Company profile
-      '/photos/included/stand-3d-letters.webp', // 3D stand printing
-      PHOTOS.handshake, // Visiting cards (placeholder until a card photo is supplied)
+      '/photos/included/visiting-cards.webp', // Visiting cards
       PHOTOS.shellScheme, // Print management
     ],
     steps: [
