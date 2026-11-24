@@ -32,8 +32,11 @@ export function ClientLogos() {
   )
   return (
     <section aria-label="Our clients" className="relative px-5 py-14 md:px-10 md:py-20">
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 md:gap-10">
-        <p className="text-center text-[14px] font-medium text-steel">Trusted by brands across the region</p>
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 md:gap-14">
+        <div className="flex flex-col items-center gap-3 text-center">
+          <p className="text-[14px] font-medium text-steel">Our clients</p>
+          <h2 className="max-w-[22ch] font-display text-[clamp(1.7rem,3vw,2.8rem)] font-extrabold leading-[1] tracking-[-0.03em] [text-wrap:balance]">Trusted by brands across the region.</h2>
+        </div>
         <div className="client-strip group relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
           {row(0)}
           {row(1)}
