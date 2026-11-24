@@ -169,7 +169,6 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/frames/m-talk.webp',
       '/photos/frames/m-guests.webp',
       PHOTOS.leadCapture,
-      PHOTOS.handshake,
     ],
     steps: [
       PHOTOS.hostess,
@@ -177,7 +176,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/frames/m-talk.webp',
       '/photos/frames/m-guests.webp',
       PHOTOS.leadCapture,
-      PHOTOS.handshake,
+      '/photos/frames/dr-talk.webp',
     ],
     band: { src: '/photos/included/stand-floor-idex.webp', line: 'Every visitor welcomed by someone who knows your product.' },
     cta: 'Put trained hosts and hostesses on your next show.',

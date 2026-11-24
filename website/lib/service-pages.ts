@@ -165,7 +165,6 @@ export const SERVICE_PAGES: ServicePage[] = [
       { title: 'Objectives and goals', line: 'Every host knows what a good visitor looks like and what the show has to achieve.' },
       { title: 'Visitor engagement', line: 'Hosts stop visitors in the aisle, start conversations and bring the right ones to your team.' },
       { title: 'Data capture', line: 'Visitor details captured on tablets or badge scanners, with notes on what they want.' },
-      { title: 'Daily debrief', line: 'A short report at the end of each day: visitors met, leads captured, what worked.' },
     ],
     steps: [
       { icon: 'users', title: 'Select the team', line: 'Hosts and hostesses chosen for your brand, your audience and the languages you need.' },
@@ -173,7 +172,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       { icon: 'target', title: 'Brief on goals', line: 'Your objectives for the show, who to look for, and how to hand a hot lead to your team.' },
       { icon: 'pin', title: 'Engage on the stand', line: 'Welcome, conversation and demos for every hour the hall is open.' },
       { icon: 'scan', title: 'Capture data', line: 'Every conversation recorded with the visitor’s details and interests.' },
-      { icon: 'send', title: 'Hand over', line: 'Leads passed to your team each day, with a debrief at the end of the show.' },
+      { icon: 'send', title: 'Hand over', line: 'Leads passed to your team each day, ready for the follow-up.' },
     ],
     goals: {
       title: 'What your hosts are there to do',
