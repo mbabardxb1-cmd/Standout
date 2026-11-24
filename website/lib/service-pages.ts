@@ -9,6 +9,8 @@ export type ServicePage = {
   eyebrow: string
   headline: string
   intro: string
+  /** A second paragraph under the intro. */
+  introMore?: string
   /** What the service includes, shown as cards. */
   included: Item[]
   /** The process, in order. Any number of steps. */
@@ -26,6 +28,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'Before the show',
     headline: 'A shell scheme that reads like a flagship stand.',
     intro: 'Most exhibitors get a white shell scheme and a fascia. We design the panel, counter and screen artwork that turns that box into a branded space visitors notice from the aisle, built to the organiser’s spec so it goes up right first time.',
+    introMore: 'We start from your stand plan and the exhibitor manual, then design every surface as one system: back walls, fascia, counters, screens and the floor. You see each panel in place before anything is printed, and we deliver files your contractor can produce without questions.',
     included: [
       { title: 'Wall and panel graphics', line: 'Full-height panels designed around your stand plan, readable from the aisle.' },
       { title: 'Fascia and header boards', line: 'Your name and message where visitors look first, sized to the organiser’s spec.' },
@@ -48,6 +51,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'Before the show',
     headline: 'Print that keeps selling after the visitor has left.',
     intro: 'Everything a visitor takes away from your stand, designed in the same system as the stand itself: from the portfolio book on the meeting table to the card in their pocket.',
+    introMore: 'From the portfolio book on the meeting table to the visiting card in a buyer’s pocket, every piece is written and designed in the same look as your stand. We plan what each item is for, who takes it and when, so nothing gets printed that visitors leave behind.',
     included: [
       { title: 'Portfolio book', line: 'A printed showcase of your best work and projects, made for the meeting table.' },
       { title: 'Brochures and flyers', line: 'Product and service brochures, flyers and one-page sheets to hand out on the stand.' },
@@ -70,6 +74,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'Before the show',
     headline: 'Meetings booked at your stand before the doors open.',
     intro: 'A complete outreach system for the weeks before the show. We find the people you want to meet, set up the email and LinkedIn channels to reach them, run the campaign, and book their visit into your stand diary.',
+    introMore: 'We research the companies and decision makers you want to meet, then run personalised email and LinkedIn sequences in the weeks before the show. Every reply is followed up, and every interested contact gets a time slot at your stand, so your team arrives with a diary that is already full.',
     included: [
       { title: 'Data scraping and research', line: 'We build a list of the decision makers you want to meet: exhibitors, registered visitors and your target accounts.' },
       { title: 'Verified contact list', line: 'Names, roles, companies, emails and LinkedIn profiles, cleaned and checked before anything is sent.' },
@@ -94,6 +99,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'Before the show',
     headline: 'Tell your market you’re exhibiting, and bring them to the stand.',
     intro: 'A campaign across organic social, paid social and Google in the weeks before the show, so the people you want to meet know where to find you and have a reason to come.',
+    introMore: 'Your own channels announce the show, the stand number and what you’re launching, while paid social and Google campaigns reach attendees and target accounts you can’t reach by email. We build the creative in your stand’s look and move budget each week to whatever brings people to the stand.',
     included: [
       { title: 'Organic posting before the event', line: 'A run of posts on your own channels announcing the show, the stand number and what you’re launching.' },
       { title: 'Social ads', line: 'LinkedIn, Instagram and Facebook ads aimed at attendees and your target accounts.' },
@@ -117,6 +123,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'At the show',
     headline: 'Your channels live from the show floor.',
     intro: 'A social media manager on the stand, posting while the event is happening: stories, posts and reels that show your market what they’re missing and bring them to the stand.',
+    introMore: 'We agree the plan before the show, then post from the floor every day: the launches, the visitors and the moments your market should see. Stories and reels are cut on the spot, and a recap after the show keeps your channels working once the hall has closed.',
     included: [
       { title: 'Content calendar', line: 'What goes out before, during and after the show, on every channel, agreed in advance.' },
       { title: 'Live posting', line: 'Posts and stories from the stand every show day, while the moment is still happening.' },
@@ -137,6 +144,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'At the show',
     headline: 'Screen content that holds attention on a busy floor.',
     intro: 'Looping stand screens, content for video walls and tablet versions for the aisle, all made to be understood in seconds and consistent with the stand.',
+    introMore: 'Most visitors give a stand screen a few seconds from the aisle. We design looping content that tells your story in that time, without sound, and versions for tablets and video walls, all tested on your hardware before the doors open.',
     included: [
       { title: 'Stand-screen loops', line: 'Motion content for the stand screens, made to work without sound.' },
       { title: 'Tablet versions', line: 'Interactive versions for tablets in the aisle and at the counter.' },
@@ -156,6 +164,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'At the show',
     headline: 'Hosts who know your product, and know what you came for.',
     intro: 'Hosts and hostesses trained on your product and your industry, briefed on the objectives and goals of your show, who engage every visitor and capture their details for your sales team.',
+    introMore: 'Before the show, every host learns your products, your industry and what a good visitor looks like for you. On the stand they welcome people, start the right conversations and record each visitor’s details, so your specialists spend their time on the leads that matter.',
     included: [
       { title: 'Product training', line: 'Hosts learn your products and services, so they can answer questions and qualify visitors.' },
       { title: 'Industry briefing', line: 'The language of your sector and the visitors you’ll meet, so conversations sound informed.' },
@@ -188,6 +197,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'At the show',
     headline: 'Your show, filmed, photographed and posted.',
     intro: 'One crew for everything you need to capture at the event: professional videographers and photographers, interviews on the stand, and mobile content shot for social media, edited fast so it’s live while the show is still on.',
+    introMore: 'Our photographers, videographers and a mobile creator work the stand together. They cover the stand, the team, the launches and interviews with your leaders and clients, and edit on the day so your channels have real content while the show is still on.',
     included: [
       { title: 'Professional videographers', line: 'Cinema-quality cameras and crew for your event film and highlight video.' },
       { title: 'Event photography', line: 'The stand, the team, the product, the visitors and the key moments.' },
@@ -211,6 +221,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'At the show',
     headline: 'No conversation leaves the stand unrecorded.',
     intro: 'A capture system on tablets and phones at the stand: badge scan, the qualification questions your sales team chose, and a clean export the moment the show closes.',
+    introMore: 'Paper cards and business cards get lost. We set up a capture form with the questions your sales team chose, on tablets and phones at the stand, so every conversation is recorded with the visitor’s details, interests and notes, and exported cleanly the moment the show closes.',
     included: [
       { title: 'Custom capture form', line: 'A form built around the questions your sales team actually needs answered.' },
       { title: 'Badge scanning', line: 'Scan the visitor’s badge or enter details in seconds on any tablet or phone.' },
@@ -233,6 +244,7 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'After the show',
     headline: 'Follow up while the conversation is still warm.',
     intro: 'Segmented email and LinkedIn sequences that reach every contact within days of the show, matched to what they were interested in, and kept going until the lead is ready for your sales team.',
+    introMore: 'Most leads go cold in the week after a show. We group your contacts by what they were interested in, send a personal first email within 48 hours, and keep the conversation going with content matched to each group over the following weeks.',
     included: [
       { title: 'Lead segmentation', line: 'Leads grouped by interest, stage and what was promised on the stand.' },
       { title: 'First follow-up in 48 hours', line: 'A personal thank-you with what they asked for, while they still remember you.' },
