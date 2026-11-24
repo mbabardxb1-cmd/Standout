@@ -75,7 +75,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
             </div>
             <div className="flex flex-col gap-8 md:col-span-6 md:pt-10">
               <p className="text-[18px] leading-relaxed text-mist/80 md:text-[20px]">{p.intro}</p>
-              {p.introMore && <p className="text-[16px] leading-relaxed text-mist/65 md:text-[17px]">{p.introMore}</p>}
+              {p.introMore && <p className="text-[18px] leading-relaxed text-mist/80 md:text-[20px]">{p.introMore}</p>}
               <div className="flex flex-wrap gap-3">
                 <button type="button" onClick={openContact} data-cursor="let's talk" className="cta-glow inline-flex h-13 items-center gap-2.5 rounded-full bg-signal px-7 text-[15px] font-semibold text-night transition-transform hover:-translate-y-0.5">
                   Contact us
