@@ -115,8 +115,8 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     side: PHOTOS.contentCreation,
     items: [
       PHOTOS.contentCreation,
-      PHOTOS.ads,
       PHOTOS.landing,
+      PHOTOS.ads,
       '/photos/included/stand-floor-idex.webp',
       '/photos/frames/m-screens.webp',
       PHOTOS.dashboard,
