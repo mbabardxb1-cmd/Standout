@@ -135,6 +135,23 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
         </section>
         )}
 
+        {/* Goals, where the service has them: open columns, no boxes. */}
+        {p.goals && (
+          <section className="px-5 pb-20 md:px-10 md:pb-32">
+            <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,3.2rem)] font-extrabold leading-[1.02] tracking-[-0.03em] [text-wrap:balance] md:col-span-4">{p.goals.title}</h2>
+              <ul className="grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2 md:col-span-8">
+                {p.goals.items.map((g) => (
+                  <li key={g.title} className="flex flex-col gap-2 border-t border-mist/12 pt-6">
+                    <h3 className="font-display text-[clamp(1.25rem,1.8vw,1.6rem)] font-bold leading-tight tracking-[-0.02em]">{g.title}</h3>
+                    <p className="text-[16px] leading-relaxed text-mist/70">{g.line}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
         {/* Image band: one photograph edge to edge, with a single line over it. */}
         {v && (
           <section className="relative isolate flex min-h-[420px] items-center overflow-hidden md:min-h-[70svh]">
