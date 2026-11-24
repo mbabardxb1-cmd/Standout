@@ -149,16 +149,13 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     side: '/photos/frames/m-screens.webp',
     items: [
       '/photos/frames/m-screens.webp',
-      '/photos/frames/dp-room.webp',
-      '/photos/frames/dp-lounge.webp',
       PHOTOS.presentation,
       '/photos/frames/sob-entrance.webp',
-      '/photos/included/company-profile.webp',
     ],
     steps: [
-      '/photos/frames/dp-lounge.webp',
+      '/photos/frames/m-screens.webp',
       PHOTOS.presentation,
-      '/photos/frames/dp-room.webp',
+      '/photos/frames/sob-entrance.webp',
       '/photos/frames/m-screens.webp',
     ],
     band: { src: PHOTOS.eventVideography, line: 'Understood in seconds, from across the aisle.' },

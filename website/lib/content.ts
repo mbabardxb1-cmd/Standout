@@ -39,8 +39,8 @@ export const SERVICES: Service[] = [
   },
   {
     code: 'S/06', name: 'Digital Decks', short: 'Digital decks', phase: 'At the show',
-    line: 'Screen content and sales decks that hold attention on the stand and in meetings.',
-    deliverables: ['Looping stand-screen content', 'Sales and product presentations', 'Versions for screens, tablets and print'],
+    line: 'Screen content that holds attention on the stand, from the stand screens to the video wall.',
+    deliverables: ['Looping stand-screen content', 'Tablet versions for the aisle and counter', 'Content for video walls and LED screens'],
   },
   {
     code: 'S/07', name: 'Exhibition Hosts and Hostesses', short: 'Hostesses', phase: 'At the show',
