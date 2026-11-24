@@ -204,3 +204,9 @@ html.intro-wait { overflow: hidden; }
 }
 .cta-glow { box-shadow: 0 0 0 1px rgb(255 90 31 / 0.5), 0 10px 40px -8px rgb(255 90 31 / 0.65); }
 @media (prefers-reduced-motion: reduce) { .cta-panel-glow { animation: none; } }
+
+/* Inner-page header option C: the headline and the line beneath rise in once on load. */
+@keyframes hero-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.hero-rise { animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-rise-late { animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+@media (prefers-reduced-motion: reduce) { .hero-rise, .hero-rise-late { animation: none; } }
