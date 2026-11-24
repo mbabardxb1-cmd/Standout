@@ -82,7 +82,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/included/counter-wrap.webp', // Counter and furniture wraps
       '/photos/included/screen-artwork.webp', // Screen artwork
       '/photos/included/floor-wayfinding.webp', // Floor and wayfinding
-      PHOTOS.print,
+      '/photos/included/print-ready-stand.webp', // Print-ready files
     ],
     steps: [
       PHOTOS.aboutFloor,
