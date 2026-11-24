@@ -96,7 +96,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
   'email-linkedin-marketing': {
     side: PHOTOS.dashboard,
     items: [
-      PHOTOS.dashboard,
+      '/photos/included/data-research.webp', // Data scraping and research
       PHOTOS.landing,
       PHOTOS.email,
       PHOTOS.ads,
