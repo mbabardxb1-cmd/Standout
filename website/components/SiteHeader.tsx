@@ -2,7 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef, useState } from 'react'
-import { scrollToId, useUI } from '@/lib/ui-store'
+import { useUI } from '@/lib/ui-store'
 import { WORDMARK } from '@/lib/assets'
 import { SERVICES } from '@/lib/content'
 import { SERVICE_PAGES } from '@/lib/service-pages'
@@ -75,15 +75,6 @@ export function SiteHeader({ home = true }: { home?: boolean } = {}) {
     window.addEventListener('scroll', on, { passive: true })
     return () => window.removeEventListener('scroll', on)
   }, [])
-
-  const allServicesHref = home ? '#services' : homeHref('services')
-  const onAllServices = (e: React.MouseEvent) => {
-    setSvcOpen(false)
-    setMenu(false)
-    if (!home) return
-    e.preventDefault()
-    scrollToId('services')
-  }
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 pt-[env(safe-area-inset-top,0px)]">
@@ -211,9 +202,6 @@ export function SiteHeader({ home = true }: { home?: boolean } = {}) {
                     </a>
                   </li>
                 ))}
-                <li>
-                  <a href={allServicesHref} onClick={onAllServices} className="inline-block py-2 font-mono text-[12px] uppercase text-signal">All services →</a>
-                </li>
               </ul>
             </div>
           </li>
