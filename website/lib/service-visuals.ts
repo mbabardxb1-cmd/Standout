@@ -81,7 +81,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/included/fascia-header.webp', // Fascia and header boards
       '/photos/included/counter-wrap.webp', // Counter and furniture wraps
       '/photos/included/screen-artwork.webp', // Screen artwork
-      '/photos/included/floor-wayfinding.webp', // Floor and wayfinding
+      '/photos/included/floor-wayfinding.webp', // Hanging banners
       '/photos/included/print-ready-stand.webp', // Print-ready files
     ],
     steps: [

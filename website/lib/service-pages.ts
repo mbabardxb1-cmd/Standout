@@ -28,13 +28,13 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'Before the show',
     headline: 'A shell scheme that reads like a flagship stand.',
     intro: 'Most exhibitors get a white shell scheme and a fascia. We design the panel, counter and screen artwork that turns that box into a branded space visitors notice from the aisle, built to the organiser’s spec so it goes up right first time.',
-    introMore: 'We start from your stand plan and the exhibitor manual, then design every surface as one system: back walls, fascia, counters, screens and the floor. You see each panel in place before anything is printed, and we deliver files your contractor can produce without questions.',
+    introMore: 'We start from your stand plan and the exhibitor manual, then design every surface as one system: back walls, fascia, counters, screens and hanging banners. You see each panel in place before anything is printed, and we deliver files your contractor can produce without questions.',
     included: [
       { title: 'Wall and panel graphics', line: 'Full-height panels designed around your stand plan, readable from the aisle.' },
       { title: 'Fascia and header boards', line: 'Your name and message where visitors look first, sized to the organiser’s spec.' },
       { title: 'Counter and furniture wraps', line: 'Reception counters, plinths and display units in the same brand system.' },
       { title: 'Screen artwork', line: 'Static and looping screen graphics that match the walls around them.' },
-      { title: 'Floor and wayfinding', line: 'Floor graphics, directional signs and hanging banners where the hall allows.' },
+      { title: 'Hanging banners', line: 'Overhead banners above your stand, so visitors can find you from across the hall.' },
       { title: 'Print-ready files', line: 'Every file checked against the exhibitor manual and delivered to your contractor.' },
     ],
     steps: [
