@@ -34,8 +34,8 @@ export const SERVICES: Service[] = [
   },
   {
     code: 'S/05', name: 'Social Media Management', short: 'Social media', phase: 'At the show',
-    line: 'Your channels run live from the show floor: stories, posts and replies while the event is happening.',
-    deliverables: ['Live posting and stories from the stand', 'Community management and replies', 'Content calendar before, during and after the show'],
+    line: 'Your channels run live from the show floor: stories, posts and reels while the event is happening.',
+    deliverables: ['Live posting and stories from the stand', 'Stories and reels cut on the spot', 'Content calendar before, during and after the show'],
   },
   {
     code: 'S/06', name: 'Digital Decks', short: 'Digital decks', phase: 'At the show',
