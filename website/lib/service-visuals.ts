@@ -73,7 +73,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
   'stand-graphics': {
     side: PHOTOS.shellScheme,
     items: [
-      PHOTOS.shellScheme,
+      '/photos/included/wall-panel-graphics.webp', // Wall and panel graphics
       '/photos/frames/m-panel.webp',
       PHOTOS.stand,
       '/photos/frames/m-screens.webp',
