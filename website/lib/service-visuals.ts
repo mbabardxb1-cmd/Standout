@@ -62,7 +62,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/included/brochure-reader.webp', // Brochures and flyers
       '/photos/included/company-profile.webp', // Company profile
       '/photos/included/stand-3d-letters.webp', // 3D stand printing
-      '/photos/included/visiting-cards.webp', // Visiting cards
+      '/photos/included/business-cards.webp', // Business cards
     ],
     steps: [
       '/photos/included/brochure-reader.webp',

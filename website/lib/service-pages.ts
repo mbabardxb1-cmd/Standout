@@ -51,13 +51,13 @@ export const SERVICE_PAGES: ServicePage[] = [
     eyebrow: 'Before the show',
     headline: 'Print that keeps selling after the visitor has left.',
     intro: 'Everything a visitor takes away from your stand, designed in the same system as the stand itself: from the portfolio book on the meeting table to the card in their pocket.',
-    introMore: 'From the portfolio book on the meeting table to the visiting card in a buyer’s pocket, every piece is written and designed in the same look as your stand. We plan what each item is for, who takes it and when, so nothing gets printed that visitors leave behind.',
+    introMore: 'From the portfolio book on the meeting table to the business card in a buyer’s pocket, every piece is written and designed in the same look as your stand. We plan what each item is for, who takes it and when, so nothing gets printed that visitors leave behind.',
     included: [
       { title: 'Portfolio book', line: 'A printed showcase of your best work and projects, made for the meeting table.' },
       { title: 'Brochures and flyers', line: 'Product and service brochures, flyers and one-page sheets to hand out on the stand.' },
       { title: 'Company profile', line: 'Who you are, what you do and who you do it for, in a profile buyers keep.' },
       { title: '3D stand printing', line: 'Large-format and dimensional printing for the stand: 3D lettering, logos and display pieces.' },
-      { title: 'Visiting cards', line: 'Cards for everyone on the stand, matched to the rest of the collateral.' },
+      { title: 'Business cards', line: 'Cards for everyone on the stand, matched to the rest of the collateral.' },
     ],
     steps: [
       { icon: 'bag', title: 'What visitors take away', line: 'We decide what each piece is for: a quick take-away, a profile for the buyer, a portfolio for the meeting.' },
@@ -66,7 +66,7 @@ export const SERVICE_PAGES: ServicePage[] = [
       { icon: 'fileCheck', title: 'Proofs and samples', line: 'Digital proofs for every piece and printed samples where the finish matters.' },
       { icon: 'truck', title: 'Print and delivery to the venue', line: 'Printed to the right quantities and delivered to the hall before doors open.' },
     ],
-    stat: { value: '1 system', label: 'from fascia to visiting card' },
+    stat: { value: '1 system', label: 'from fascia to business card' },
     related: [0, 5, 6],
   },
   {

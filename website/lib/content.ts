@@ -20,7 +20,7 @@ export const SERVICES: Service[] = [
   {
     code: 'S/02', name: 'Marketing Collateral', short: 'Collateral', phase: 'Before the show',
     line: 'Portfolio books, brochures, company profiles and cards that keep selling after the visitor has left your stand.',
-    deliverables: ['Portfolio books and company profiles', 'Brochures and flyers', '3D stand printing', 'Visiting cards'],
+    deliverables: ['Portfolio books and company profiles', 'Brochures and flyers', '3D stand printing', 'Business cards'],
   },
   {
     code: 'S/03', name: 'Email & LinkedIn Marketing System', short: 'Email & LinkedIn', phase: 'Before the show',
