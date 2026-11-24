@@ -36,7 +36,7 @@ export function Film({ c, i, playingIndex, onPlay }: { c: CaseStudy; i: number; 
           ref={video}
           src={f.video}
           poster={f.poster}
-          preload="metadata"
+          preload="none"
           playsInline
           loop
           controls={playing}
