@@ -71,19 +71,19 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Put marketing collateral on your next show.',
   },
   'stand-graphics': {
-    side: PHOTOS.shellScheme,
+    side: '/photos/stand-mockup/full.webp',
     items: [
-      PHOTOS.shellScheme,
-      '/photos/frames/m-panel.webp',
-      PHOTOS.stand,
-      '/photos/frames/m-screens.webp',
-      '/photos/included/stand-floor-idex.webp',
-      PHOTOS.print,
+      '/photos/stand-mockup/back-wall.webp', // Wall and panel graphics
+      '/photos/stand-mockup/fascia.webp', // Fascia and header boards
+      '/photos/stand-mockup/counter.webp', // Counter and furniture wraps
+      '/photos/stand-mockup/screen.webp', // Screen artwork
+      '/photos/stand-mockup/floor-wayfinding.webp', // Floor and wayfinding
+      PHOTOS.print, // Print-ready files
     ],
     steps: [
       PHOTOS.aboutFloor,
-      '/photos/included/stand-3d-letters.webp',
-      PHOTOS.shellScheme,
+      '/photos/stand-mockup/full.webp',
+      '/photos/stand-mockup/back-wall.webp',
       PHOTOS.stand,
     ],
     band: { src: '/photos/frames/sob-entrance.webp', line: 'Branded from the aisle to the counter.' },
