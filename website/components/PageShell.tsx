@@ -4,7 +4,6 @@
 import { createContext, useContext, useEffect, type CSSProperties, type ReactNode } from 'react'
 import { PHOTOS } from '@/lib/assets'
 import { Breadcrumbs, type Crumb } from '@/components/Breadcrumbs'
-import { HeroLift } from '@/components/HeroLift'
 import { useUI } from '@/lib/ui-store'
 import { dimField } from '@/lib/field-dim'
 import { SiteHeader } from '@/components/SiteHeader'
@@ -81,10 +80,6 @@ export function PageHero({ eyebrow, title, line, crumbs, wide = false, children 
     <section className="relative overflow-hidden px-5 pb-12 pt-32 md:px-10 md:pb-16 md:pt-44">
       <img src={PHOTOS.serviceBand} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-hall/40 via-transparent to-hall/60" aria-hidden="true" />
-      {/* A quiet echo of the homepage: the stand of nodes with one orange node lifted out. */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-full max-w-[1440px] items-center justify-end px-10 lg:flex xl:left-1/2 xl:-translate-x-1/2" aria-hidden="true">
-        <HeroLift className="w-[min(36vw,460px)] translate-y-6" />
-      </div>
       <div className="relative mx-auto flex w-full max-w-[1440px] flex-col gap-6">
         {crumbs && <Breadcrumbs items={crumbs} />}
         {eyebrow && <p className="font-mono text-[12px] uppercase text-steel">{eyebrow}</p>}
