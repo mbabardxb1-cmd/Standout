@@ -19,6 +19,11 @@ export type ServiceVisuals = {
   cta?: string
 }
 
+/** Where a picture is anchored when cropped into a tile (src → CSS object-position); default is the centre. */
+export const IMAGE_POS: Record<string, string> = {
+  [PHOTOS.nurture]: '100% 50%', // keep the lead-nurture journey panel on the right
+}
+
 export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
   'photography-video': {
     side: PHOTOS.contentCreation,

@@ -14,7 +14,7 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { ContactSheet } from '@/components/overlays/ContactSheet'
 import { ScrollLock } from '@/components/ui/Sheet'
 import { CtaPanel } from '@/components/CtaPanel'
-import { SERVICE_VISUALS as VISUALS } from '@/lib/service-visuals'
+import { SERVICE_VISUALS as VISUALS, IMAGE_POS } from '@/lib/service-visuals'
 
 /**
  * Service page, option B: a full-bleed photograph with only the heading, then open, editorial
@@ -97,7 +97,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
                 {p.included.map((it, i) => (
                   <li key={it.title} className="group flex flex-col gap-5">
                     <span className="relative block aspect-[4/3] w-full overflow-hidden rounded-[24px]">
-                      <img loading="lazy" decoding="async" src={v.items[i] ?? SERVICE_PHOTOS[index]} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]" />
+                      <img loading="lazy" decoding="async" src={v.items[i] ?? SERVICE_PHOTOS[index]} style={{ objectPosition: IMAGE_POS[v.items[i]] }} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]" />
                     </span>
                     <div className="flex flex-col gap-2 pr-4">
                       <h3 className="font-display text-[clamp(1.3rem,1.8vw,1.6rem)] font-bold leading-tight tracking-[-0.02em]">{it.title}</h3>
@@ -182,7 +182,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
                 {v && (
                   <div className="relative hidden aspect-[4/3] w-full overflow-hidden rounded-[28px] md:block">
                     {v.steps.map((src, i) => (
-                      <img loading="lazy" decoding="async" key={src + i} src={src} alt="" className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out ${i === activeStep ? 'scale-100 opacity-100' : 'scale-[1.04] opacity-0'}`} />
+                      <img loading="lazy" decoding="async" key={src + i} src={src} style={{ objectPosition: IMAGE_POS[src] }} alt="" className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out ${i === activeStep ? 'scale-100 opacity-100' : 'scale-[1.04] opacity-0'}`} />
                     ))}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-hall/70 via-transparent to-transparent" aria-hidden="true" />
                     <p className="absolute bottom-6 left-6 right-6 font-display text-[clamp(1.4rem,2vw,1.9rem)] font-bold leading-tight tracking-[-0.02em]">{p.steps[activeStep]?.title}</p>
@@ -207,7 +207,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
                       <p className="max-w-[44ch] text-[16px] leading-relaxed text-mist/75 md:text-[17px]">{st.line}</p>
                       {v?.steps[i] && (
                         <span className="relative mt-3 block aspect-[16/10] w-full overflow-hidden rounded-[20px] md:hidden">
-                          <img loading="lazy" decoding="async" src={v.steps[i]} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                          <img loading="lazy" decoding="async" src={v.steps[i]} style={{ objectPosition: IMAGE_POS[v.steps[i]] }} alt="" className="absolute inset-0 h-full w-full object-cover" />
                         </span>
                       )}
                     </div>
