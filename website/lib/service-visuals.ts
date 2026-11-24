@@ -59,7 +59,6 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/included/company-profile.webp', // Company profile
       '/photos/included/stand-3d-letters.webp', // 3D stand printing
       '/photos/included/visiting-cards.webp', // Visiting cards
-      PHOTOS.shellScheme, // Print management
     ],
     steps: [
       '/photos/included/brochure-reader.webp',

@@ -54,7 +54,6 @@ export const SERVICE_PAGES: ServicePage[] = [
       { title: 'Company profile', line: 'Who you are, what you do and who you do it for, in a profile buyers keep.' },
       { title: '3D stand printing', line: 'Large-format and dimensional printing for the stand: 3D lettering, logos and display pieces.' },
       { title: 'Visiting cards', line: 'Cards for everyone on the stand, matched to the rest of the collateral.' },
-      { title: 'Print management', line: 'Stock, finish, quantities and delivery to the venue handled for you.' },
     ],
     steps: [
       { icon: 'bag', title: 'What visitors take away', line: 'We decide what each piece is for: a quick take-away, a profile for the buyer, a portfolio for the meeting.' },
