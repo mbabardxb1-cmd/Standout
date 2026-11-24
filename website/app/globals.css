@@ -210,3 +210,10 @@ html.intro-wait { overflow: hidden; }
 .hero-rise { animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .hero-rise-late { animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
 @media (prefers-reduced-motion: reduce) { .hero-rise, .hero-rise-late { animation: none; } }
+
+/* Inner-page header: the lifted node floats, the stand's nodes breathe. */
+@keyframes hero-lift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes hero-node { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+.hero-lift { animation: hero-lift 4.5s ease-in-out infinite; transform-box: fill-box; }
+.hero-node { animation: hero-node 5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .hero-lift, .hero-node { animation: none; } }
