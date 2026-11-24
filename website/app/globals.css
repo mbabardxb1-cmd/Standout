@@ -217,3 +217,14 @@ html.intro-wait { overflow: hidden; }
 .hero-lift { animation: hero-lift 4.5s ease-in-out infinite; transform-box: fill-box; }
 .hero-node { animation: hero-node 5s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .hero-lift, .hero-node { animation: none; } }
+
+/* Client logo strip: two copies of the list scroll as one loop; pauses on hover. */
+@keyframes client-marquee { to { transform: translateX(-100%); } }
+.client-track { animation: client-marquee 45s linear infinite; }
+.client-strip:hover .client-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .client-track { animation: none; }
+  .client-strip { flex-wrap: wrap; justify-content: center; }
+  .client-strip > .client-track + .client-track { display: none; }
+  .client-strip > .client-track { flex-wrap: wrap; justify-content: center; row-gap: 2rem; padding-right: 0; }
+}

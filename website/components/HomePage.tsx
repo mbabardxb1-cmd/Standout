@@ -4,6 +4,7 @@ import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
 import { HeroIntro } from '@/components/sections/HeroIntro'
 import { CaseStudy } from '@/components/sections/CaseStudy'
+import { ClientLogos } from '@/components/sections/ClientLogos'
 import { StoryIntro } from '@/components/sections/StoryIntro'
 import { ServicesF } from '@/components/sections/ServicesF'
 import { ServicesB } from '@/components/sections/ServicesB'
@@ -58,6 +59,7 @@ export function HomePage({ photos = false, services = 'a' }: { photos?: boolean;
         <div id="services-slot">
           {services === 'b' ? <ServicesB /> : <ServicesF />}
         </div>
+        <ClientLogos />
         <CaseStudy />
         <StoryIntro />
         <Packages />
