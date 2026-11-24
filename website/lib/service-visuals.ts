@@ -209,9 +209,6 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       PHOTOS.dashboard,
       PHOTOS.email,
       PHOTOS.nurture,
-      PHOTOS.handshake,
-      '/photos/frames/dr-talk.webp',
-      PHOTOS.landing,
     ],
     steps: [
       PHOTOS.dashboard,

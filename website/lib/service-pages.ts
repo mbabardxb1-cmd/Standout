@@ -238,9 +238,6 @@ export const SERVICE_PAGES: ServicePage[] = [
       { title: 'Lead segmentation', line: 'Leads grouped by interest, stage and what was promised on the stand.' },
       { title: 'First follow-up in 48 hours', line: 'A personal thank-you with what they asked for, while they still remember you.' },
       { title: 'Nurture sequences', line: 'Content matched to each group over the following weeks, by email and LinkedIn.' },
-      { title: 'Meeting booking', line: 'A clear next step in every message, with a link to book a call.' },
-      { title: 'Sales hand-over', line: 'Leads that reply or engage passed straight to your sales team.' },
-      { title: 'Pipeline reporting', line: 'Replies, meetings and pipeline, so you can see what the show returned.' },
     ],
     steps: [
       { icon: 'filter', title: 'Segment', line: 'Leads grouped by interest, stage and what was promised on the stand.' },
