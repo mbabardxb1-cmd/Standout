@@ -89,8 +89,8 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     side: PHOTOS.dashboard,
     items: [
       PHOTOS.dashboard,
-      PHOTOS.email,
       PHOTOS.landing,
+      PHOTOS.email,
       PHOTOS.ads,
       PHOTOS.nurture,
       '/photos/frames/m-talk.webp',
