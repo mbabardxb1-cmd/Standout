@@ -34,7 +34,7 @@ export function InsightsPage() {
   const list = cat === 'All' ? ARTICLES : ARTICLES.filter((a) => a.category === cat)
   return (
     <PageShell>
-      <PageHero photo={PHOTOS.email} crumbs={[{ label: 'Insights' }]} title="What we’ve learned on the floor.">
+      <PageHero crumbs={[{ label: 'Insights' }]} title="What we’ve learned on the floor.">
         <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Filter by topic">
           {CATEGORIES.map((c) => (
             <button key={c} type="button" onClick={() => setCat(c)} aria-pressed={cat === c} className={`h-10 rounded-full border px-4 font-mono text-[12px] uppercase transition-colors ${cat === c ? 'border-signal bg-signal text-night' : 'border-mist/20 text-mist/80 hover:border-signal hover:text-signal'}`}>

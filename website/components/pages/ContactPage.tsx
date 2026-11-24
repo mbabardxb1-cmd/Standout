@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { CONTACT } from '@/lib/content'
 import { PageShell, PageHero } from '@/components/PageShell'
-import { PHOTOS } from '@/lib/assets'
 import { BriefForm } from '@/components/BriefForm'
 import { StepIcon } from '@/components/ui/StepIcon'
 
@@ -18,7 +17,7 @@ export function ContactPage() {
   const [sentTo, setSentTo] = useState<string | null>(null)
   return (
     <PageShell>
-      <PageHero photo={PHOTOS.hostess} photoStyle={{ objectPosition: '50% 25%' }} crumbs={[{ label: 'Contact' }]} title="Tell us the show and the date." line="We’ll come back with a plan. Send the brief below, or call and talk it through." />
+      <PageHero crumbs={[{ label: 'Contact' }]} title="Tell us the show and the date." line="We’ll come back with a plan. Send the brief below, or call and talk it through." />
 
       <section className="px-5 pb-20 pt-12 md:px-10 md:pb-28 md:pt-16">
         <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-12 lg:grid-cols-[1fr_minmax(300px,380px)] lg:gap-20">

@@ -29,7 +29,7 @@ const TEAM = [
 export function AboutPage() {
   return (
     <PageShell>
-      <PageHero wide photo={PHOTOS.handshake} crumbs={[{ label: 'About' }]} title={<>We make brands<br className="hidden sm:block" /> impossible to walk past.</>} line="Standout is the exhibition-marketing team behind some of the busiest stands in Dubai. One brief, one crew, and a number at the end that tells you the show paid." />
+      <PageHero wide crumbs={[{ label: 'About' }]} title={<>We make brands<br className="hidden sm:block" /> impossible to walk past.</>} line="Standout is the exhibition-marketing team behind some of the busiest stands in Dubai. One brief, one crew, and a number at the end that tells you the show paid." />
 
       {/* Story + figures */}
       <section className="px-5 pb-20 pt-12 md:px-10 md:pb-28 md:pt-20">

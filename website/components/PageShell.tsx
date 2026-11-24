@@ -35,60 +35,22 @@ export function PageShell({ children }: { children: ReactNode }) {
 }
 
 /**
- * Page opener shared by the inner pages: the breadcrumb, an optional eyebrow, the headline, an
- * optional line and any actions on the left; a large photograph on the right, with an optional
- * figure floating on its corner. Without a photograph the text runs full width.
+ * Page opener shared by the inner pages (About, Packages, Case Studies, Insights, Contact): the
+ * breadcrumb, an optional eyebrow, the headline and an optional line on the navy band. Service
+ * pages have their own full-photo header. `photo`, `photoStyle` and `aside` are accepted for the
+ * older service page layout but not shown here.
  */
-export function PageHero({
-  eyebrow,
-  title,
-  line,
-  crumbs,
-  wide = false,
-  photo,
-  photoStyle,
-  aside,
-  children,
-}: {
-  eyebrow?: string
-  title: ReactNode
-  line?: string
-  crumbs?: Crumb[]
-  wide?: boolean
-  photo?: string
-  photoStyle?: CSSProperties
-  /** Floats on the photograph's lower-left corner, e.g. a key figure. */
-  aside?: ReactNode
-  children?: ReactNode
-}) {
+export function PageHero({ eyebrow, title, line, crumbs, wide = false, children }: { eyebrow?: string; title: ReactNode; line?: string; crumbs?: Crumb[]; wide?: boolean; photo?: string; photoStyle?: CSSProperties; aside?: ReactNode; children?: ReactNode }) {
   return (
-    <section className="relative isolate overflow-hidden px-5 pb-14 pt-28 md:px-10 md:pb-20 md:pt-36">
-      <img src={PHOTOS.serviceBand} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-70" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-hall/30 via-transparent to-hall" aria-hidden="true" />
-      {/* A soft orange glow behind the photograph. */}
-      {photo && <div className="pointer-events-none absolute -right-40 top-10 -z-10 h-[520px] w-[520px] rounded-full bg-signal/10 blur-[120px]" aria-hidden="true" />}
-      <div className={`relative mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 ${photo ? 'md:grid-cols-12 md:items-center md:gap-12' : ''}`}>
-        <div className={`flex flex-col gap-6 ${photo ? 'md:col-span-7' : ''}`}>
-          {crumbs && <Breadcrumbs items={crumbs} />}
-          {eyebrow && (
-            <p className="inline-flex w-fit items-center gap-2 rounded-full border border-mist/20 bg-hall/40 px-3.5 py-1.5 text-[13px] font-medium text-mist/90">
-              <span className="h-1.5 w-1.5 rounded-full bg-signal" aria-hidden="true" />
-              {eyebrow}
-            </p>
-          )}
-          <h1 className={`${wide ? 'max-w-[22ch]' : 'max-w-[16ch]'} font-display text-[clamp(2.4rem,5vw,4.6rem)] font-bold leading-[0.98] tracking-[-0.03em] [text-wrap:balance]`}>{title}</h1>
-          {line && <p className="max-w-[56ch] text-[17px] leading-relaxed text-mist/80 md:text-[19px]">{line}</p>}
-          {children}
-        </div>
-        {photo && (
-          <div className="relative md:col-span-5">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px] border border-mist/12 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.9)] md:aspect-[4/5] md:rounded-[32px]">
-              <img src={photo} style={photoStyle} alt="" className="absolute inset-0 h-full w-full object-cover" />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-hall/50 via-transparent to-transparent" aria-hidden="true" />
-            </div>
-            {aside && <div className="absolute -bottom-6 left-5 md:-left-8 md:bottom-10">{aside}</div>}
-          </div>
-        )}
+    <section className="relative overflow-hidden px-5 pb-12 pt-32 md:px-10 md:pb-16 md:pt-44">
+      <img src={PHOTOS.serviceBand} alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-hall/40 via-transparent to-hall/60" aria-hidden="true" />
+      <div className="relative mx-auto flex w-full max-w-[1440px] flex-col gap-6">
+        {crumbs && <Breadcrumbs items={crumbs} />}
+        {eyebrow && <p className="font-mono text-[12px] uppercase text-steel">{eyebrow}</p>}
+        <h1 className={`${wide ? 'max-w-[24ch]' : 'max-w-[16ch]'} font-display text-[clamp(2.3rem,4.8vw,4.4rem)] font-semibold leading-[1] tracking-[-0.025em] [text-wrap:balance]`}>{title}</h1>
+        {line && <p className="max-w-[58ch] text-[17px] leading-relaxed text-mist/80 md:text-[19px]">{line}</p>}
+        {children}
       </div>
     </section>
   )
