@@ -2,6 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { useState } from 'react'
+import { StepIcon, type StepIconName } from '@/components/ui/StepIcon'
 import { PHOTOS, TEAM_PHOTOS } from '@/lib/assets'
 import { AGENCY_STATS } from '@/components/sections/AgencyIntro'
 import { pageHref } from '@/lib/routes'
@@ -10,12 +11,12 @@ import { CtaPanel } from '@/components/CtaPanel'
 
 
 const REASONS = [
-  { title: 'Results, not decoration', photo: '/photos/included/stand-floor-idex.webp', line: 'A stand is a sales tool. Every design, campaign and host we put on a show is there to bring the right people to you and keep them.' },
-  { title: 'One point of contact', photo: '/photos/frames/m-talk.webp', line: 'One brief, one plan, one person who answers for the whole show, from the first invitation to the final report.' },
-  { title: 'Exhibitions are all we do', photo: '/photos/frames/m-panel.webp', line: 'Shell-scheme specs, exhibitor manuals, hall traffic, badge data. We work inside the rules of the show, not around them.' },
-  { title: 'On the floor in Dubai', photo: '/photos/frames/sob-entrance.webp', line: 'Based in JLT and on site at the region’s major shows, so we can be at your stand on build-up day, not on a call.' },
-  { title: 'Measured, not guessed', photo: PHOTOS.dashboard, line: 'Leads captured, meetings booked, pipeline created. You get the numbers, segmented, within days of the show closing.' },
-  { title: 'Packages or à la carte', photo: PHOTOS.shellScheme, line: 'Three packages for the common cases, or pick the services you need. Priced per show, by stand size and dates.' },
+  { title: 'Results, not decoration', icon: 'target' as StepIconName, line: 'A stand is a sales tool. Every design, campaign and host we put on a show is there to bring the right people to you and keep them.' },
+  { title: 'One point of contact', icon: 'users' as StepIconName, line: 'One brief, one plan, one person who answers for the whole show, from the first invitation to the final report.' },
+  { title: 'Exhibitions are all we do', icon: 'floorplan' as StepIconName, line: 'Shell-scheme specs, exhibitor manuals, hall traffic, badge data. We work inside the rules of the show, not around them.' },
+  { title: 'On the floor in Dubai', icon: 'pin' as StepIconName, line: 'Based in JLT and on site at the region’s major shows, so we can be at your stand on build-up day, not on a call.' },
+  { title: 'Measured, not guessed', icon: 'chart' as StepIconName, line: 'Leads captured, meetings booked, pipeline created. You get the numbers, segmented, within days of the show closing.' },
+  { title: 'Packages or à la carte', icon: 'layers' as StepIconName, line: 'Three packages for the common cases, or pick the services you need. Priced per show, by stand size and dates.' },
 ]
 
 const TEAM = [
@@ -60,6 +61,8 @@ export function AboutPage() {
       </section>
 
       <WhyChoose />
+
+      <Testimonials />
 
       {/* Team */}
       <section className="px-5 pb-20 md:px-10 md:pb-28">
@@ -108,57 +111,80 @@ export function AboutPage() {
   )
 }
 
-/**
- * Why choose Standout: the six reasons as large rows divided by hairlines. On wider screens the
- * heading and a photograph stay in view on the left, and the photograph changes with the reason
- * you hover or focus; that row brightens and opens its line. On phones every row shows its line.
- */
+/** Why choose Standout: a heading row, then the six reasons in open columns with an icon each. */
 function WhyChoose() {
-  const [active, setActive] = useState(0)
   return (
     <section className="px-5 pb-20 md:px-10 md:pb-32">
-      <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
-        <div className="md:col-span-5">
-          <div className="flex flex-col gap-8 md:sticky md:top-28">
-            <div className="flex flex-col gap-3">
-              <p className="text-[14px] font-medium text-steel">Why choose Standout</p>
-              <h2 className="max-w-[16ch] font-display text-[clamp(2rem,3.4vw,3.2rem)] font-extrabold leading-[1.02] tracking-[-0.03em] [text-wrap:balance]">Six reasons exhibitors come back show after show.</h2>
-            </div>
-            <div className="relative hidden aspect-[4/3] w-full overflow-hidden rounded-[28px] md:block">
-              {REASONS.map((r, i) => (
-                <img key={r.title} src={r.photo} alt="" loading="lazy" decoding="async" className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out ${i === active ? 'scale-100 opacity-100' : 'scale-[1.04] opacity-0'}`} />
-              ))}
-            </div>
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 md:gap-16">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
+          <div className="flex flex-col gap-3">
+            <p className="text-[14px] font-medium text-steel">Why choose Standout</p>
+            <h2 className="max-w-[20ch] font-display text-[clamp(2rem,3.4vw,3.2rem)] font-extrabold leading-[1.02] tracking-[-0.03em] [text-wrap:balance]">Six reasons exhibitors come back show after show.</h2>
           </div>
+          <p className="max-w-[44ch] text-[16px] leading-relaxed text-steel">One team that knows the floor, works to the show’s rules and measures what the stand brings back.</p>
         </div>
-        <ul className="flex flex-col md:col-span-7">
-          {REASONS.map((r, i) => {
-            const on = i === active
-            return (
-              <li key={r.title} className="border-t border-mist/12 last:border-b">
-                <button
-                  type="button"
-                  onMouseEnter={() => setActive(i)}
-                  onFocus={() => setActive(i)}
-                  onClick={() => setActive(i)}
-                  aria-expanded={on}
-                  className="group flex w-full flex-col gap-3 py-7 text-left md:py-9"
-                >
-                  <span className="flex items-center justify-between gap-6">
-                    <span className={`font-display text-[clamp(1.5rem,2.6vw,2.4rem)] font-bold leading-tight tracking-[-0.025em] transition-colors duration-300 ${on ? 'text-mist' : 'text-mist md:text-mist/45'}`}>{r.title}</span>
-                    <span aria-hidden="true" className={`hidden h-11 w-11 shrink-0 place-items-center rounded-full border transition-all duration-300 md:grid ${on ? 'rotate-0 border-signal bg-signal text-night' : '-rotate-45 border-mist/20 text-mist/50'}`}>→</span>
-                  </span>
-                  {/* The line: always shown on phones; opens with the active row on wider screens. */}
-                  <span className={`grid transition-[grid-template-rows,opacity] duration-500 ease-out max-md:grid-rows-[1fr] ${on ? 'md:grid-rows-[1fr] md:opacity-100' : 'md:grid-rows-[0fr] md:opacity-0'}`}>
-                    <span className="overflow-hidden">
-                      <span className="block max-w-[52ch] text-[16px] leading-relaxed text-mist/70 md:text-[17px]">{r.line}</span>
-                    </span>
-                  </span>
-                </button>
-              </li>
-            )
-          })}
+        <ul className="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-16">
+          {REASONS.map((r) => (
+            <li key={r.title} className="group flex flex-col gap-4 border-t border-mist/12 pt-7">
+              <span className="grid h-12 w-12 place-items-center rounded-full border border-signal/60 text-signal transition-colors duration-300 group-hover:bg-signal group-hover:text-night">
+                <StepIcon name={r.icon} className="h-5 w-5" />
+              </span>
+              <h3 className="font-display text-[clamp(1.3rem,1.8vw,1.6rem)] font-bold leading-tight tracking-[-0.02em]">{r.title}</h3>
+              <p className="max-w-[40ch] text-[16px] leading-relaxed text-mist/70">{r.line}</p>
+            </li>
+          ))}
         </ul>
+      </div>
+    </section>
+  )
+}
+
+/**
+ * Testimonials. PLACEHOLDER QUOTES: replace with approved quotes from real clients (name, role,
+ * company) before launch. One quote at a time beside a photograph from the floor, with previous
+ * and next controls.
+ */
+const TESTIMONIALS = [
+  { quote: 'Standout ran the whole show for us, from the invitations to the follow-up. We came home with more qualified meetings than the last two shows put together.', name: 'Client name', role: 'Marketing Director · Real estate developer', photo: '/photos/included/stand-floor-idex.webp' },
+  { quote: 'One brief and one point of contact. The stand looked right, the hosts knew the product, and the leads were in our CRM before we had packed up.', name: 'Client name', role: 'Head of Sales · Defence manufacturer', photo: '/photos/frames/m-screens.webp' },
+  { quote: 'The films and same-day content kept our channels busy all week. We were still using the footage months after the show.', name: 'Client name', role: 'Brand Manager · Motorsport team', photo: '/photos/included/highlight-film.webp' },
+]
+
+function Testimonials() {
+  const [i, setI] = useState(0)
+  const t = TESTIMONIALS[i]
+  const go = (d: number) => setI((n) => (n + d + TESTIMONIALS.length) % TESTIMONIALS.length)
+  return (
+    <section className="px-5 pb-20 md:px-10 md:pb-32" aria-roledescription="carousel" aria-label="What our clients say">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 md:gap-14">
+        <div className="flex flex-col gap-3">
+          <p className="text-[14px] font-medium text-steel">Testimonials</p>
+          <h2 className="font-display text-[clamp(2rem,3.4vw,3.2rem)] font-extrabold leading-[1.02] tracking-[-0.03em]">What exhibitors say.</h2>
+        </div>
+        <div className="grid grid-cols-1 overflow-hidden rounded-[28px] border border-mist/12 bg-night/60 md:grid-cols-12">
+          <div className="relative aspect-[16/10] md:col-span-5 md:aspect-auto md:min-h-[440px]">
+            {TESTIMONIALS.map((x, n) => (
+              <img key={x.photo} src={x.photo} alt="" loading="lazy" decoding="async" className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${n === i ? 'opacity-100' : 'opacity-0'}`} />
+            ))}
+          </div>
+          <figure className="flex flex-col justify-between gap-10 p-7 md:col-span-7 md:p-14">
+            <div className="flex flex-col gap-6">
+              <span aria-hidden="true" className="font-display text-[72px] font-extrabold leading-[0.6] text-signal">“</span>
+              <blockquote key={i} className="hero-rise font-display text-[clamp(1.35rem,2.2vw,2rem)] font-semibold leading-[1.3] tracking-[-0.015em] [text-wrap:pretty]">{t.quote}</blockquote>
+            </div>
+            <div className="flex flex-wrap items-end justify-between gap-6 border-t border-mist/12 pt-6">
+              <figcaption className="flex flex-col gap-1">
+                <span className="font-display text-[17px] font-bold">{t.name}</span>
+                <span className="text-[14px] text-steel">{t.role}</span>
+              </figcaption>
+              <div className="flex items-center gap-3">
+                <span className="mr-2 text-[14px] tabular-nums text-steel">{i + 1} / {TESTIMONIALS.length}</span>
+                <button type="button" onClick={() => go(-1)} aria-label="Previous testimonial" className="grid h-11 w-11 place-items-center rounded-full border border-mist/20 text-mist transition-colors hover:border-signal hover:text-signal">←</button>
+                <button type="button" onClick={() => go(1)} aria-label="Next testimonial" className="grid h-11 w-11 place-items-center rounded-full border border-mist/20 text-mist transition-colors hover:border-signal hover:text-signal">→</button>
+              </div>
+            </div>
+          </figure>
+        </div>
       </div>
     </section>
   )
