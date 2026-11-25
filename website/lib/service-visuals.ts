@@ -98,7 +98,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     items: [
       '/photos/included/data-research.webp', // Data scraping and research
       '/photos/included/verified-contacts.webp', // Verified contact list
-      PHOTOS.email,
+      '/photos/included/email-setup.webp', // Email set-up
       PHOTOS.ads,
       PHOTOS.nurture,
       '/photos/frames/m-talk.webp',
