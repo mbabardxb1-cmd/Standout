@@ -97,7 +97,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
               <ol className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
                 {p.included.map((it, i) => (
                   <li key={it.title} className="group flex flex-col gap-5">
-                    <span className="relative block aspect-[4/3] w-full overflow-hidden rounded-[24px]">
+                    <span className="relative block aspect-[3/2] w-full overflow-hidden rounded-[24px]">
                       <img loading="lazy" decoding="async" src={v.items[i] ?? SERVICE_PHOTOS[index]} style={{ objectPosition: IMAGE_POS[v.items[i]] }} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]" />
                     </span>
                     <div className="flex flex-col gap-2 pr-4">
