@@ -20,7 +20,6 @@ export const SERVICE_RENDERS: string[] = R.map((n) => `/icons/services/svc-${n}.
 export const PHOTOS = {
   stand: '/photos/stand.webp',
   shellScheme: '/photos/shell-scheme.webp',
-  dashboard: '/photos/dashboard.webp',
   handshake: '/photos/handshake.webp',
   leadCapture: '/photos/lead-capture.webp',
   ads: '/photos/ads.webp',

@@ -7,7 +7,7 @@ export type Article = {
   date: string
   readMinutes: number
   /** Key into PHOTOS for the cover picture. */
-  photo: 'stand' | 'shellScheme' | 'dashboard' | 'handshake' | 'leadCapture' | 'ads' | 'eventPhotography' | 'hostess' | 'landing' | 'presentation' | 'print' | 'email' | 'nurture'
+  photo: 'stand' | 'shellScheme' | 'handshake' | 'leadCapture' | 'ads' | 'eventPhotography' | 'hostess' | 'landing' | 'presentation' | 'print' | 'email' | 'nurture'
   body: string[]
 }
 

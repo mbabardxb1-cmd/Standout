@@ -99,7 +99,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Put stand graphics on your next show.',
   },
   'email-linkedin-marketing': {
-    side: PHOTOS.dashboard,
+    side: '/photos/included/campaign-audience.webp',
     items: [
       '/photos/included/data-research.webp', // Data scraping and research
       '/photos/included/verified-contacts.webp', // Verified contact list
@@ -134,13 +134,13 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       PHOTOS.contentCreation,
       PHOTOS.landing,
       '/photos/included/stand-floor-idex.webp',
-      PHOTOS.dashboard,
+      '/photos/included/ads-reporting.webp',
     ],
     band: { src: PHOTOS.eventVideography, line: 'Your market knows where to find you before day one.' },
     cta: 'Put digital advertising on your next show.',
   },
   'social-media-management': {
-    side: PHOTOS.dashboard,
+    side: '/photos/included/content-calendar.webp',
     items: [
       '/photos/included/content-calendar.webp', // Content calendar
       PHOTOS.contentCreation,
@@ -148,7 +148,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/included/highlight-film.webp',
     ],
     steps: [
-      PHOTOS.dashboard,
+      '/photos/included/content-calendar.webp',
       PHOTOS.contentCreation,
       '/photos/frames/dc-tablet.webp',
       '/photos/included/highlight-film.webp',
@@ -211,14 +211,14 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Put lead capture on your next show.',
   },
   'lead-nurturing': {
-    side: PHOTOS.dashboard,
+    side: '/photos/included/lead-segmentation.webp',
     items: [
       '/photos/included/lead-segmentation.webp', // Lead segmentation
       PHOTOS.email,
       PHOTOS.nurture,
     ],
     steps: [
-      PHOTOS.dashboard,
+      '/photos/included/lead-segmentation.webp',
       PHOTOS.email,
       PHOTOS.nurture,
       PHOTOS.landing,

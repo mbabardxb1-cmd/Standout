@@ -18,7 +18,6 @@ import capture from '@/public/icons/services/svc-capture.webp'
 import nurture from '@/public/icons/services/svc-nurture.webp'
 import photoStand from '@/public/photos/stand.webp'
 import shellScheme from '@/public/photos/shell-scheme.webp'
-import dashboard from '@/public/photos/dashboard.webp'
 import handshake from '@/public/photos/handshake.webp'
 import leadCapture from '@/public/photos/lead-capture.webp'
 import photoAds from '@/public/photos/ads.webp'
@@ -30,7 +29,7 @@ import printPhoto from '@/public/photos/print.webp'
 import emailPhoto from '@/public/photos/email.webp'
 import nurturePhoto from '@/public/photos/nurture.webp'
 import serviceBand from '@/public/photos/service-band.webp'
-export const PHOTOS = { stand: photoStand, shellScheme, dashboard, handshake, leadCapture, ads: photoAds, eventPhotography, hostess, landing: photoLanding, presentation, print: printPhoto, email: emailPhoto, nurture: nurturePhoto, serviceBand }
+export const PHOTOS = { stand: photoStand, shellScheme, handshake, leadCapture, ads: photoAds, eventPhotography, hostess, landing: photoLanding, presentation, print: printPhoto, email: emailPhoto, nurture: nurturePhoto, serviceBand }
 export const SERVICE_PHOTOS: string[] = [shellScheme, printPhoto, emailPhoto, photoAds, photoLanding, presentation, hostess, eventPhotography, leadCapture, nurturePhoto]
 export { WORDMARK, WORDMARK_COLOUR }
 export const HOW_ICONS = { prepare, promote, perform, profit }

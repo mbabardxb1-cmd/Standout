@@ -20,7 +20,7 @@ export type O2Service = {
   items: string[]
   photo: string
   /** Key into PHOTOS (lib/assets.ts). */
-  src: 'stand' | 'ads' | 'hostess' | 'eventPhotography' | 'leadCapture' | 'dashboard' | 'shellScheme' | 'print' | 'email' | 'handshake'
+  src: 'stand' | 'ads' | 'hostess' | 'eventPhotography' | 'leadCapture' | 'shellScheme' | 'print' | 'email' | 'handshake'
 }
 
 export const O2_SERVICES: O2Service[] = [
@@ -76,7 +76,7 @@ export const O2_SERVICES: O2Service[] = [
       'Most exhibition leads go cold within a fortnight. We follow up while the conversation is still fresh, segment the database and keep nurturing until the lead is ready for your sales team.',
     items: ['Post-event email campaigns', 'Lead follow-up', 'Database segmentation', 'CRM integration', 'Lead nurturing campaigns'],
     photo: 'Sales team reviewing qualified leads on a CRM dashboard after the show',
-    src: 'dashboard',
+    src: 'leadCapture',
   },
 ]
 
