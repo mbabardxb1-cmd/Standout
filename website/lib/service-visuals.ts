@@ -97,7 +97,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     side: PHOTOS.dashboard,
     items: [
       '/photos/included/data-research.webp', // Data scraping and research
-      PHOTOS.landing,
+      '/photos/included/verified-contacts.webp', // Verified contact list
       PHOTOS.email,
       PHOTOS.ads,
       PHOTOS.nurture,
