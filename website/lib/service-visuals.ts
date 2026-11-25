@@ -122,7 +122,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       PHOTOS.ads,
       '/photos/included/stand-floor-idex.webp',
       '/photos/frames/m-screens.webp',
-      PHOTOS.dashboard,
+      '/photos/included/ads-reporting.webp', // Reporting
     ],
     steps: [
       PHOTOS.ads,
