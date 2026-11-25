@@ -118,7 +118,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     side: PHOTOS.contentCreation,
     items: [
       '/photos/included/organic-posting.webp', // Organic posting before the event
-      PHOTOS.landing,
+      '/photos/included/social-ads.webp', // Social ads
       PHOTOS.ads,
       '/photos/included/stand-floor-idex.webp',
       '/photos/frames/m-screens.webp',
