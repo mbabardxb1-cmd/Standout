@@ -221,7 +221,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/included/lead-segmentation.webp',
       PHOTOS.email,
       PHOTOS.nurture,
-      PHOTOS.landing,
+      '/photos/included/campaign-report.webp', // Report
     ],
     band: { src: PHOTOS.aboutFloor, line: 'The show closes. Your pipeline opens.' },
     cta: 'Turn your next show into pipeline.',
