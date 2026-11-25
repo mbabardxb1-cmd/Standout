@@ -223,7 +223,6 @@ export const SERVICE_PAGES: ServicePage[] = [
     intro: 'A capture system on tablets and phones at the stand: badge scan, the qualification questions your sales team chose, and a clean export the moment the show closes.',
     introMore: 'Paper cards and business cards get lost. We set up a capture form with the questions your sales team chose, on tablets and phones at the stand, so every conversation is recorded with the visitor’s details, interests and notes, and exported cleanly the moment the show closes.',
     included: [
-      { title: 'Custom capture form', line: 'A form built around the questions your sales team actually needs answered.' },
       { title: 'Badge scanning', line: 'Scan the visitor’s badge or enter details in seconds on any tablet or phone.' },
       { title: 'Lead qualification', line: 'Interest, budget, timing and product, scored so hot leads stand out.' },
       { title: 'Notes and follow-up tags', line: 'What was discussed and what was promised, recorded on the spot.' },

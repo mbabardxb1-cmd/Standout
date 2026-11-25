@@ -195,8 +195,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
   'lead-capture': {
     side: PHOTOS.leadCapture,
     items: [
-      PHOTOS.leadCapture,
-      '/photos/frames/m-uniform.webp',
+      PHOTOS.leadCapture, // Badge scanning
       '/photos/frames/m-talk.webp',
       '/photos/included/brochure-reader.webp',
       '/photos/included/live-lead-dashboard.webp' /* Live dashboard */,

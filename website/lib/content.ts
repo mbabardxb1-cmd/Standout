@@ -56,7 +56,7 @@ export const SERVICES: Service[] = [
   {
     code: 'S/09', name: 'Lead Capture Systems', short: 'Lead capture', phase: 'At the show',
     line: 'Capture every conversation on a tablet, with the details your sales team actually needs.',
-    deliverables: ['Custom capture form on tablet or phone', 'Lead qualification questions', 'Clean export to your CRM after the show'],
+    deliverables: ['Badge scanning on tablet or phone', 'Lead qualification questions', 'Clean export to your CRM after the show'],
   },
   {
     code: 'S/10', name: 'Post-Event Lead Nurturing', short: 'Nurture', phase: 'After the show',
