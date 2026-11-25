@@ -47,7 +47,7 @@ export const SERVICE_PHOTO_POS: Record<number, string> = {
 export const servicePhotoStyle = (i: number): React.CSSProperties =>
   SERVICE_PHOTO_FIT[i] ? { objectFit: 'contain', backgroundColor: SERVICE_PHOTO_FIT[i].bg } : SERVICE_PHOTO_POS[i] ? { objectPosition: SERVICE_PHOTO_POS[i] } : {}
 /** One photograph per service (S/01 to S/10). */
-export const SERVICE_PHOTOS: string[] = [PHOTOS.shellScheme, PHOTOS.print, PHOTOS.email, PHOTOS.ads, PHOTOS.contentCreation, PHOTOS.presentation, PHOTOS.hostess, PHOTOS.eventVideography, PHOTOS.leadCapture, PHOTOS.nurture]
+export const SERVICE_PHOTOS: string[] = [PHOTOS.shellScheme, PHOTOS.print, PHOTOS.email, PHOTOS.ads, PHOTOS.contentCreation, '/photos/included/video-wall.webp', PHOTOS.hostess, PHOTOS.eventVideography, PHOTOS.leadCapture, PHOTOS.nurture]
 
 /** Case-study films and posters (public/video). `portrait` films are 9:16 social clips; the rest are landscape. */
 export const CASE_STUDY_FILMS = [
