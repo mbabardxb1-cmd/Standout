@@ -39,7 +39,7 @@ export function ContactPage() {
             <div className="flex flex-col gap-3">
               <h2 className="font-mono text-[12px] uppercase text-steel">Phone</h2>
               <a href={CONTACT.phoneHref} className="w-fit font-display text-[clamp(1.3rem,2vw,1.7rem)] font-bold tracking-[-0.02em] hover:text-signal">{CONTACT.phone}</a>
-              <p className="text-[14px] text-steel">Monday to Friday, 9am to 6pm Gulf Standard Time.</p>
+              <p className="text-[14px] text-steel">Monday to Friday, 8am to 5pm Gulf Standard Time.</p>
             </div>
             <div className="flex flex-col gap-3">
               <h2 className="font-mono text-[12px] uppercase text-steel">Office</h2>
