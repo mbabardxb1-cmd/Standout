@@ -74,7 +74,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/included/company-profile.webp',
       '/photos/included/stand-3d-letters.webp',
       PHOTOS.print,
-      PHOTOS.shellScheme,
+      '/photos/included/business-cards.webp', // Print and delivery: the finished printed pieces,
     ],
     band: { src: '/photos/included/stand-floor-idex.webp', line: 'Everything they take home, in the same brand as your stand.' },
     cta: 'Put marketing collateral on your next show.',
