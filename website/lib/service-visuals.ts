@@ -145,7 +145,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     items: [
       '/photos/included/content-calendar.webp', // Content calendar
       '/photos/included/live-posting.webp', // Live posting
-      '/photos/frames/dc-tablet.webp',
+      '/photos/included/stories-reels.webp', // Stories and reels
       '/photos/included/highlight-film.webp',
     ],
     steps: [
