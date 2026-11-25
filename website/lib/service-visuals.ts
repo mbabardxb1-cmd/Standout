@@ -213,7 +213,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
   'lead-nurturing': {
     side: PHOTOS.dashboard,
     items: [
-      PHOTOS.dashboard,
+      '/photos/included/lead-segmentation.webp', // Lead segmentation
       PHOTOS.email,
       PHOTOS.nurture,
     ],
