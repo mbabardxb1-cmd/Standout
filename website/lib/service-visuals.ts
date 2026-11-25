@@ -203,7 +203,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     ],
     steps: [
       PHOTOS.leadCapture,
-      PHOTOS.dashboard,
+      '/photos/included/tablet-versions.webp', // Devices set up,
       '/photos/frames/m-uniform.webp',
       PHOTOS.email,
     ],
