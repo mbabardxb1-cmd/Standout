@@ -21,6 +21,7 @@ export type ServiceVisuals = {
 
 /** Where a picture is anchored when cropped into a tile (src → CSS object-position); default is the centre. */
 export const IMAGE_POS: Record<string, string> = {
+  '/photos/included/industry-briefing.webp': '50% 35%', // portrait: keep the faces and tablets in frame
   '/photos/included/video-wall.webp': '62% 50%', // keep the LED wall in frame
   '/photos/included/tablet-versions.webp': '78% 50%', // keep the tablet and screen on the counter in frame
   '/photos/included/floor-wayfinding.webp': '55% 75%', // keep the roll-up banners in frame
@@ -173,7 +174,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     side: PHOTOS.hostess,
     items: [
       PHOTOS.hostess,
-      '/photos/frames/m-uniform.webp',
+      '/photos/included/industry-briefing.webp', // Industry briefing
       '/photos/frames/m-talk.webp',
       '/photos/frames/m-guests.webp',
       PHOTOS.leadCapture,
