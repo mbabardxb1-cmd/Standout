@@ -150,7 +150,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     ],
     steps: [
       '/photos/included/organic-posting.webp', // Plan
-      PHOTOS.eventVideography, // Capture
+      PHOTOS.contentCreation, // Capture: the manager filming the stand on her phone
       '/photos/included/social-ads.webp', // Post live
       '/photos/included/ads-reporting.webp', // Recap and report
     ],
