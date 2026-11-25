@@ -149,10 +149,10 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/included/highlight-film.webp',
     ],
     steps: [
-      '/photos/included/content-calendar.webp',
-      PHOTOS.contentCreation,
-      '/photos/frames/dc-tablet.webp',
-      '/photos/included/highlight-film.webp',
+      '/photos/included/organic-posting.webp', // Plan
+      PHOTOS.eventVideography, // Capture
+      '/photos/included/social-ads.webp', // Post live
+      '/photos/included/ads-reporting.webp', // Recap and report
     ],
     band: { src: '/photos/included/stand-floor-idex.webp', line: 'Live from the floor, every show day.' },
     cta: 'Put social media management on your next show.',
