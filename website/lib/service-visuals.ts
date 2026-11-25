@@ -90,10 +90,10 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/included/print-ready-stand.webp', // Print-ready files
     ],
     steps: [
-      PHOTOS.aboutFloor,
-      '/photos/included/stand-3d-letters.webp',
-      PHOTOS.shellScheme,
-      PHOTOS.stand,
+      '/photos/included/screen-artwork.webp', // Brief and floor plan: the stand before branding
+      '/photos/included/video-wall.webp', // Concept
+      '/photos/included/wall-panel-graphics.webp', // Design and proof
+      '/photos/included/print-ready-stand.webp', // Print-ready delivery: the finished stand
     ],
     band: { src: '/photos/frames/sob-entrance.webp', line: 'Branded from the aisle to the counter.' },
     cta: 'Put stand graphics on your next show.',
