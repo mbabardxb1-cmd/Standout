@@ -99,7 +99,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/included/data-research.webp', // Data scraping and research
       '/photos/included/verified-contacts.webp', // Verified contact list
       '/photos/included/email-setup.webp', // Email set-up
-      PHOTOS.ads,
+      '/photos/included/linkedin-outreach.webp', // LinkedIn outreach
       PHOTOS.nurture,
       '/photos/frames/m-talk.webp',
     ],
