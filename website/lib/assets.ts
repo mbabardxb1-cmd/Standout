@@ -41,14 +41,14 @@ export const SERVICE_PHOTO_FIT: Record<number, { fit: 'contain'; bg: string }> =
 /** Inline styles for a service photograph: cover by default, contain on its own ground when listed above. */
 /** Where a cropped photograph is anchored (index into SERVICES); default is the centre. */
 export const SERVICE_PHOTO_POS: Record<number, string> = {
-  6: '50% 34%', // hosts team: keep their heads in frame
+  6: '50% 25%', // hosts team: keep their heads in frame
   4: '20% 50%', // social media: keep the creator and her phone in frame
   9: '78% 50%', // nurture mockup: keep the laptop, phone and journey panel, lose the plant on the left
 }
 export const servicePhotoStyle = (i: number): React.CSSProperties =>
   SERVICE_PHOTO_FIT[i] ? { objectFit: 'contain', backgroundColor: SERVICE_PHOTO_FIT[i].bg } : SERVICE_PHOTO_POS[i] ? { objectPosition: SERVICE_PHOTO_POS[i] } : {}
 /** One photograph per service (S/01 to S/10). */
-export const SERVICE_PHOTOS: string[] = [PHOTOS.shellScheme, PHOTOS.print, PHOTOS.email, PHOTOS.ads, PHOTOS.contentCreation, '/photos/included/video-wall.webp', PHOTOS.hostess, PHOTOS.eventVideography, PHOTOS.leadCapture, PHOTOS.nurture]
+export const SERVICE_PHOTOS: string[] = [PHOTOS.shellScheme, PHOTOS.print, PHOTOS.email, PHOTOS.ads, PHOTOS.contentCreation, '/photos/included/video-wall.webp', '/photos/included/hosts-team.webp', PHOTOS.eventVideography, PHOTOS.leadCapture, PHOTOS.nurture]
 
 /** Case-study films and posters (public/video). `portrait` films are 9:16 social clips; the rest are landscape. */
 export const CASE_STUDY_FILMS = [
