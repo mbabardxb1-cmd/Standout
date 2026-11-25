@@ -23,7 +23,7 @@ export type ServiceVisuals = {
 export const IMAGE_POS: Record<string, string> = {
   '/photos/included/content-calendar.webp': '62% 50%', // keep the calendar on screen in frame
   '/photos/included/objectives-goals.webp': '50% 55%', // portrait: keep the team on the stand in frame
-  '/photos/included/industry-briefing.webp': '50% 35%', // portrait: keep the faces and tablets in frame
+  '/photos/included/industry-briefing.webp': '50% 6%', // portrait: keep the faces and tablets in frame
   '/photos/included/video-wall.webp': '62% 50%', // keep the LED wall in frame
   '/photos/included/tablet-versions.webp': '78% 50%', // keep the tablet and screen on the counter in frame
   '/photos/included/floor-wayfinding.webp': '55% 75%', // keep the roll-up banners in frame

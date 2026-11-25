@@ -41,6 +41,7 @@ export const SERVICE_PHOTO_FIT: Record<number, { fit: 'contain'; bg: string }> =
 /** Inline styles for a service photograph: cover by default, contain on its own ground when listed above. */
 /** Where a cropped photograph is anchored (index into SERVICES); default is the centre. */
 export const SERVICE_PHOTO_POS: Record<number, string> = {
+  6: '50% 34%', // hosts team: keep their heads in frame
   4: '20% 50%', // social media: keep the creator and her phone in frame
   9: '78% 50%', // nurture mockup: keep the laptop, phone and journey panel, lose the plant on the left
 }
