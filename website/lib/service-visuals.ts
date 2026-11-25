@@ -199,7 +199,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
       '/photos/frames/m-uniform.webp',
       '/photos/frames/m-talk.webp',
       '/photos/included/brochure-reader.webp',
-      PHOTOS.dashboard,
+      '/photos/included/live-lead-dashboard.webp' /* Live dashboard */,
       PHOTOS.email,
     ],
     steps: [
