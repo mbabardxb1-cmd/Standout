@@ -102,6 +102,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Put stand graphics on your next show.',
   },
   'email-linkedin-marketing': {
+    headerWholeOnMobile: '16/10',
     side: '/photos/included/campaign-audience.webp',
     items: [
       '/photos/included/data-research.webp', // Data scraping and research
