@@ -17,6 +17,8 @@ export type ServiceVisuals = {
   gallery?: { src: string; client: string; show: string }[]
   /** Closing call-to-action headline. */
   cta?: string
+  /** On phones, size the header to the photograph so a wide group shot is not cut at the sides. */
+  headerWholeOnMobile?: boolean
 }
 
 /** Where a picture is anchored when cropped into a tile (src → CSS object-position); default is the centre. */
@@ -174,6 +176,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Put digital decks on your next show.',
   },
   'hosts-and-hostesses': {
+    headerWholeOnMobile: true,
     side: PHOTOS.hostess,
     items: [
       PHOTOS.hostess,

@@ -55,7 +55,7 @@ export function ServicePageB({ index, variant = 'b' }: { index: number; variant?
       <SiteHeader home={false} />
       <main id="top" className="relative">
         {/* Header: the photograph edge to edge, and only the heading. */}
-        <section className="relative isolate flex min-h-[508px] items-end overflow-hidden md:min-h-[73svh]">
+        <section className={`relative isolate flex items-end overflow-hidden md:min-h-[73svh] ${v?.headerWholeOnMobile ? 'max-md:mt-16 aspect-[16/10] md:aspect-auto' : 'min-h-[508px]'}`}>
           <img fetchPriority="high" src={SERVICE_PHOTOS[index]} style={servicePhotoStyle(index)} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
           <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-hall/75 via-hall/15 to-hall/40" aria-hidden="true" />
           <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-hall/70 via-transparent to-transparent" aria-hidden="true" />
