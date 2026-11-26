@@ -102,6 +102,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Put stand graphics on your next show.',
   },
   'email-linkedin-marketing': {
+    headerWholeOnMobile: '16/10',
     side: '/photos/included/campaign-audience.webp',
     items: [
       '/photos/included/data-research.webp', // Data scraping and research
@@ -123,7 +124,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Fill your stand diary before the show.',
   },
   'paid-advertising': {
-    headerWholeOnMobile: 'square',
+    headerWholeOnMobile: '16/9',
     side: PHOTOS.contentCreation,
     items: [
       '/photos/included/organic-posting.webp', // Organic posting before the event
