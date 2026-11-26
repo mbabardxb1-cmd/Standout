@@ -17,8 +17,8 @@ export type ServiceVisuals = {
   gallery?: { src: string; client: string; show: string }[]
   /** Closing call-to-action headline. */
   cta?: string
-  /** On phones, size the header to the photograph so a wide group shot is not cut at the sides. */
-  headerWholeOnMobile?: boolean
+  /** On phones, size the header to the photograph's shape so nothing is cut at the sides. */
+  headerWholeOnMobile?: 'square' | '16/10' | '16/9'
 }
 
 /** Where a picture is anchored when cropped into a tile (src → CSS object-position); default is the centre. */
@@ -123,6 +123,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Fill your stand diary before the show.',
   },
   'paid-advertising': {
+    headerWholeOnMobile: 'square',
     side: PHOTOS.contentCreation,
     items: [
       '/photos/included/organic-posting.webp', // Organic posting before the event
@@ -176,7 +177,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Put digital decks on your next show.',
   },
   'hosts-and-hostesses': {
-    headerWholeOnMobile: true,
+    headerWholeOnMobile: '16/10',
     side: PHOTOS.hostess,
     items: [
       PHOTOS.hostess,
@@ -215,6 +216,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Put lead capture on your next show.',
   },
   'lead-nurturing': {
+    headerWholeOnMobile: '16/9',
     side: '/photos/included/lead-segmentation.webp',
     items: [
       '/photos/included/lead-segmentation.webp', // Lead segmentation
