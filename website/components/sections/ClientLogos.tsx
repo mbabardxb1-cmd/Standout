@@ -9,8 +9,6 @@ const LOGOS = [
   { src: '/logos/prescott.webp', name: 'Prescott', h: 26 },
   { src: '/logos/nandos.webp', name: 'Nando’s', h: 28 },
   { src: '/logos/amaya.webp', name: 'Amaya Dubai', h: 38 },
-  { src: '/logos/medx.webp', name: 'MedX', h: 44 },
-  { src: '/logos/binsina.webp', name: 'BinSina Pharmacy', h: 38 },
   { src: '/logos/sanipex.webp', name: 'Sanipex Group', h: 26 },
   { src: '/logos/eco-drive.webp', name: 'Eco Drive', h: 28 },
   { src: '/logos/citron.webp', name: 'Citron', h: 46 },
