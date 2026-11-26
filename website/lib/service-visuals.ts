@@ -18,7 +18,7 @@ export type ServiceVisuals = {
   /** Closing call-to-action headline. */
   cta?: string
   /** On phones, size the header to the photograph's shape so nothing is cut at the sides. */
-  headerWholeOnMobile?: 'square' | '16/10' | '16/9'
+  headerWholeOnMobile?: 'square' | '16/10' | '16/9' | 'tall'
 }
 
 /** Where a picture is anchored when cropped into a tile (src → CSS object-position); default is the centre. */
@@ -145,6 +145,7 @@ export const SERVICE_VISUALS: Record<string, ServiceVisuals> = {
     cta: 'Put digital advertising on your next show.',
   },
   'social-media-management': {
+    headerWholeOnMobile: 'tall', // keep the full height but start below the menu bar so her head shows
     side: '/photos/included/content-calendar.webp',
     items: [
       '/photos/included/content-calendar.webp', // Content calendar

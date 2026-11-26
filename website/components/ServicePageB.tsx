@@ -17,7 +17,7 @@ import { CtaPanel } from '@/components/CtaPanel'
 import { SERVICE_VISUALS as VISUALS, IMAGE_POS } from '@/lib/service-visuals'
 
 /** Phone header shapes (whole literal class names so Tailwind keeps them). */
-const MOBILE_ASPECT = { square: 'aspect-square', '16/10': 'aspect-[16/10]', '16/9': 'aspect-video' } as const
+const MOBILE_ASPECT = { square: 'aspect-square', '16/10': 'aspect-[16/10]', '16/9': 'aspect-video', tall: 'min-h-[460px]' } as const
 
 /**
  * Service page, option B: a full-bleed photograph with only the heading, then open, editorial
